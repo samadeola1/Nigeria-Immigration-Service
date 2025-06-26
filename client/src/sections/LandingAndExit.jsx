@@ -1,9 +1,47 @@
-import React from 'react'
+import React from "react";
+import approvedVisa from "../assets/Approved visa _ Premium Photo 1.png";
+import arrorRight from "../assets/arrow-right.png";
 
 const LandingAndExit = () => {
   return (
-    <div>LandingAndExit</div>
-  )
-}
+    <div className="bg-[#E6F7EE]">
+      <div className="mx-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+        <div className="flex flex-col lg:flex-row  items-center gap-0 md:gap-[160px] pt-15 pb-20 flex-col-reverse  md:flex-col">
+          <div className="flex-1 text-center md:text-left">
+            <h2 className="text-2xl md:text-[28px] font-bold text-[#0e0909] mb-4 pt-5 pb-4">
+              Landing and Exit Cards
+            </h2>
+            <p className="text-[#555555] text-[20px] leading-relaxed mb-6 pl-1 pr-1">
+              Landing and Exit Cards are mandatory travel documents required of
+              all passengers entering or departing Nigeria. These cards must be
+              completed upon arrival at or departure from Nigerian borders and
+              serve as a critical instrument for immigration control and border
+              management. commences May 1, 2025
+            </p>
+            <a
+              href="#"
+              className="flex items-center text-center text-[#00AA55] text-[20px] font-semibold hover:underline justify-center md:justify-start "
+            >
+              Read more
+              <img
+                src={arrorRight}
+                alt="Arrow right"
+                className="ml-3 w-4 h-4"
+              />
+            </a>
+          </div>
 
-export default LandingAndExit
+          <div className="">
+            <img
+              src={approvedVisa}
+              alt="Approved Visa"
+              className="max-w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LandingAndExit;

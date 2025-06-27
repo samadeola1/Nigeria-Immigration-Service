@@ -6,6 +6,7 @@ const GetYourVisa = () => {
   return (
 
 
+
     <>
     <main className='bg-white'>
      
@@ -45,7 +46,8 @@ const GetYourVisa = () => {
     </main>
     </>
    
+
   )
-}
+};
 
 export default GetYourVisa

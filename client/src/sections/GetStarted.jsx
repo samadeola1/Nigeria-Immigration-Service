@@ -32,6 +32,7 @@ const steps = [
 
 const GetStarted = () => {
   return (
+
     <>
     <main className='bg-white'>
       
@@ -76,5 +77,6 @@ const GetStarted = () => {
     </>
   );
 };
+
 
 export default GetStarted

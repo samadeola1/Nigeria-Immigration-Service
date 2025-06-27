@@ -7,6 +7,7 @@ import {  FiArrowRight  } from "react-icons/fi";
 const VisitorsStatus = () => {
   return (
 
+
   <>
   <main className='bg-green-800 h-[274px] overflow-hidden '>
 
@@ -47,6 +48,7 @@ const VisitorsStatus = () => {
   </>
    
     
+
   )
 };
 

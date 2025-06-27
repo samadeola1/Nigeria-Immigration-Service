@@ -11,7 +11,7 @@ const LandingAndExit = () => {
             <h2 className="text-[28px] md:text-[44px] font-bold font-poppins text-[#0e0909] mb-4 pt-5 pb-4">
               Landing and Exit Cards
             </h2>
-            <p class="text-[#555555] text-[20px] leading-relaxed mb-6 px-[20px] md:px-0 font-normal font-poppins hidden md:block">
+            <p className="text-[#555555] text-[20px] leading-relaxed mb-6 px-[20px] md:px-0 font-normal font-poppins hidden md:block">
               Landing and Exit Cards are mandatory travel documents required of
               all passengers entering or departing Nigeria. These cards must be
               completed upon arrival at or departure from Nigerian borders and
@@ -20,7 +20,7 @@ const LandingAndExit = () => {
             </p>
             {/* ========================== */}
             <p
-              class="text-[#555555] text-[20px] leading-relaxed mb-6 px-[10px] md:px-0 font-normal 
+              className="text-[#555555] text-[20px] leading-relaxed mb-6 px-[10px] md:px-0 font-normal 
              font-poppins md:hidden"
             >
               Landing and Exit Cards are mandatory travel documents required of

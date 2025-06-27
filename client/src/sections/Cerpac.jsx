@@ -81,10 +81,6 @@ const Cerpac = () => {
     </section>
   );
 };
-=======
-    <div></div>
-  )
-}
 
 
 export default Cerpac;

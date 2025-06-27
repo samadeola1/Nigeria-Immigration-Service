@@ -78,10 +78,6 @@ const StartYourJourney = () => {
     </section>
   );
 };
-=======
-    <div></div>
-  )
-}
 
 
 export default StartYourJourney;

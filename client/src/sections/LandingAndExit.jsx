@@ -1,26 +1,36 @@
 import React from "react";
-import approvedVisa from "../assets/Approved visa _ Premium Photo 1.png";
+import approvedVisa from "../assets/imageShadow.png";
 import arrorRight from "../assets/arrow-right.png";
 
 const LandingAndExit = () => {
   return (
-    <div className="bg-[#E6F7EE]">
-      <div className="mx-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-        <div className="flex flex-col lg:flex-row  items-center gap-0 md:gap-[160px] pt-15 pb-20 flex-col-reverse  md:flex-col">
+    <div className="bg-[#E6F7EE] border-0">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
+        <div className="flex lg:flex-row  items-center gap-0 md:gap-[80px] pt-15 pb-20 flex-col-reverse  md:flex-col">
           <div className="flex-1 text-center md:text-left">
-            <h2 className="text-2xl md:text-[28px] font-bold text-[#0e0909] mb-4 pt-5 pb-4">
+            <h2 className="text-[28px] md:text-[44px] font-bold font-poppins text-[#0e0909] mb-4 pt-5 pb-4">
               Landing and Exit Cards
             </h2>
-            <p className="text-[#555555] text-[20px] leading-relaxed mb-6 pl-1 pr-1">
+            <p class="text-[#555555] text-[20px] leading-relaxed mb-6 px-[20px] md:px-0 font-normal font-poppins hidden md:block">
               Landing and Exit Cards are mandatory travel documents required of
               all passengers entering or departing Nigeria. These cards must be
               completed upon arrival at or departure from Nigerian borders and
               serve as a critical instrument for immigration control and border
               management. commences May 1, 2025
             </p>
+            {/* ========================== */}
+            <p
+              class="text-[#555555] text-[20px] leading-relaxed mb-6 px-[10px] md:px-0 font-normal 
+             font-poppins md:hidden"
+            >
+              Landing and Exit Cards are mandatory travel documents required of
+              all passengers entering or departing Nigeria. These cards must be
+              completed upon arrival at or departure from Nigerian borders.
+            </p>
+            {/* ========================= */}
             <a
               href="#"
-              className="flex items-center text-center text-[#00AA55] text-[20px] font-semibold hover:underline justify-center md:justify-start "
+              className="flex items-center text-center text-[#00AA55] text-[20px] font-semibold hover:underline justify-center md:justify-start font-poppins"
             >
               Read more
               <img

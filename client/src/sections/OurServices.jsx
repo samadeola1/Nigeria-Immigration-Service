@@ -30,6 +30,7 @@ const services = [
 
 const OurServices = () => {
   return (
+
     <section className="bg-white dark:bg-gray-900 font-poppins">
       <div className="max-w-screen-xl px-4 lg:px-[100px] py-8 mx-auto lg:py-16">
         <h2 className="mb-4 text-[30px] md:text-[44px] tracking-tight font-bold text-center text-[#212121]">
@@ -99,5 +100,9 @@ const OurServices = () => {
     </section>
   );
 };
+=======
+    <div></div>
+  )
+}
 
 export default OurServices;

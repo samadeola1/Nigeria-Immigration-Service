@@ -31,6 +31,7 @@ export default function Footer() {
           </div>
         </div>
 
+
         {/* Quick Links */}
         <div>
           <h3 className="font-semibold mb-4">Quick links</h3>

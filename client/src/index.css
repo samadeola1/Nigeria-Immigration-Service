@@ -8,4 +8,11 @@
 }
 body {
   @apply font-poppins;
+=======
+  --font-poppins:  "Poppins", sans-serif;
+}
+
+
+body {
+  font-family: var(--font-poppins);
 }

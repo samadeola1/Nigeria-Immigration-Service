@@ -40,6 +40,11 @@ const LandingAndExit = () => {
               />
             </a>
           </div>
+=======
+    <div></div>
+  )
+}
+
 
           <div className="">
             <img

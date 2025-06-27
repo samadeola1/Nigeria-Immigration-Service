@@ -2,7 +2,7 @@ import React from 'react'
 
 const Cerpac = () => {
   return (
-    <div>Cerpac</div>
+    <div></div>
   )
 }
 

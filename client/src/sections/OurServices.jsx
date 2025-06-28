@@ -30,14 +30,13 @@ const services = [
 
 const OurServices = () => {
   return (
-
-    <section className="bg-white dark:bg-gray-900 font-poppins">
+    <section className="bg-[#FEFEFE] font-poppins">
       <div className="max-w-screen-xl px-4 lg:px-[100px] py-8 mx-auto lg:py-16">
         <h2 className="mb-4 text-[30px] md:text-[44px] tracking-tight font-bold text-center text-[#212121]">
           Our Services
         </h2>
         <p className="mb-10 text-[18px] md:text-[24px] px-6 md:px-40  text-center text-[#474747]">
-          Explore our core services designed to make passport, visa, and  travel
+          Explore our core services designed to make passport, visa, and travel
           processing easier and faster.
         </p>
         <div className="flex flex-col md:flex-row gap-6 items-center justify-center md:flex-wrap lg:flex-nowrap">

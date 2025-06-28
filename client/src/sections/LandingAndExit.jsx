@@ -41,6 +41,8 @@ const LandingAndExit = () => {
             </a>
           </div>
 
+
+
           <div className="">
             <img
               src={approvedVisa}

@@ -1,11 +1,10 @@
-import React from 'react';
-import cerpacImgMobile from '../assets/cerpac-img-mobile.svg';
-import cerpacImgDesktop from '../assets/cerpac-img-desktop.svg';
-import arrowRight from '../assets/arrow-right.svg';
+import React from "react";
+import cerpacImgMobile from "../assets/cerpac-img-mobile.svg";
+import cerpacImgDesktop from "../assets/cerpac-img-desktop.svg";
+import arrowRight from "../assets/arrow-right.svg";
 
 const Cerpac = () => {
   return (
-
     <section className="bg-[#E6F7EE] font-poppins py-12">
       {/* Mobile/Tablet Layout */}
       <div className="lg:hidden container mx-auto px-4 flex flex-col items-center text-center">
@@ -81,6 +80,5 @@ const Cerpac = () => {
     </section>
   );
 };
-
 
 export default Cerpac;

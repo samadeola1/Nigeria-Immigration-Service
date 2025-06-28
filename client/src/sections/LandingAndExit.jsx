@@ -6,7 +6,7 @@ const LandingAndExit = () => {
   return (
     <div className="bg-[#E6F7EE] border-0">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
-        <div className="flex lg:flex-row  items-center gap-0 md:gap-[80px] py-[80px] flex-col-reverse  md:flex-col">
+        <div className="flex lg:flex-row  items-center gap-0 md:gap-[60px] lg:gap-[80px] py-[80px] flex-col-reverse  md:flex-col">
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-[24px] text-center lg:text-start md:text-[36px] lg:text-[44px] font-bold font-poppins text-[#0e0909] pt-5 pb-4">
               Landing and Exit Cards

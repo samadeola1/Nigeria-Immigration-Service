@@ -8,9 +8,9 @@ const GetYourVisa = () => {
 
 
     <>
-    <main className='bg-white'>
+    <main className=''>
      
-     <section className="relative h-[430px] rounded-[40px] overflow-hidden mx-auto container hidden md:block">
+     <section className="relative h-[430px] rounded-[40px] my-20 overflow-hidden mx-auto container hidden md:block">
   <img
     src={getyoursisa}
     alt="background"

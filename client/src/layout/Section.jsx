@@ -11,18 +11,18 @@ import GetYourVisa from '../sections/GetYourVisa'
 
 const Section = () => {
   return (
-  <>
-  <Hero/>
-  <VisitorsStatus/>
-  <GetStarted/>
-  <OurServices/>
-  <Cerpac/>
-  <StartYourJourney/>
-  <LandingAndExit/>
-  <ImportantUpdates/>
-  <GetYourVisa/>
-  </>
-  )
+    <>
+      <Hero />
+      <VisitorsStatus />
+        <GetStarted />
+      <OurServices />
+      <Cerpac />
+      <StartYourJourney />
+      <LandingAndExit />
+      <ImportantUpdates />
+      <GetYourVisa />
+    </>
+  );
 }
 
 export default Section

@@ -37,7 +37,7 @@ export default function ImportantUpdates() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
         {updates.map((item, index) => (
           <div
             key={index}

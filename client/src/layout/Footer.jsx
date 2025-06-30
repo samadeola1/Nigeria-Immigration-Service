@@ -1,86 +1,99 @@
 import React from 'react'
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-import { MdLocationOn, MdPhone, MdEmail } from "react-icons/md";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedinIn,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+} from 'react-icons/fa';
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <div className='bg-green-900 text-white px-6 py-12 md:px-16'>
-    <footer className="max-w-[1440px] m-auto">
-      <div className="mx-auto grid grid-cols-4 md:grid-cols-4 gap-10">
-        {/* Logo & Contact Info */}
-        <div>
-          <img
-            src="/images/image 234.png"
-            alt="Nigeria Immigration Service"
-            className="mb-4 w-36"
-          />
-          <div className="flex items-start gap-2 mb-2">
-            <MdLocationOn className="text-xl mt-1" />
-            <p className="text-sm leading-snug">
-              Umar Musa Yar Adu'a Express Way, Airport Road,<br />
+   <div className='bg-[#006834] py-6'>
+    <div className='w-11/12 container mx-auto  '>
+      <div className="flex flex-col lg:flex-row justify-between gap-4">
+        {/* Logo & Contact */}
+        <div className="space-y-4 flex flex-col ">
+          {/* Logo */}
+           <div>
+             <img
+              src="/images/image 234.png"
+              alt="NIS Logo"
+              className=""
+            />
+           </div>
+
+          {/* Address */}
+          <div className="flex items-start space-x-3 text-sm">
+            <FaMapMarkerAlt className="mt-1" />
+            <p>
+              Umar Musa Yar Adu’a Express Way, Airport Road,<br />
               Sauka, Abuja, FCT, Nigeria
             </p>
           </div>
-          <div className="flex items-center gap-2 mb-2">
-            <MdPhone className="text-xl" />
-            <p className="text-sm">+234-912-1900-655</p>
+
+          {/* Phone */}
+          <div className="flex items-center space-x-3 text-sm">
+            <FaPhoneAlt />
+            <p>+234-912-1900-655</p>
           </div>
-          <div className="flex items-center gap-2">
-            <MdEmail className="text-xl" />
-            <p className="text-sm">Nis.servicom@Nigeriainimmigration.gov.ng</p>
+
+          {/* Email */}
+          <div className="flex items-center space-x-3 text-sm">
+            <FaEnvelope />
+            <p className="">
+              Nis.servicom@Nigeriaimmigration.gov.ng
+            </p>
           </div>
         </div>
 
-        {/* Quick Links */}
+       <div className=' flex flex-col lg:flex-row lg:gap-[120px] gap-6 '>
+         {/* Quick Links */}
         <div>
-          <h3 className="font-semibold mb-4">Quick links</h3>
+          <h4 className="font-semibold text-lg ">Quick links</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:underline">Home</a></li>
-            <li><a href="#" className="hover:underline">About</a></li>
-            <li><a href="#" className="hover:underline">Self-service</a></li>
-            <li><a href="#" className="hover:underline">Contact Us</a></li>
-            <li><a href="#" className="hover:underline">Blog</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Self-service</a></li>
+            <li><a href="#">Contact Us++++++</a></li>
+            <li><a href="#">Blog</a></li>
           </ul>
         </div>
 
-        {/* Help Links */}
-        <div>
-          <h3 className="font-semibold mb-4">Help</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:underline">Faqs</a></li>
-            <li><a href="#" className="hover:underline">Terms & Condition</a></li>
-            <li><a href="#" className="hover:underline">Privacy Policies</a></li>
-            <li><a href="#" className="hover:underline">How It Works</a></li>
+        {/* Help */}
+        <div className='flex flex-col'>
+          <h4 className="font-semibold text-lg ">Help</h4>
+          <ul className="space-y-2 text-sm flex-col">
+            <li><a href="#">Faqs</a></li>
+            <li><a href="#">Terms & Condition</a></li>
+            <li><a href="#">Privacy Policies</a></li>
+            <li><a href="#">How It Works</a></li>
           </ul>
         </div>
 
         {/* Socials */}
-        <div>
-  <h3 className="font-semibold mb-4">Socials</h3>
-  <div className="flex items-center gap-4 text-xl">
-    <a href="#" className="hover:text-gray-300">
-      <FaFacebookF className="w-5 h-5" />
-    </a>
-    <a href="#" className="hover:text-gray-300">
-      <FaInstagram className="w-5 h-5" />
-    </a>
-    <a href="#" className="hover:text-gray-300">
-      <FaTwitter className="w-5 h-5" />
-    </a>
-    <a href="#" className="hover:text-gray-300">
-      <FaLinkedinIn className="w-5 h-5" />
-    </a>
-  </div>
-</div>
-
+        <div className='flex flex-col'>
+          <h4 className="font-semibold text-lg ">Socials</h4>
+          <div className="flex space-x-4 text-lg flex">
+            <a href="#" className="hover:text-gray-300"><FaFacebookF /></a>
+            <a href="#" className="hover:text-gray-300"><FaInstagram /></a>
+            <a href="#" className="hover:text-gray-300"><FaTwitter /></a>
+            <a href="#" className="hover:text-gray-300"><FaLinkedinIn /></a>
+          </div>
+        </div>
+       </div>
       </div>
 
-      <hr className="border-t border-gray-400 my-8" />
-
-      <div className="text-center text-sm">
-        © Copyright Nigeria Immigration Service 2024 All Rights Reserved
+      {/* Divider */}
+      <div className="border-t border-white mt-10 pt-4 text-center text-sm">
+        <p>© Copyright Nigeria Immigration Service 2024 All Rights Reserved</p>
       </div>
-    </footer>
+    
     </div>
+   </div>
   );
-}
+};
+
+export default Footer;

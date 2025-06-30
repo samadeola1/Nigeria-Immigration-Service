@@ -16,11 +16,11 @@ const Hero = () => {
     {
       image: img1,
       content: (
-        <div className="absolute lg:bottom-80 xl:bottom-100">
+        <div className="absolute lg:bottom-80 xl:bottom-50">
           <h1 className="lg:text-[75px] xl:text-[84px] font-bold text-white drop-shadow-lg leading-tight">
             Nigeria <span className="text-[#6BCE9C]">Immigration</span> Service
           </h1>
-          <p className="text-[28px] font-semibold lg:w-[80%] xl:w-[60%] text-white drop-shadow-md mt-4 leading-relaxed">
+          <p className="text-[28px] font-semibold lg:w-[90%] xl:w-[65%] text-white drop-shadow-md mt-4 leading-relaxed">
             Begin your journey with confidence. Whether you're pursuing career
             growth, world-class education, or a better future for your family,
             we are ready to welcome you.
@@ -31,8 +31,8 @@ const Hero = () => {
     {
       image: img2,
       content: (
-        <div className="absolute bottom-100">
-          <p className="text-[84px] font-semibold w-[75%] text-white drop-shadow-md leading-relaxed">
+        <div className="absolute bottom-50">
+          <p className="text-[84px] font-semibold  xl:w-[80%] text-white drop-shadow-md leading-relaxed">
             Your Gateway TO A New Life In Nigeria.
           </p>
         </div>
@@ -41,8 +41,8 @@ const Hero = () => {
     {
       image: img4,
       content: (
-        <div className="absolute bottom-80 ">
-          <p className="lg:text-[75px] xl:text-[84px] font-semibold xl:w-[70%] text-white drop-shadow-md ">
+        <div className="absolute bottom-40 ">
+          <p className="lg:text-[75px] xl:text-[84px] lg:w-[90%] font-semibold  text-white drop-shadow-md ">
             Fast, Transparent Processes and Multiple Immigration Pathways
           </p>
         </div>
@@ -51,8 +51,8 @@ const Hero = () => {
     {
       image: img3,
       content: (
-        <div className="absolute bottom-80">
-          <p className="lg:text-[75px] xl:text-[84px] font-semibold lg:w-[80%] xl:w-[65%] text-white  drop-shadow-md leading-relaxed">
+        <div className="absolute bottom-40">
+          <p className="lg:text-[75px] xl:text-[84px] lg:w-[90%] font-semibold   text-white  drop-shadow-md leading-relaxed">
             Making Immigration Simple, Secure, and Accessible for All
           </p>
         </div>

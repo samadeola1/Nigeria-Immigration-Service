@@ -8,6 +8,7 @@ import StartYourJourney from '../sections/StartYourJourney'
 import LandingAndExit from '../sections/LandingAndExit'
 import ImportantUpdates from '../sections/ImportantUpdates'
 import GetYourVisa from '../sections/GetYourVisa'
+import VisitorMobile from '../sections/VisitorMobile'
 
 const Section = () => {
   return (
@@ -15,6 +16,7 @@ const Section = () => {
   <Hero/>
   <VisitorsStatus/>
   <GetStarted/>
+  <VisitorMobile/>
   <OurServices/>
   <Cerpac/>
   <StartYourJourney/>

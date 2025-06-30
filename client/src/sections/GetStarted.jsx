@@ -4,6 +4,7 @@ import getstarted from "../../asset/Group 8.png";
 import upload from "../../asset/Group 9.png";
 import makepayment from "../../asset/Group 11.png";
 import paycircle from "../../asset/Group 10.png";
+import arrowIcon from "../assets/Group 12 (2).png";
 
 const steps = [
   {
@@ -34,9 +35,9 @@ const GetStarted = () => {
   return (
 
     <>
-    <main className='bg-white'>
+    <main className=''>
       
-           <section className="py-16 px-6 text-center container mx-auto overflow-hidden font-poppins">
+           <section className="py-16 px-6 text-center  md:hidden container mx-auto overflow-hidden font-poppins">
       <h2 className="text-[44px] font-poppins font-bold mb-4 text-[#212121]">Get Started</h2>
       <p className="max-w-3xl mx-auto text-[#474747] mb-12">
         Whether you're applying for a passport, visa, or travel certificate, getting started is simple. Just follow these clear steps to complete your process quickly, securely, and with confidence.
@@ -74,6 +75,41 @@ const GetStarted = () => {
     </section>
       
     </main>
+
+
+
+    <main className=''>
+      
+           <section className="py-16 px-6 text-center  md:block hidden container mx-auto overflow-hidden font-poppins">
+      <h2 className="text-[44px] font-poppins font-bold mb-4 text-[#212121]">Get Started</h2>
+      <p className="max-w-3xl mx-auto text-[#474747] mb-12">
+        Whether you're applying for a passport, visa, or travel certificate, getting started is simple. Just follow these clear steps to complete your process quickly, securely, and with confidence.
+      </p>
+
+     <div className="rounded-full w-4xl container mx-auto items-center justify-center mb-8">
+              <img src={arrowIcon}
+               alt="" />
+              
+            </div>
+
+      <div className="flex flex-col md:flex-row justify-center items-center md:gap-8 gap-12  mx-auto">
+        {steps.map((step, index) => (
+          <div key={index} className="flex flex-col items-center max-w-[220px] ">
+            
+            <h3 className="text-[15px] font-semibold text-[#212121] my-3">{step.title}</h3>
+            <p className="text-[#474747] text-sm mt-2">{step.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <button className="mt-12 px-6 py-2 border border-green-500 text-green-500 rounded hover:bg-[#00AA55] hover:text-white transition">
+        Apply now
+      </button>
+    </section>
+      
+    </main>
+
+
     </>
   );
 };

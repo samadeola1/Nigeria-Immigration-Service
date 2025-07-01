@@ -39,7 +39,7 @@ export default function ImportantUpdates() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
         {updates.map((item, index) => (
           <div
             key={index}
@@ -51,7 +51,7 @@ export default function ImportantUpdates() {
               className="w-full h-60 object-cover"
             />
             <div className="p-6">
-              <h3 className="font-semibold text-lg mb-3 text-gray-900">
+              <h3 className="font-semibold text-lg mb-4 text-gray-900">
                 {item.title}
               </h3>
               <p className="text-gray-700 text-sm mb-4">{item.description}</p>

@@ -1,8 +1,8 @@
-import React from 'react';
-import everythingVisaImg from '../assets/everythingVisaImg.svg';
-import everythingPassImg from '../assets/everythingPassImg.svg';
-import travelCertImg from '../assets/travelCertImg.svg';
-import arrowInCircleIcon from '../assets/arrowInCircle-icon.svg';
+import React from "react";
+import everythingVisaImg from "../assets/everythingVisaImg.svg";
+import everythingPassImg from "../assets/everythingPassImg.svg";
+import travelCertImg from "../assets/travelCertImg.svg";
+import arrowInCircleIcon from "../assets/arrowInCircle-icon.svg";
 
 const services = [
   {
@@ -30,12 +30,12 @@ const services = [
 
 const OurServices = () => {
   return (
-    <section className="w-full bg-[#FEFEFE] font-poppins">
-      <div className="w-11/12 container mx-auto px-4 xl:px-28  py-8  lg:py-16">
+    <section className="bg-[#FEFEFE] font-poppins">
+      <div className="md:w-11/12 container lg:max-w-screen-xl px-4  py-8 mx-auto lg:py-16">
         <h2 className="mb-4 text-[30px] md:text-[44px] tracking-tight font-bold text-center text-[#212121]">
           Our Services
         </h2>
-        <p className="mb-10 text-[18px] md:text-[20px] xl:w-[65%] mx-auto px-6 md:px-40 text-center text-[#474747]">
+        <p className="mb-10 text-[18px] md:text-[24px] px-6 md:px-40 text-center text-[#474747]">
           Explore our core services designed to make passport, visa, and travel
           processing easier and faster.
         </p>

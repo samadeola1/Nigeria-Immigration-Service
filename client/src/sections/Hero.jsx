@@ -124,7 +124,7 @@ const Hero = () => {
   return (
     <div className='w-full'>
       {/* Desktop Version */}
-      <div className='w-full hidden lg:block relative min-h-screen overflow-hidden'>
+      <div className='w-full hidden lg:block relative min-h-screen overflow-hidden mt-8'>
         {/* All desktop slides */}
         {desktopSlides.map((slide, index) => (
           <div
@@ -138,19 +138,17 @@ const Hero = () => {
               src={slide.image} 
               alt={`Nigeria Immigration Service - Slide ${index + 1}`} 
             />
-            <div className='absolute inset-0 z-10'>
-              <div className='w-11/12 container mx-auto'>
+            <div className='absolute inset-0 z-10 w-11/12 container mx-auto'>
                 <div className='animate-fade-in-up'>
                   {slide.content}
                 </div>
-              </div>
             </div>
           </div>
         ))}
       </div>
 
       {/* Mobile Version */}
-      <div className='lg:hidden relative overflow-hidden'>
+      <div className='lg:hidden relative overflow-hidden mt-20'>
         {/* All mobile slides */}
         {mobileSlides.map((slide, index) => (
           <div

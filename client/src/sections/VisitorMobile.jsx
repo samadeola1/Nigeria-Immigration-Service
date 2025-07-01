@@ -21,7 +21,7 @@ const VisitorMobile = () => {
       </div>
 
       {/* Center Text */}
-      <div className="flex-1 text-center text-sm md:text-base">
+      <div className="flex-1 text-center text-sm md:text-base pt-4">
        <p>
         Regularize your immigration status in Nigeria 
         before the grace period ends on 1st August 2025.

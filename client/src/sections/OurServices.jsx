@@ -35,7 +35,7 @@ const OurServices = () => {
         <h2 className="mb-4 text-[30px] md:text-[44px] tracking-tight font-bold text-center text-[#212121]">
           Our Services
         </h2>
-        <p className="mb-10 text-[18px] md:text-[24px] px-6 md:px-40 text-center text-[#474747]">
+        <p className="mb-10 text-[18px] md:text-[24px] px-6  lg:px-40 text-center text-[#474747]">
           Explore our core services designed to make passport, visa, and travel
           processing easier and faster.
         </p>

@@ -31,41 +31,42 @@ const StartYourJourney = () => {
   ];
 
   return (
+
     <section className="bg-gray-100 py-12 border-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-[28px] md:text-[36px] lg:text-[44px] font-bold font-poppins text-gray-900 pl-10 pr-10 pb-4 lg">
+          <h2 className="text-[28px] md:text-[44px] font-bold font-poppins text-gray-900 pl-10 pr-10 pb-4 md:p-0 ">
             Start Your Journey With Ease
           </h2>
-          <p className="text-lg text-gray-600 px-6 md:px-[20px] lg:px-[30px] font-poppins font-normal text-[16px] lg:text-[24px]">
+          <p className="text-lg text-gray-600 px-1 lg:pr-44 lg:pl-44 font-poppins font-normal">
             Choose your application path below whether you’re in Nigeria, abroad
             or renewing your passport, we have made it simple and accessible for
             you.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-full gap-[25px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 max-w-full gap-8 ">
           {cardData.map((card) => (
             <div
               key={card.id}
-              className=" bg-white rounded-lg shadow-lg overflow-hidden"
+              className="lg:w-[400px] bg-white rounded-lg shadow-lg overflow-hidden h-[490px] md:h-[551px]"
             >
               <img
                 src={card.image}
                 alt={card.alt}
                 className="w-full  object-cover"
               />
-              <div className="p-4 flex flex-col justify-between h-[255px] lg:h-[290px]">
+              <div className="p-4 flex flex-col justify-between h-[255px] md:h-[395px] lg:h-[290px]">
                 <div>
-                  <h3 className="text-[24px] md:pb-2 lg:pb-0 font-semibold text-gray-900 mb-2 pr-[40px] font-poppins">
+                  <h3 className="text-[24px] lg:text-[28px] md:pb-2 lg:pb-0 font-semibold text-gray-900 mb-2 pr-[40px] font-poppins">
                     {card.title}
                   </h3>
-                  <p className="text-gray-600 text:[16px] lg:text-[17px] font-poppins font-normal pr-[30px] md:pr-[10px] lg:pr-[40px]">
+                  <p className="text-gray-600 text:[16px] md:text-[17px] lg:text-[20px] font-poppins font-normal pr-[30px] md:pr-[5px]">
                     {card.description}
                   </p>
                 </div>
                 <div>
-                  <button className="w-full bg-green-600 text-white py-3 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 mt-auto font-poppins font-normal cursor-pointer text-[15px] lg:text-[20px]">
+                  <button className="w-full bg-green-600 text-white py-3 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 mt-auto font-poppins font-normal">
                     Apply now
                   </button>
                 </div>
@@ -77,5 +78,6 @@ const StartYourJourney = () => {
     </section>
   );
 };
+
 
 export default StartYourJourney;

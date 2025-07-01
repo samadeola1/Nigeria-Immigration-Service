@@ -3,9 +3,20 @@
 
 @plugin "daisyui";
 
+
+@theme{
+  --font-poppins: 'Poppins', sans-serif;
+}
+/* body {
+  @apply font-poppins;
+=======
+  --font-poppins:  "Poppins", sans-serif;
+} */
+=======
 @theme {
   --font-poppins: "Poppins", sans-serif;
 }
+
 
 
 

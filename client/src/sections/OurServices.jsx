@@ -48,7 +48,6 @@ const OurServices = () => {
               <div
                 key={idx}
                 className="relative group w-full max-w-[400px] rounded-[24px] overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 mx-auto"
-                style={{ minWidth: 320 }}
               >
                 {/* Card Image */}
                 <img

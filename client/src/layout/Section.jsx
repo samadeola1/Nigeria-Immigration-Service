@@ -8,21 +8,23 @@ import StartYourJourney from '../sections/StartYourJourney'
 import LandingAndExit from '../sections/LandingAndExit'
 import ImportantUpdates from '../sections/ImportantUpdates'
 import GetYourVisa from '../sections/GetYourVisa'
+import VisitorMobile from '../sections/VisitorMobile'
 
 const Section = () => {
   return (
-    <>
-      <Hero />
-      <VisitorsStatus />
-        <GetStarted />
-      <OurServices />
-      <Cerpac />
-      <StartYourJourney />
-      <LandingAndExit />
-      <ImportantUpdates />
-      <GetYourVisa />
-    </>
-  );
+  <>
+  <Hero/>
+  <VisitorsStatus/>
+  <GetStarted/>
+  <VisitorMobile/>
+  <OurServices/>
+  <Cerpac/>
+  <StartYourJourney/>
+  <LandingAndExit/>
+  <ImportantUpdates/>
+  <GetYourVisa/>
+  </>
+  )
 }
 
 export default Section

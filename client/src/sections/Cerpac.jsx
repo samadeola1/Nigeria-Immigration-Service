@@ -1,7 +1,7 @@
-import React from 'react';
-import cerpacImgMobile from '../assets/cerpac-img-mobile.svg';
-import cerpacImgDesktop from '../assets/cerpac-img-desktop.svg';
-import arrowRight from '../assets/arrow-right.svg';
+import React from "react";
+import cerpacImgMobile from "../assets/cerpac-img-mobile.svg";
+import cerpacImgDesktop from "../assets/cerpac-img-desktop.svg";
+import arrowRight from "../assets/arrow-right.svg";
 
 const Cerpac = () => {
   return (
@@ -80,4 +80,6 @@ const Cerpac = () => {
   );
 };
 
+
 export default Cerpac;
+

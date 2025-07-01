@@ -6,21 +6,21 @@ export default function ImportantUpdates() {
         "Nigeria Immigration Service honored with security partnership recognition award at the Nigeria Police Award 2025 Ceremony.",
       description:
         "The Nigeria Immigration Service honored with security partnership recognition award at the Nigeria Police Award 2025 Ceremony.",
-      image: "/images/image2.png",
+      image: "./images/image2.png",
     },
     {
       title:
         "The Comptroller General, KN Nandap, pcc, mmis, fsmn, participated in the Constitution Review Legislative Dialogue",
       description:
         "The Comptroller General, participated in the Constitution Review Legislative Dialogue on National Security Architecture, themed",
-      image: "/images/image3.png",
+      image: "./images/image3.png",
     },
     {
       title:
         "The General, KN Nandap, pcc, mmis, fsmn, received a courtesy visit from the International Organization for Migration (IOM) delegation",
       description:
         "The General received a courtesy visit from the International Organization for Migration (IOM) delegation, led by Dimanche Sharon, the",
-      image: "/images/image1.png",
+      image: "./images/image1.png",
     },
   ];
   return (

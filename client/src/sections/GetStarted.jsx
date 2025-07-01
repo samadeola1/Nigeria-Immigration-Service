@@ -34,10 +34,10 @@ const steps = [
 const GetStarted = () => {
   return (
 
-    <>
-    <main className=''>
+    <div className='w-full bg-white'>
+    <main >
       
-           <section className="py-16 px-6 text-center  md:hidden container mx-auto overflow-hidden font-poppins">
+           <section className="py-16 px-6 text-center  md:hidden  container mx-auto overflow-hidden font-poppins">
       <h2 className="text-[44px] font-poppins font-bold mb-4 text-[#212121]">Get Started</h2>
       <p className="max-w-3xl mx-auto text-[#474747] mb-12">
         Whether you're applying for a passport, visa, or travel certificate, getting started is simple. Just follow these clear steps to complete your process quickly, securely, and with confidence.
@@ -80,7 +80,7 @@ const GetStarted = () => {
 
     <main className=''>
       
-           <section className="py-16 px-6 text-center  md:block hidden container mx-auto overflow-hidden font-poppins">
+           <section className="py-16 px-6 text-center  md:block hidden w-11/12 container mx-auto overflow-hidden font-poppins">
       <h2 className="text-[44px] font-poppins font-bold mb-4 text-[#212121]">Get Started</h2>
       <p className="max-w-3xl mx-auto text-[#474747] mb-12">
         Whether you're applying for a passport, visa, or travel certificate, getting started is simple. Just follow these clear steps to complete your process quickly, securely, and with confidence.
@@ -110,7 +110,7 @@ const GetStarted = () => {
     </main>
 
 
-    </>
+    </div>
   );
 };
 

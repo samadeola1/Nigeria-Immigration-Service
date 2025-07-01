@@ -1,9 +1,9 @@
 import React from 'react'
 
-import getstarted from "../../asset/Group 8.png";
-import upload from "../../asset/Group 9.png";
-import makepayment from "../../asset/Group 11.png";
-import paycircle from "../../asset/Group 10.png";
+import getstarted from "../assets/Group 8.png";
+import upload from "../assets/Group 9.png";
+import makepayment from "../assets/Group 11.png";
+import paycircle from "../assets/Group 10.png";
 import arrowIcon from "../assets/Group 12 (2).png";
 
 const steps = [

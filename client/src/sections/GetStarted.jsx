@@ -86,7 +86,7 @@ const GetStarted = () => {
         Whether you're applying for a passport, visa, or travel certificate, getting started is simple. Just follow these clear steps to complete your process quickly, securely, and with confidence.
       </p>
 
-     <div className="rounded-full w-4xl container mx-auto items-center justify-center mb-8">
+     <div className="rounded-full lg:w-4xl container mx-auto items-center justify-center mb-8">
               <img src={arrowIcon}
                alt="" />
               

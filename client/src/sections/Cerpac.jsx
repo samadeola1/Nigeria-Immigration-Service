@@ -33,18 +33,18 @@ const Cerpac = () => {
           <img
             src={cerpacImgMobile}
             alt="CERPAC"
-            className=" w-full md:w-[70%]  rounded-[24px] shadow-md"
+            className=" w-full md:w-[50%]  rounded-[24px] shadow-md"
           />
         </div>
       </div>
       {/* Desktop Layout (Grid starts from md) */}
-      <div className="hidden lg:grid w-11/12 container mx-auto py-8  gap-[85px] lg:grid-cols-2 items-center">
+      <div className="hidden md:w-11/12 lg:grid container mx-auto py-8  gap-[85px] lg:grid-cols-2 items-center">
         {/* Image Section */}
         <div className="flex justify-center items-center">
           <img
             src={cerpacImgDesktop}
             alt="CERPAC"
-            className="w-full h-full rounded-[24px] shadow-md"
+            className="w-[524px] h-full rounded-[24px] shadow-md"
           />
         </div>
         {/* Write-up Section */}
@@ -80,6 +80,4 @@ const Cerpac = () => {
   );
 };
 
-
 export default Cerpac;
-

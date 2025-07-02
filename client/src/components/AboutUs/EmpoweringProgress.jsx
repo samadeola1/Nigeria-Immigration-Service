@@ -41,6 +41,7 @@ const EmpoweringProgress = () => {
   ];
 
   return (
+
     <section className="w-full bg-[#006834] pt-20 pb-13 md:py-23 border-0">
       <div className="max-w-7xl container mx-auto sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -77,5 +78,6 @@ const EmpoweringProgress = () => {
     </section>
   );
 };
+
 
 export default EmpoweringProgress;

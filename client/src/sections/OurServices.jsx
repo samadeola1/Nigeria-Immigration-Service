@@ -31,7 +31,7 @@ const services = [
 const OurServices = () => {
   return (
     <section className="bg-[#FEFEFE] font-poppins">
-      <div className="md:w-11/12 container lg:max-w-screen-xl px-4  py-8 mx-auto lg:py-16">
+      <div className="md:w-11/12 container lg:max-w-screen-xl px-4  py-8 mx-auto lg:py-3">
         <h2 className="mb-4 text-[30px] md:text-[44px] tracking-tight font-bold text-center text-[#212121]">
           Our Services
         </h2>
@@ -55,7 +55,7 @@ const OurServices = () => {
                   alt={service.title}
                   className="w-[400px] h-[346px] object-cover rounded-[24px] transition-all duration-300"
                 />
-                {/* Title and lines - left aligned */}
+                {/* Title and lines  */}
                 <div className="absolute top-22 left-8 flex flex-col items-start z-10 pointer-events-none w-[80%] group-hover:hidden">
                   <div className="flex items-center mb-2">
                     <div className="bg-white h-[2px] w-8 rounded-full mr-2"></div>

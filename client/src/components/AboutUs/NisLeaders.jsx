@@ -43,6 +43,7 @@ const NisLeaders = () => {
   const sliderRef = useRef(null);
 
   return (
+
     <section className="bg-white container px-6 md:w-11/12 lg:px-0 mx-auto">
       <div className=" md:w-11/12 lg:container mx-auto">
         <h2 className="text-[28px] md:text-[30px] lg:text-[44px] font-bold text-[#000000] mb-[30px] lg:mb-[50px] text-center">
@@ -131,5 +132,6 @@ const NisLeaders = () => {
     </section>
   );
 };
+
 
 export default NisLeaders;

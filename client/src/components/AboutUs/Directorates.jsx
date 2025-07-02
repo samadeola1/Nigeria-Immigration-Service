@@ -69,4 +69,5 @@ const Directorates = () => {
   );
 };
 
+
 export default Directorates;

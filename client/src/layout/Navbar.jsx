@@ -439,7 +439,7 @@ return (
 
           <div>
             <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
-              Self service
+            Contact us
             </p>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const EmpoweringProgress = () => {
   return (
-    <div>EmpoweringProgress</div>
+    <div></div>
   )
 }
 

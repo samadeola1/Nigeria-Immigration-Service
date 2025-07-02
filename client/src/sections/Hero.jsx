@@ -16,47 +16,49 @@ const Hero = () => {
     {
       image: img1,
       content: (
-        <div className='absolute lg:bottom-80 xl:bottom-100'>
-          <h1 className='lg:text-[75px] xl:text-[84px] font-bold text-white drop-shadow-lg leading-tight'>
-            Nigeria <span className='text-[#6BCE9C]'>Immigration</span> Service
+        <div className="absolute lg:bottom-80 xl:bottom-50">
+          <h1 className="lg:text-[75px] xl:text-[84px] font-bold text-white drop-shadow-lg leading-tight">
+            Nigeria <span className="text-[#6BCE9C]">Immigration</span> Service
           </h1>
-          <p className='text-[28px] font-semibold lg:w-[80%] xl:w-[60%]  drop-shadow-md mt-4 leading-relaxed'>
-            Begin your journey with confidence. Whether you're pursuing career growth, world-class education, or a better future for your family, we are ready to welcome you.
+          <p className="text-[28px] font-semibold lg:w-[90%] xl:w-[65%] text-white drop-shadow-md mt-4 leading-relaxed">
+            Begin your journey with confidence. Whether you're pursuing career
+            growth, world-class education, or a better future for your family,
+            we are ready to welcome you.
           </p>
         </div>
-      )
+      ),
     },
     {
       image: img2,
       content: (
-        <div className='absolute bottom-100'>
-          <p className='text-[84px] font-semibold w-[75%]  drop-shadow-md leading-relaxed'>
+        <div className="absolute bottom-50">
+          <p className="text-[84px] font-semibold  xl:w-[80%] text-white drop-shadow-md leading-relaxed">
             Your Gateway TO A New Life In Nigeria.
           </p>
         </div>
-      )
+      ),
     },
     {
       image: img4,
       content: (
-        <div className='absolute bottom-80 '>
-          <p className='lg:text-[75px] xl:text-[84px] font-semibold xl:w-[70%] drop-shadow-md '>
+        <div className="absolute bottom-40 ">
+          <p className="lg:text-[75px] xl:text-[84px] lg:w-[90%] font-semibold  text-white drop-shadow-md ">
             Fast, Transparent Processes and Multiple Immigration Pathways
           </p>
         </div>
-      )
+      ),
     },
     {
       image: img3,
       content: (
-        <div className='absolute bottom-80'>
-          <p className='lg:text-[75px] xl:text-[84px] font-semibold lg:w-[80%] xl:w-[65%]  drop-shadow-md leading-relaxed'>
+        <div className="absolute bottom-40">
+          <p className="lg:text-[75px] xl:text-[84px] lg:w-[90%] font-semibold   text-white  drop-shadow-md leading-relaxed">
             Making Immigration Simple, Secure, and Accessible for All
           </p>
         </div>
-      )
-    }
-  ]
+      ),
+    },
+  ];
 
   // Mobile slides data
   const mobileSlides = [
@@ -122,7 +124,7 @@ const Hero = () => {
   return (
     <div className='w-full'>
       {/* Desktop Version */}
-      <div className='w-full hidden lg:block relative min-h-screen overflow-hidden'>
+      <div className='w-full hidden lg:block relative min-h-screen overflow-hidden mt-8'>
         {/* All desktop slides */}
         {desktopSlides.map((slide, index) => (
           <div
@@ -136,19 +138,17 @@ const Hero = () => {
               src={slide.image} 
               alt={`Nigeria Immigration Service - Slide ${index + 1}`} 
             />
-            <div className='absolute inset-0 z-10'>
-              <div className='w-11/12 container mx-auto'>
+            <div className='absolute inset-0 z-10 w-11/12 container mx-auto'>
                 <div className='animate-fade-in-up'>
                   {slide.content}
                 </div>
-              </div>
             </div>
           </div>
         ))}
       </div>
 
       {/* Mobile Version */}
-      <div className='lg:hidden relative overflow-hidden'>
+      <div className='lg:hidden relative overflow-hidden mt-20'>
         {/* All mobile slides */}
         {mobileSlides.map((slide, index) => (
           <div

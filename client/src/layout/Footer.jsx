@@ -11,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-   <div className='bg-[#006834] py-6'>
+   <div className='bg-[#006834] py-6 text-white'>
     <div className='w-11/12 container mx-auto  '>
       <div className="flex flex-col lg:flex-row justify-between gap-4">
         {/* Logo & Contact */}

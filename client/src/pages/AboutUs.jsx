@@ -11,7 +11,7 @@ import GetYourVisa from "../sections/GetYourVisa";
 
 const AboutUs = () => {
   return (
-    <main className="pt-30 mx-auto ">
+    <main className="mx-auto ">
       <Hero />
       <NisAct />
       <MissionAndVision />

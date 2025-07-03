@@ -27,7 +27,7 @@ export default function ImportantUpdates() {
     },
   ];
   return (
-    <div className="w-full bg-gray-100 py-16 px-6 md:px-20 ">
+    <div className="w-full bg-white py-16 px-6 md:px-20 ">
       <section className="max-w-[1440px] m-auto">
         <div className="max-w-7xl mx-auto text-center mb-12">
           <h2 className="text-black text-3xl md:text-4xl font-bold mb-4">

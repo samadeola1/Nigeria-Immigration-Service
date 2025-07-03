@@ -364,9 +364,11 @@
 // Mock logo component since we don't have the actual image
 
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import logo from '../images/image 7.svg'
+
 
 
 const Navbar = () => {
@@ -397,54 +399,60 @@ useEffect(() => {
 return (
   <>
     {/* Desktop Navbar */}
-    <div className='fixed top-0 left-0 right-0 bg-white text-black shadow-sm z-40'>
-      <div className='w-11/12 container mx-auto flex justify-between items-center py-4'>
-      <div className=' w-auto'>
+    <div className="fixed top-0 left-0 right-0 bg-white text-black shadow-sm z-40">
+      <div className="w-11/12 container mx-auto flex justify-between items-center py-4">
+        <Link to="/">
+          <div className=" w-auto">
             <img src={logo} alt="" />
           </div>
+        </Link>
 
         {/* Desktop Navigation Menu */}
-        <div className='hidden lg:flex items-center space-x-8'>
-          <div>
-            <p className='text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2'>
-              Home
-            </p>
-          </div>
-          
-          <div>
-            <p className='text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2'>
-              About us
-            </p>
-          </div>
+        <div className="hidden lg:flex items-center space-x-8">
+          <Link to="/">
+            <div>
+              <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
+                Home
+              </p>
+            </div>
+          </Link>
+
+          <Link to="/about-us">
+            <div>
+              <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
+                About us
+              </p>
+            </div>
+          </Link>
 
           <div>
-            <p className='text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2'>
+            <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
               Services
             </p>
           </div>
 
           <div>
-            <p className='text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2'>
+            <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
               Information center
             </p>
           </div>
 
           <div>
-            <p className='text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2'>
+            <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
               Self service
             </p>
           </div>
         </div>
 
         {/* Desktop Apply Now Button */}
-        <button className='hidden lg:block bg-[#00AA55] hover:bg-green-700 text-white rounded-2xl px-6 py-3 font-medium transition-colors duration-200'>
+        <button className="hidden lg:block bg-[#00AA55] hover:bg-green-700 text-white rounded-2xl px-6 py-3 font-medium transition-colors duration-200">
           Apply now
         </button>
 
         {/* Mobile Hamburger Menu Button */}
-        <button 
+        <button
           onClick={toggleMobileMenu}
-          className='lg:hidden flex flex-col justify-center items-center w-8 h-8 text-2xl'
+          className="lg:hidden flex flex-col justify-center items-center w-8 h-8 text-2xl"
         >
           {isMobileMenuOpen ? <IoMdClose /> : <IoIosMenu />}
         </button>
@@ -453,26 +461,34 @@ return (
 
     {/* Mobile Menu Overlay */}
     {isMobileMenuOpen && (
-      <div ref={mobileMenuRef} className="lg:hidden fixed inset-0 w-full h-[60vh] bg-[#006834] z-50 flex flex-col">
+      <div
+        ref={mobileMenuRef}
+        className="lg:hidden fixed inset-0 w-full h-[60vh] bg-[#006834] z-50 flex flex-col"
+      >
         {/* Mobile Menu Header */}
         <div className="flex justify-between items-center p-4 ">
-        <div className=' w-auto'>
-            <img src={logo} alt="" />
-          </div>
-          <button 
+          <Link to="/">
+            <div className=" w-auto">
+              <img src={logo} alt="" />
+            </div>
+          </Link>
+
+          <button
             onClick={toggleMobileMenu}
-            className='flex flex-col justify-center items-center w-8 h-8 text-2xl text-white'
+            className="flex flex-col justify-center items-center w-8 h-8 text-2xl text-white"
           >
             <IoMdClose />
           </button>
         </div>
         {/* Mobile Menu Items */}
         <div className="flex-1 px-8 pb-4 space-y-4">
-          <div className=" py-4">
-            <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
-              About us
-            </p>
-          </div>
+          <Link to="about-us">
+            <div className=" py-4">
+              <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
+                About us
+              </p>
+            </div>
+          </Link>
 
           <div className=" pb-4">
             <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">

@@ -1,6 +1,6 @@
 import React from 'react'
-// import building from '../assets/building.jpg'; 
-// import passport from '../assets/passport.jpg';
+import building from "../../assets/Nis-Building.svg"
+import passport from '../../assets/Nigerian-Passport 1 1.svg';
 
 
 const OrganisationStructure = () => {
@@ -10,7 +10,7 @@ const OrganisationStructure = () => {
       {/* Block 1 */}
       <div className="flex flex-col lg:flex-row items-center gap-10">
         <img
-          src="../assets/building.jpg"
+          src={building}
           alt="NIS Building"
           className="w-full lg:w-1/2 rounded-xl object-cover"
         />
@@ -32,7 +32,7 @@ const OrganisationStructure = () => {
       {/* Block 2 */}
       <div className="flex flex-col lg:flex-row-reverse items-center gap-10">
         <img
-          src="../assets/building.jpg"
+          src={passport}
           alt="Passport"
           className="w-full lg:w-1/2 rounded-xl object-cover"
         />

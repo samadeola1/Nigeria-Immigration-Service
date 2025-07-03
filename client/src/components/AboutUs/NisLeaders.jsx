@@ -43,9 +43,8 @@ const NisLeaders = () => {
   const sliderRef = useRef(null);
 
   return (
-
-    <section className="bg-white px-6 py-12 lg:px-0 mx-auto">
-      <div className=" md:w-11/12 lg:container mx-auto">
+    <section className="bg-white px-3 md:px-0 py-12 mx-auto">
+      <div className=" md:w-11/12 container mx-auto">
         <h2 className="text-[28px] md:text-[30px] lg:text-[44px] font-bold text-[#000000] mb-[30px] lg:mb-[50px] text-center">
           Current and Past Leaders
         </h2>
@@ -69,7 +68,7 @@ const NisLeaders = () => {
             </p>
           </div>
           {/* Past Leaders  */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-[32px] md:px-0">
+          <div className="md:w-11/12 xl:container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-[32px] md:px-0">
             {leaders.slice(1).map((leader, idx) => (
               <div
                 key={idx}
@@ -82,7 +81,7 @@ const NisLeaders = () => {
                     className="w-full h-full object-cover group-hover:scale-120 ease-out-in group-hover:-translate-y-[-8px] transition-transform duration-600"
                   />
                 </div>
-                <h4 className="text-[16px] lg:text-[28px] px-4 font-bold text-[#212121] mb-3 text-left">
+                <h4 className="md:text-[23px] xl:text-[28px] xl:px-4  font-bold text-[#212121] mb-3 text-left">
                   {leader.title}
                 </h4>
                 <p className="text-[#474747] text-[14px] px-4 lg:text-[20px] text-left w-full">
@@ -117,7 +116,7 @@ const NisLeaders = () => {
                   />
                 </div>
                 <div className="w-full flex flex-col items-center mt-2">
-                  <h4 className="font-semibold text-[#212121] mb-1 text-[24px] text-center">
+                  <h4 className="font-semibold text-[#212121] mb-1 text-[24px] px-8 text-center">
                     {leader.title}
                   </h4>
                   <p className="text-[#474747] text-center text-[14px]">

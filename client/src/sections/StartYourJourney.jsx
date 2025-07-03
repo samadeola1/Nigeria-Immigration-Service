@@ -31,7 +31,6 @@ const StartYourJourney = () => {
   ];
 
   return (
-
     <section className="w-full bg-gray-100 py-12 border-0">
       <div className="w-11/12 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -78,6 +77,5 @@ const StartYourJourney = () => {
     </section>
   );
 };
-
 
 export default StartYourJourney;

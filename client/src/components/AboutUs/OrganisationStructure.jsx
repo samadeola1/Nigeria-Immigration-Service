@@ -5,6 +5,7 @@ import React from 'react'
 
 const OrganisationStructure = () => {
   return (
+
       <section className="bg-green-50 px-6 md:px-20 py-16 space-y-16">
       {/* Block 1 */}
       <div className="flex flex-col lg:flex-row items-center gap-10">
@@ -47,6 +48,7 @@ const OrganisationStructure = () => {
         </div>
       </div>
     </section>
+
   )
 }
 

@@ -4,7 +4,7 @@ import getyoursisa from "../assets/passport-page.jpg";
 
 const GetYourVisa = () => {
   return (
-    <div className='w-full bg-gray-100'>
+    <div className='w-full bg-white'>
       <section className="w-11/12 container mx-auto py-20 overflow-hidden px-0">
         <div className='relative'>
           <img

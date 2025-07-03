@@ -1,6 +1,6 @@
 import React from 'react'
-import card from '../../assets/icons/cards.svg'
-import personal from '../../assets/icons/personalcard.svg'
+import card from '../../icons/cards.svg'
+import personal from '../../icons/personalcard.svg'
 
 const NisAct = () => {
   return (

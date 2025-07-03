@@ -37,7 +37,7 @@ const Cerpac = () => {
           />
         </div>
       </div>
-      {/* Desktop Layout (Grid starts from md) */}
+      {/* Desktop Layout */}
       <div className="hidden md:w-11/12 lg:grid container mx-auto py-8  gap-[85px] lg:grid-cols-2 items-center">
         {/* Image Section */}
         <div className="flex justify-center items-center">

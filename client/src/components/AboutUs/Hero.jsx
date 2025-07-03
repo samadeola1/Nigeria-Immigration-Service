@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div className='Hero w-full '>
+    <div className='Hero w-full text-white'>
       <div className='w-11/12 container mx-auto hidden lg:block'>
        <div className='flex flex-col gap-3 '>
        <h1 className='lg:text-[44px] lg:font-bold xl:w-[45%] lg:w-[55%]'>A Legacy of Service and Structure</h1>

@@ -2,7 +2,6 @@ import React from "react";
 import image1 from "../assets/Image1.png";
 import image2 from "../assets/Image2.png";
 import image3 from "../assets/Image3.png";
-
 export default function ImportantUpdates() {
   const updates = [
     {

@@ -30,7 +30,7 @@ const directorateData = [
 
 const Directorates = () => {
   return (
-    <section className="bg-[#F1F1F1]  md:bg-white pt-25 pb-14 px-4  lg:px-0 ">
+    <section className="bg-[#F1F1F1]  md:bg-white pt-25 pb-14   lg:px-0 ">
       <div className="w-11/12 container mx-auto">
         <h2 className="text-[28px] md:text-[30px] px-6 lg:text-[44px] font-bold text-[#212121] mb-2 text-center">
           Explore Our Directorates

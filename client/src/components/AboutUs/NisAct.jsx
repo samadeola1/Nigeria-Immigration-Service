@@ -1,6 +1,8 @@
 import React from 'react'
 import card from '../../assets/icons/cards.svg'
 import personal from '../../assets/icons/personalcard.svg'
+import sign from '../../assets/icons/signpost.svg'
+import home from '../../assets/icons/home.svg'
 
 const NisAct = () => {
   return (
@@ -35,7 +37,7 @@ const NisAct = () => {
      <div className='grid grid-cols-1 lg:grid-cols-2 gap-[28px] lg:px-10'>
       <div className='flex border-2 border-[#E9E9E9] rounded-2xl gap-4 items-center p-6 '>
         <div>
-          <img src={personal} alt="" />
+          <img src={home} alt="" />
         </div>
        <div className='flex flex-col text-[20px] gap-2  '>
        <p className='font-semibold text-[20px]'>Residence Permit</p>
@@ -44,7 +46,7 @@ const NisAct = () => {
       </div>
       <div className='flex border-2 border-[#E9E9E9] rounded-2xl gap-4 items-center p-6 '>
         <div>
-          <img src={card} alt="" />
+          <img src={sign} alt="" />
         </div>
         <div className='flex flex-col text-[20px] gap-2  '>
         <p className='font-semibold text-[20px]'>Boarder Surveillance and Patrol</p>

@@ -15,7 +15,7 @@ const OrganisationStructure = () => {
           className="w-full lg:w-1/2 rounded-xl object-cover"
         />
         <div className="lg:w-1/2">
-          <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">
+          <h3 className="text-xl md:text-2xl lg:text-[28px] font-bold mb-4 text-gray-900">
             Organizational Structure of the Nigeria Immigration Service
           </h3>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed">
@@ -37,7 +37,7 @@ const OrganisationStructure = () => {
           className="w-full lg:w-1/2 rounded-xl object-cover"
         />
         <div className="lg:w-1/2">
-          <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">
+          <h3 className="text-xl md:text-2xl lg:text-[28px] font-bold mb-4 text-gray-900">
             Legal Framework Upgrade
           </h3>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed">

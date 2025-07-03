@@ -27,7 +27,7 @@ const values = [
 const CoreValues = () => {
   return (
 
-   <section className="bg-green-100 py-16 px-6 md:px-20 text-center">
+   <section className="bg-[#E6F7EE] py-16 px-6 md:px-20 text-center">
       <div className="max-w-[1440px] m-auto">
         <h2 className="text-3xl font-bold text-gray-900 mb-12">Our Core Values</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">

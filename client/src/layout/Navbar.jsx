@@ -364,7 +364,7 @@
 // Mock logo component since we don't have the actual image
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import logo from '../images/image 7.svg'
@@ -409,39 +409,57 @@ return (
 
         {/* Desktop Navigation Menu */}
         <div className="hidden lg:flex items-center space-x-8">
-          <Link to="/">
-            <div>
-              <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
-                Home
-              </p>
-            </div>
-          </Link>
-
-          <Link to="/about-us">
-            <div>
-              <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
-                About us
-              </p>
-            </div>
-          </Link>
-
-          <div>
-            <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
-              Services
-            </p>
-          </div>
-
-          <div>
-            <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
-              Information center
-            </p>
-          </div>
-
-          <div>
-            <p className="text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2">
-            Contact us
-            </p>
-          </div>
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              `text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2 ${
+                isActive ? "text-green-600" : ""
+              }`
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/about-us"
+            className={({ isActive }) =>
+              `text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2 ${
+                isActive ? "text-green-600" : ""
+              }`
+            }
+          >
+            About us
+          </NavLink>
+          <NavLink
+            to="/services"
+            className={({ isActive }) =>
+              `text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2 ${
+                isActive ? "text-green-600" : ""
+              }`
+            }
+          >
+            Services
+          </NavLink>
+          <NavLink
+            to="/information-center"
+            className={({ isActive }) =>
+              `text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2 ${
+                isActive ? "text-green-600" : ""
+              }`
+            }
+          >
+          information Center
+          </NavLink>
+          <NavLink
+            to="contact-us"
+            className={({ isActive }) =>
+              `text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2 ${
+                isActive ? "text-green-600" : ""
+              }`
+            }
+          >
+            Contact Us
+          </NavLink>
         </div>
 
         {/* Desktop Apply Now Button */}
@@ -482,7 +500,7 @@ return (
         </div>
         {/* Mobile Menu Items */}
         <div className="flex-1 px-8 pb-4 space-y-4">
-          <Link to="about-us">
+          <Link to="/about-us">
             <div className=" py-4">
               <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
                 About us
@@ -490,11 +508,13 @@ return (
             </div>
           </Link>
 
-          <div className=" pb-4">
-            <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
-              Services
-            </p>
-          </div>
+          <Link to="/services">
+            <div className=" py-4">
+              <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
+                Services
+              </p>
+            </div>
+          </Link>
 
           <div className="pb-4">
             <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
@@ -504,7 +524,7 @@ return (
 
           <div className="pb-4">
             <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
-              Self Services
+              Contact Us
             </p>
           </div>
         </div>

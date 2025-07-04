@@ -38,7 +38,7 @@ const GetStarted = () => {
     <main >
       
            <section className="py-16 px-6 text-center  md:hidden  container mx-auto overflow-hidden font-poppins">
-      <h2 className="text-[44px] font-poppins font-bold mb-4 text-[#212121]">Get Started</h2>
+      <h2 className="text-[28px] md:text-[44px] font-poppins font-bold mb-4 text-[#212121]">Get Started</h2>
       <p className="max-w-3xl mx-auto text-[#474747] mb-12">
         Whether you're applying for a passport, visa, or travel certificate, getting started is simple. Just follow these clear steps to complete your process quickly, securely, and with confidence.
       </p>

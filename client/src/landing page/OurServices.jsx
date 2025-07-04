@@ -31,7 +31,7 @@ const services = [
 const OurServices = () => {
   return (
     <section className="bg-[#FEFEFE] font-poppins">
-      <div className="md:w-11/12 container lg:max-w-screen-xl px-4  py-8 mx-auto lg:py-3">
+      <div className="md:w-11/12 container lg:max-w-screen-xl px-4  py-14 mx-auto lg:py-16">
         <h2 className="mb-4 text-[30px] md:text-[44px] tracking-tight font-bold text-center text-[#212121]">
           Our Services
         </h2>

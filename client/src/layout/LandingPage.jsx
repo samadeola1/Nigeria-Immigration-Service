@@ -7,7 +7,7 @@ import Cerpac from '../landing page/Cerpac'
 import StartYourJourney from '../landing page/StartYourJourney'
 import LandingAndExit from '../landing page/LandingAndExit'
 import ImportantUpdates from '../landing page/ImportantUpdates'
-import GetYourVisa from '../landing page/GetYourVisa'
+import GetYourVisa from '../components/reuseable/GetYourVisa'
 import VisitorMobile from '../landing page/VisitorMobile'
 
 const LandingPage = () => {

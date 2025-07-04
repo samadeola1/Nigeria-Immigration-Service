@@ -1,8 +1,8 @@
 import React from 'react'
-import card from '../../assets/icons/cards.svg'
-import personal from '../../assets/icons/personalcard.svg'
-import sign from '../../assets/icons/signpost.svg'
-import home from '../../assets/icons/home.svg'
+import card from '../../icons/cards.svg'
+import personal from '../../icons/personalcard.svg'
+import sign from '../../icons/signpost.svg'
+import home from '../../icons/home.svg'
 
 const NisAct = () => {
   return (

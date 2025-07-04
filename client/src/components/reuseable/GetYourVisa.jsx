@@ -1,5 +1,5 @@
 import React from 'react'
-import getyoursisa from "../assets/passport-page.jpg";
+import getyoursisa from "../../assets/passport-page.jpg";
 
 
 const GetYourVisa = () => {

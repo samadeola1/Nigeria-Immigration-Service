@@ -44,7 +44,7 @@ const Cerpac = () => {
           <img
             src={cerpacImgDesktop}
             alt="CERPAC"
-            className="w-[524px] h-full rounded-[24px] shadow-md"
+            className="w-full h-full rounded-[24px] shadow-md"
           />
         </div>
         {/* Write-up Section */}

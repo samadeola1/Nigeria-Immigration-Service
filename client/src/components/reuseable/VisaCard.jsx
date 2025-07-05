@@ -11,7 +11,7 @@ const VisaCard = ({content}) => {
             <p className='text-[#474747] font-normal text-[15px] lg:text-[18px] '>{content.desc}</p>
             <p className='text-[#212121] font-medium lg:font-semibold text-[18px]'>{content.time}</p>
         </div>
-        <button className='bg-[#00AA55] px-[33px] py-[9px] rounded-md font-semibold text-[16px] cursor-pointer'>{content.click}</button>
+        <button className='bg-[#00AA55]  hover:bg-green-700 transition-colors duration-200 px-[33px] py-[9px] rounded-md font-semibold text-[16px] cursor-pointer'>{content.click}</button>
     </div>
   )
 }

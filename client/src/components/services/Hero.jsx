@@ -12,14 +12,14 @@ const Hero = () => {
          <p className='text-[24px] font-normal'>From passport applications to visa processing and permit renewals manage it all in one place with ease and reliability. </p>
        </div>
           <div className='mt-4'>
-        <button className='bg-[#00AA55] px-[24px] py-[14px] rounded-md text-[18px] font-semibold '>Get started</button>
+        <button className='bg-[#00AA55] hover:bg-green-700 transition-colors duration-200 px-[24px] py-[14px] rounded-md text-[18px] font-semibold '>Get started</button>
        </div>
        </div>
      </div>
       <div className='flex flex-col gap-3 lg:hidden text-center'>
        <h1 className='text-[28px] font-bold md:px-16 '>Access All Nigeria Immigration Services, Fast, Secure, and Online</h1>
         <div>
-            <button className='bg-[#00AA55] hover:bg-[#009944] transition-colors duration-200 px-[24px] py-[14px] rounded-md text-[18px] font-semibold text-white'>
+            <button className='bg-[#00AA55]  hover:bg-green-700 transition-colors duration-200 px-[24px] py-[14px] rounded-md text-[18px] font-semibold text-white'>
               Get started
             </button>
           </div>

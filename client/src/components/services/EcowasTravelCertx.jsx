@@ -2,7 +2,7 @@ import React from 'react'
 
 const EcowasTravelCertx = () => {
   return (
-    <div>EcowasTravelCertx</div>
+    <div></div>
   )
 }
 

@@ -7,7 +7,7 @@ import Directorates from "../components/AboutUs/Directorates";
 import OrganisationStructure from "../components/AboutUs/OrganisationStructure";
 import EmpoweringProgress from "../components/AboutUs/EmpoweringProgress";
 import NisLeaders from "../components/AboutUs/NisLeaders";
-import GetYourVisa from "../sections/GetYourVisa";
+import GetYourVisa from "../components/reuseable/GetYourVisa";
 
 const AboutUs = () => {
   return (

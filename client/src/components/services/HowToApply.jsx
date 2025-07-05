@@ -2,7 +2,7 @@ import React from 'react'
 
 const HowToApply = () => {
   return (
-    <div>HowToApply</div>
+    <div></div>
   )
 }
 

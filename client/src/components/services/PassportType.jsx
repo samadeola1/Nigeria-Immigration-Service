@@ -25,7 +25,6 @@ const PassportType = () => {
   ];
 
   return (
-
     <section className="w-full bg-white pt-20 pb-13 md:py-23 border-0">
       <div className="w-11/12 container mx-auto">
         <div className="text-center mb-12">
@@ -34,7 +33,7 @@ const PassportType = () => {
           </h2>
 
           {/* desktop display */}
-          <p className="text-[20px] md:text-[18px] text-[#474747] font-poppins font-normal md:px-4 lg:px-50 hidden lg:block">
+          <p className="text-[20px] md:text-[18px] text-[#474747] font-poppins font-normal md:px-4 lg:px-8 xl:px-50 hidden lg:block">
             There are three kinds of fingerprint enhanced e-Passports that the
             Nigerian Immigration Service gives out. Normal passports (green) for
             Nigerians and comes in 32-page/5-year, 64-page/5-year, and
@@ -77,6 +76,5 @@ const PassportType = () => {
     </section>
   );
 };
-
 
 export default PassportType;

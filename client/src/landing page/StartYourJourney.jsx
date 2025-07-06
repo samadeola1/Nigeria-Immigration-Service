@@ -37,7 +37,7 @@ const StartYourJourney = () => {
           <h2 className="text-[28px] md:text-[44px] font-bold font-poppins text-gray-900 pb-4 md:p-0 ">
             Start Your Journey With Ease
           </h2>
-          <p className="text-[16px] text-gray-600 lg:px-70 font-poppins font-normal">
+          <p className="text-[16px] lg:text-[24px] text-gray-600  xl:px-30 font-poppins font-normal">
             Choose your application path below whether you’re in Nigeria, abroad
             or renewing your passport, we have made it simple and accessible for
             you.
@@ -55,12 +55,12 @@ const StartYourJourney = () => {
                 alt={card.alt}
                 className="w-full  object-cover"
               />
-              <div className="p-4 flex flex-col justify-between h-[265px] md:h-[280px] lg:h-[300px]">
+              <div className="p-4 flex flex-col justify-between h-[265px] md:h-[280px] lg:h-[330px] xl:h-[300px]">
                 <div>
-                  <h3 className="text-[24px] lg:text-[28px] md:pb-2 lg:pb-0 font-semibold text-gray-900 mb-2 pr-[40px] font-poppins">
+                  <h3 className="text-[24px] lg:text-[28px] md:pb-2 lg:pb-0 font-semibold text-gray-900 mb-2 pr-[40px] md:pr-0 lg:pr-0 xl:pr-10 font-poppins">
                     {card.title}
                   </h3>
-                  <p className="text-gray-600 text:[16px] md:text-[17px] lg:text-[20px] font-poppins font-normal sm:pr-5 md:pr-0 lg:pr-10">
+                  <p className="text-gray-600 text:[16px] md:text-[17px] lg:text-[20px] font-poppins font-normal sm:pr-5 md:pr-0 lg:pr-0 xl:pr-10">
                     {card.description}
                   </p>
                 </div>

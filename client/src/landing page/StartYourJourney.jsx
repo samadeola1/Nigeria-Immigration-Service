@@ -32,7 +32,7 @@ const StartYourJourney = () => {
 
   return (
     <section className="w-full bg-gray-100 py-12 border-0">
-      <div className="w-11/12 container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-11/12 container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-[28px] md:text-[44px] font-bold font-poppins text-gray-900 pb-4 md:p-0 ">
             Start Your Journey With Ease
@@ -60,7 +60,7 @@ const StartYourJourney = () => {
                   <h3 className="text-[24px] lg:text-[28px] md:pb-2 lg:pb-0 font-semibold text-gray-900 mb-2 pr-[40px] font-poppins">
                     {card.title}
                   </h3>
-                  <p className="text-gray-600 text:[16px] md:text-[17px] lg:text-[20px] font-poppins font-normal lg:pr-5">
+                  <p className="text-gray-600 text:[16px] md:text-[17px] lg:text-[20px] font-poppins font-normal sm:pr-5 md:pr-0 lg:pr-10">
                     {card.description}
                   </p>
                 </div>

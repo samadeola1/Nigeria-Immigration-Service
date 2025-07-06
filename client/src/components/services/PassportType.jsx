@@ -25,6 +25,7 @@ const PassportType = () => {
   ];
 
   return (
+
     <section className="w-full bg-white pt-20 pb-13 md:py-23 border-0">
       <div className="w-11/12 container mx-auto">
         <div className="text-center mb-12">
@@ -76,5 +77,6 @@ const PassportType = () => {
     </section>
   );
 };
+
 
 export default PassportType;

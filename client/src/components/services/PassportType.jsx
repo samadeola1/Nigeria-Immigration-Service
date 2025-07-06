@@ -2,7 +2,7 @@ import React from 'react'
 
 const PassportType = () => {
   return (
-    <div>PassportType</div>
+    <div></div>
   )
 }
 

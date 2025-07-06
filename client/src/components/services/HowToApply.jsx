@@ -21,6 +21,7 @@ const cards = [
 
 const HowToApply = () => {
   return (
+
     <div className="w-full bg-white py-10 px-4 md:px-0">
       <div className="w-full md:w-11/12 xl:container mx-auto">
         <h1 className="text-[28px] md:text-[44px] font-bold text-[#212121] text-center mb-8">
@@ -40,5 +41,6 @@ const HowToApply = () => {
     </div>
   );
 };
+
 
 export default HowToApply;

@@ -18,6 +18,14 @@
   
 }
 
+.service {
+  background-image: url('../src/images/image\ 248\ \(1\).svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 14rem 3rem 14rem 3rem;
+  
+}
+
 
 body {
   font-family: var(--font-poppins);
@@ -30,6 +38,15 @@ body {
     padding-top: 18rem;
     padding-bottom: 16rem;
     /* margin-top: 2rem; */
+  }
+ 
+}
+
+@media (width > 768px) {
+  .service {
+    background-image: url('../src/images/image\ 248.svg');
+    padding-top: 16rem;
+    padding-bottom: 16rem;
   }
  
 }

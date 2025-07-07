@@ -33,6 +33,11 @@ export default function ImportantUpdates() {
           <h2 className="text-black text-3xl md:text-4xl font-bold mb-4">
             Important Updates
           </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+          Stay informed with the latest announcements, policy changes, and
+          critical immigration service alerts all in one place.
+        </p>
+
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {updates.map((item, idx) => (

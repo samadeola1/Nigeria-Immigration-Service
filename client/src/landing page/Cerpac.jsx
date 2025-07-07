@@ -5,9 +5,9 @@ import arrowRight from "../assets/arrow-right.svg";
 
 const Cerpac = () => {
   return (
-    <section className="bg-[#E6F7EE] font-poppins py-12">
+    <section className="bg-[#E6F7EE]  font-poppins py-12">
       {/* Mobile/Tablet Layout */}
-      <div className="lg:hidden container mx-auto px-4 flex flex-col items-center text-center">
+      <div className="lg:hidden container mx-auto px-4 md:w-11/12 flex flex-col items-center text-center">
         <h1 className="text-[24px] text-[#212121] leading-[48px] mb-2 font-semibold">
           Cerpac
         </h1>

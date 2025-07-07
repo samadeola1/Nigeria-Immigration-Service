@@ -1,24 +1,31 @@
 import React from 'react';
+import HereToHelpimg from "../../assets/hereToHelp.svg"
 
 const HereToHelp = () => {
   return (
-
-    <section className="relative bg-cover bg-center rounded-[2rem] overflow-hidden my-12 mx-auto max-w-6xl h-[400px]" style={{ backgroundImage: `url('/assets/Help.png')` }}
->
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-4">
-        <h2 className="text-white text-3xl md:text-4xl font-bold mb-4">
-          We’re Here to Help You
-        </h2>
-        <p className="text-white text-lg md:text-xl mb-6 max-w-2xl">
-          Reach out to us for assistance with your applications,
-          <br className="hidden md:block" />
-          services, or any inquiries
-        </p>
-        <button className="bg-green-700 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-800 transition">
-          Contact us
-        </button>
-      </div>
-    </section>
+    <div className="w-full bg-white">
+      <section className="w-11/12 container mx-auto py-20 overflow-hidden px-0">
+        <div className="relative">
+          <img
+            src={HereToHelpimg}
+            alt="background"
+            className="w-full h-[429px] md:h-[429px] rounded-[24px] lg:rounded-[40px] object-cover"
+          />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black/40 px-4 rounded-[40px]">
+            <h2 className="text-2xl md:text-4xl font-bold drop-shadow-lg">
+              We’re Here to Help You
+            </h2>
+            <p className="mt-2 max-w-xl text-base px-8 md:text-lg ">
+              Reach out to us for assistance with your applications, services,
+              or any inquiries
+            </p>
+            <button className="mt-6 bg-[#00AA55] hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold  transition-all duration-200">
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 

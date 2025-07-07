@@ -1,20 +1,21 @@
 import React from 'react'
-// import building from '../assets/building.jpg'; 
-// import passport from '../assets/passport.jpg';
+import building from "../../assets/Nis-Building.svg"
+import passport from '../../assets/Nigerian-Passport 1 1.svg';
 
 
 const OrganisationStructure = () => {
   return (
+
       <section className="bg-green-50 px-6 md:px-20 py-16 space-y-16">
       {/* Block 1 */}
       <div className="flex flex-col lg:flex-row items-center gap-10">
         <img
-          src="../assets/building.jpg"
+          src={building}
           alt="NIS Building"
           className="w-full lg:w-1/2 rounded-xl object-cover"
         />
         <div className="lg:w-1/2">
-          <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">
+          <h3 className="text-xl md:text-2xl lg:text-[28px] font-bold mb-4 text-gray-900">
             Organizational Structure of the Nigeria Immigration Service
           </h3>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed">
@@ -31,12 +32,12 @@ const OrganisationStructure = () => {
       {/* Block 2 */}
       <div className="flex flex-col lg:flex-row-reverse items-center gap-10">
         <img
-          src="../assets/building.jpg"
+          src={passport}
           alt="Passport"
           className="w-full lg:w-1/2 rounded-xl object-cover"
         />
         <div className="lg:w-1/2">
-          <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">
+          <h3 className="text-xl md:text-2xl lg:text-[28px] font-bold mb-4 text-gray-900">
             Legal Framework Upgrade
           </h3>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed">
@@ -47,6 +48,7 @@ const OrganisationStructure = () => {
         </div>
       </div>
     </section>
+
   )
 }
 

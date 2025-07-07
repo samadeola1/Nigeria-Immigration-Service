@@ -2,6 +2,7 @@ import React from 'react';
 
 const HereToHelp = () => {
   return (
+
     <section className="relative bg-cover bg-center rounded-[2rem] overflow-hidden my-12 mx-auto max-w-6xl h-[400px]" style={{ backgroundImage: `url('/assets/Help.png')` }}
 >
       <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-4">
@@ -20,5 +21,6 @@ const HereToHelp = () => {
     </section>
   );
 };
+
 
 export default HereToHelp;

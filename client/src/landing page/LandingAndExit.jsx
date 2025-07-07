@@ -5,13 +5,13 @@ import arrorRight from "../assets/arrow-right.png";
 const LandingAndExit = () => {
   return (
     <div className="w-full bg-[#E6F7EE] border-0">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
+      <div className="mx-auto w-11/12 container ">
         <div className="flex lg:flex-row  items-center gap-0 md:gap-[60px] lg:gap-[80px] py-[80px] flex-col-reverse  md:flex-col">
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-[24px] text-center lg:text-start md:text-[36px] lg:text-[40px] font-bold font-poppins text-[#0e0909] pt-5 pb-4">
               Landing and Exit Cards
             </h2>
-            <p className="text-[#555555] text-[20px] leading-relaxed mb-6 font-normal font-poppins hidden lg:block">
+            <p className="text-[#555555] text-[20px] leading-relaxed mb-6 font-normal font-poppins hidden lg:block pr-0 xl:pr-[155px]">
               Landing and Exit Cards are mandatory travel documents required of
               all passengers entering or departing Nigeria. These cards must be
               completed upon arrival at or departure from Nigerian borders and
@@ -45,7 +45,7 @@ const LandingAndExit = () => {
             <img
               src={approvedVisa}
               alt="Approved Visa"
-              className="max-w-full h-auto"
+              className="lg:w-full lg:h-full w-[368px] h-[332px] rounded-[24px]"
             />
           </div>
         </div>

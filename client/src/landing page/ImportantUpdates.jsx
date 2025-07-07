@@ -41,7 +41,10 @@ export default function ImportantUpdates() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {updates.map((item, idx) => (
-            <div key={idx} className="bg-white rounded-xl shadow-md overflow-hidden">
+            <div
+              key={idx}
+              className="bg-white rounded-xl shadow-md overflow-hidden"
+            >
               <img
                 src={item.image}
                 alt="Update"

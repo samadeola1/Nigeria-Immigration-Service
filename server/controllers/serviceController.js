@@ -19,11 +19,11 @@ export const signUp = async (req, res) => {
     res.status(400).json({ success: false, errMsg: "password do not match" });
     return;
   }
-  
+
   if (password.length < 8) {
     res
-    .status(400)
-    .json({ success: false, errMsg: "min password length must be 8 chrs" });
+      .status(400)
+      .json({ success: false, errMsg: "min password length must be 8 chrs" });
     return;
   }
 
@@ -33,11 +33,11 @@ export const signUp = async (req, res) => {
       res.status(400).json({ success: false, errMsg: "Email already exists" });
       return;
     }
-    
+
     const user = await USER.create({ ...req.body });
     res
-    .status(201)
-    .json({ success: true, message: "registration successful", user });
+      .status(201)
+      .json({ success: true, message: "registration successful", user });
   } catch (error) {
     res.status(500).json(error.message);
   }
@@ -48,30 +48,27 @@ export const signIn = async (req, res) => {
   const { email, password } = req.body;
   try {
     if (!email || !password) {
-     return  res
+      return res
         .status(400)
         .json({ success: false, errMsg: "all fields are required to sign in" });
-     
     }
     // finding a registered email address
     const user = await USER.findOne({ email });
     if (!user) {
       return res.status(401).json({ success: false, errMsg: "user not found" });
-     
     }
 
     // comparing password and validating password
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
-       return res
+      return res
         .status(401)
         .json({ success: false, errMsg: "Email or password is incorrect" });
-       
     }
     // generating token
     const token = await user.generateToken();
     if (token) {
-  return res.status(200).json({
+      return res.status(200).json({
         success: true,
         message: "signed in successfully",
         user: {
@@ -81,7 +78,6 @@ export const signIn = async (req, res) => {
           token,
         },
       });
-    
     }
   } catch (error) {
     res.status(500).json(error.message);
@@ -117,7 +113,7 @@ export const forgotPassword = async (req, res) => {
       user.resetPasswordToken = undefined;
       user.resetPasswordExpire = undefined;
       await user.save();
-      return res.status(500).json({errMsg:"Email could not be sent", error})
+      return res.status(500).json({ errMsg: "Email could not be sent", error });
     }
   } catch (error) {
     return res.status(500).json(error.message);
@@ -125,27 +121,31 @@ export const forgotPassword = async (req, res) => {
 };
 
 // reset password ftn
-export const resetPassword = async (req,res)=>{
-  const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest("hex");
+export const resetPassword = async (req, res) => {
+  const resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(req.params.resetToken)
+    .digest("hex");
   try {
     const user = await USER.findOne({
       resetPasswordToken,
-      resetPasswordExpire :{$gt:Date.now()}
-    })
-    if(!user){
-      res.status(400).json({status:false, errMsg:"invalid reset token"});
+      resetPasswordExpire: { $gt: Date.now() },
+    });
+    if (!user) {
+      res.status(400).json({ status: false, errMsg: "invalid reset token" });
       return;
     }
     user.password = req.body.password;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
     await user.save();
-    res.status(201).json({success:true,message:"Password Reset successful"})
+    res
+      .status(201)
+      .json({ success: true, message: "Password Reset successful" });
   } catch (error) {
     res.status(500).json(error.message);
-
   }
-}
+};
 
 // isLoggedIn ftn
 export const isLoggedIn = async (req, res) => {
@@ -157,7 +157,9 @@ export const isLoggedIn = async (req, res) => {
     const token = authHeader.split(" ")[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    const user = await USER.findById(decoded.userId).select("firstName role email");
+    const user = await USER.findById(decoded.userId).select(
+      "firstName role email"
+    );
 
     if (!user) {
       return res.status(404).json({ success: false, errMsg: "User not found" });
@@ -165,7 +167,7 @@ export const isLoggedIn = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      user, 
+      user,
     });
   } catch (error) {
     // console.error("isLoggedIn error:", error);

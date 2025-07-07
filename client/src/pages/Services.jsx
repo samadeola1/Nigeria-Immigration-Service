@@ -10,7 +10,7 @@ import HereToHelp from '../components/services/HereToHelp'
 const Services = () => {
   return (
     <>
-      <div className='pt-30'>
+      <div className=''>
         <Hero />
         <VisaCategories />
         <HowToApply />

@@ -51,7 +51,7 @@ const EcowasTravelCertx = () => {
         <h1 className="text-3xl lg:text-[44px] font-bold text-[#212121] uppercase text-center mb-8">
           ECOWAS Travel Certificate
         </h1>
-        <div className="w-full lg:w-[75%] mx-auto flex flex-col gap-[5px]">
+        <div className="w-full  mx-auto flex flex-col gap-[5px]">
           {faqs.map((faq, idx) => (
             <div
               key={idx}

@@ -368,6 +368,7 @@ import { NavLink,Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import logo from '../images/image 7.svg'
+import nav from '../images/image 234.svg'
 
 
 
@@ -487,7 +488,14 @@ return (
         <div className="flex justify-between items-center p-4 ">
           <Link to="/">
             <div className=" w-auto">
-              <img src={logo} alt="" />
+            <div className='flex h-[80px]'>
+                <img src={nav} alt="" />
+              <div className='font-medium text-[18px] '>
+                <p>NIGERIA</p>
+              <p>IMMIGRATION</p>
+              <p>SERVICE</p>
+              </div>
+            </div>
             </div>
           </Link>
 

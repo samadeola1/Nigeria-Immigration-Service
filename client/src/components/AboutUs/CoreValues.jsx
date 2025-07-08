@@ -7,17 +7,7 @@ import {
   FaShieldAlt,
   FaLightbulb,
 } from "react-icons/fa";
-import { SlLayers } from "react-icons/sl";
 
-const values = [
-  {
-    icon: <SlLayers className="text-green-500 text-4xl mb-4" />,
-    title: "Transparency",
-    description:
-      "We operate with honesty, fairness, and uphold the law in every process.",
-
-import { FaLayerGroup, FaBoxOpen, FaShieldAlt, FaLightbulb } from 'react-icons/fa';
-// import { SlLayers } from "react-icons/sl";
 
 const values = [
   {

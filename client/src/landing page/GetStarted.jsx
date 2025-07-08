@@ -86,7 +86,7 @@ const GetStarted = () => {
           <h2 className="text-[44px] font-poppins font-bold mb-4 text-[#212121]">
             Get Started
           </h2>
-          <p className="max-w-3xl mx-auto text-[#474747] mb-12">
+          <p className="lg:text-[24px] mx-auto text-[#474747] px-22 mb-12">
             Whether you're applying for a passport, visa, or travel certificate,
             getting started is simple. Just follow these clear steps to complete
             your process quickly, securely, and with confidence.
@@ -112,7 +112,7 @@ const GetStarted = () => {
             ))}
           </div>
 
-          <button className="mt-12 px-6 py-2 border border-green-500 text-green-500 rounded hover:bg-[#00AA55] hover:text-white transition">
+          <button className=" mt-12 w-[278px] p-[18px] font-semibold border-[2px] border-[#00AA55] text-[#00AA55] text-[20px] rounded-[10px] hover:bg-[#00AA55] hover:text-white transition">
             Apply now
           </button>
         </section>

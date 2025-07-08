@@ -1,7 +1,3 @@
-
-
-
-
 export function resetPasswordEmailTemplate(firstName, resetUrl) {
   return `
   
@@ -36,8 +32,8 @@ export function resetPasswordEmailTemplate(firstName, resetUrl) {
   `;
 }
 
-export function welcomeEmailTemplate(firstName){
-      return `
+export function welcomeEmailTemplate(firstName) {
+  return `
     <div style="font-family: Arial, sans-serif; color: #333;">
       <h2>Welcome, ${name} 👋</h2>
       <p>Thank you for signing up for our app! We're thrilled to have you.</p>
@@ -46,4 +42,4 @@ export function welcomeEmailTemplate(firstName){
       <p style="font-size: 0.9em; color: #888;">This is an automated email, please do not reply.</p>
     </div>
   `;
-};
+}

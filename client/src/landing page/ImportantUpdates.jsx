@@ -27,17 +27,16 @@ export default function ImportantUpdates() {
     },
   ];
   return (
-    <div className="w-full bg-white py-16 px-6 md:px-20 ">
-      <section className="max-w-[1440px] m-auto">
+    <div className="w-full bg-white py-16 px-4 mdpx-0 xl:px-0">
+      <section className="w-full md:w-11/12 container m-auto">
         <div className="max-w-7xl mx-auto text-center mb-12">
           <h2 className="text-black text-3xl md:text-4xl font-bold mb-4">
             Important Updates
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-          Stay informed with the latest announcements, policy changes, and
-          critical immigration service alerts all in one place.
-        </p>
-
+            Stay informed with the latest announcements, policy changes, and
+            critical immigration service alerts all in one place.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {updates.map((item, idx) => (

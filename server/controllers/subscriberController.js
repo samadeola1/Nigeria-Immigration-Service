@@ -7,10 +7,14 @@ export const subscribe = async (req, res) => {
     // Check if already subscribed
     const existing = await SUBSCRIBER.findOne({ email });
     if (existing) {
-      return res.status(400).json({ success: false, message: "Email already subscribed" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Email already subscribed" });
     }
     const subscriber = await SUBSCRIBER.create({ email, name });
-    res.status(201).json({ success: true, message: "Subscribed successfully", subscriber });
+    res
+      .status(201)
+      .json({ success: true, message: "Subscribed successfully", subscriber });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

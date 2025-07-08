@@ -30,16 +30,16 @@ const services = [
 
 const OurServices = () => {
   return (
-    <section className="bg-[#FEFEFE] font-poppins">
-      <div className="md:w-11/12 container lg:max-w-screen-xl px-4  py-14 mx-auto lg:py-16">
+    <section className="bg-[#FEFEFE] font-poppins px-4 pt-10 pb-26 md:px-0">
+      <div className="w-full md:w-11/12 container mx-auto">
         <h2 className="mb-4 text-[30px] md:text-[44px] tracking-tight font-bold text-center text-[#212121]">
           Our Services
         </h2>
-        <p className="mb-10 text-[18px] md:text-[24px] px-6  lg:px-40 text-center text-[#474747]">
+        <p className="mb-10 text-[18px] md:text-[24px] px-4  lg:px-40 xl:px-75 text-center text-[#474747]">
           Explore our core services designed to make passport, visa, and travel
           processing easier and faster.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
           {services.map((service, idx) => {
             // Split the title into two lines
             const [firstLine, ...rest] = service.title.split(" ");
@@ -47,13 +47,13 @@ const OurServices = () => {
             return (
               <div
                 key={idx}
-                className="relative group w-full max-w-[400px] rounded-[24px] overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 mx-auto"
+                className="relative group w-full rounded-[24px] overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 mx-auto"
               >
                 {/* Card Image */}
                 <img
                   src={service.img}
                   alt={service.title}
-                  className="w-[400px] h-[346px] object-cover rounded-[24px] transition-all duration-300"
+                  className="w-full h-[346px] object-cover rounded-[24px] transition-all duration-300"
                 />
                 {/* Title and lines  */}
                 <div className="absolute top-22 left-8 flex flex-col items-start z-10 pointer-events-none w-[80%] group-hover:hidden">

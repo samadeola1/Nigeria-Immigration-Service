@@ -5,7 +5,9 @@ export const createFaq = async (req, res) => {
   const { question, answer } = req.body;
   try {
     const faq = await FAQ.create({ question, answer });
-    res.status(201).json({ success: true, message: "FAQ created successfully", faq });
+    res
+      .status(201)
+      .json({ success: true, message: "FAQ created successfully", faq });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

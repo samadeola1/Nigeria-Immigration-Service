@@ -41,20 +41,20 @@ const EmpoweringProgress = () => {
   ];
 
   return (
-    <section className="w-full bg-[#006834] pt-20 pb-13 md:py-23 border-0">
-      <div className="max-w-7xl container mx-auto sm:px-6 lg:px-8">
+    <section className="w-full bg-[#006834] md:py-10 border-0">
+      <div className="w-11/12 container mx-auto sm:px-6 lg:px-0">
         <div className="text-center mb-12">
-          <h2 className="text-[24px] md:text-[28px] font-bold font-poppins text-[#FEFEFE] px-5 md:px-10 mb-4 md:p-0 ">
+          <h2 className="text-[24px] md:text-[28px] lg:text-[44px] font-bold font-poppins text-[#FEFEFE] px-5 md:px-0 xl:px-30 mb-4 md:p-0 ">
             Empowering Progress Through Innovation & Service
           </h2>
-          <p className="text-[20px] md:text-[24px] text-[#FEFEFE] font-poppins font-normal px-13 md:px-4 lg:px-14 md:pb-4">
+          <p className="text-[20px] md:text-[24px] text-[#FEFEFE] font-poppins font-normal px-8 md:px-4 lg:px-0 xl:px-37 md:pb-4">
             From regional integration to digital transformation, the NIS has
             continuously evolved to serve Nigeria and the world with increased
             speed, security, and transparency.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mx-auto px-7 md:px-0  md:max-w-5xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mx-auto px-4 md:px-0  md:max-w-5xl">
           {cardData.map((card, index) => (
             <div
               key={card.id}
@@ -77,6 +77,5 @@ const EmpoweringProgress = () => {
     </section>
   );
 };
-
 
 export default EmpoweringProgress;

@@ -37,7 +37,7 @@ const StartYourJourney = () => {
           <h2 className="text-[28px] md:text-[44px] font-bold font-poppins text-gray-900 pb-4 md:p-0 ">
             Start Your Journey With Ease
           </h2>
-          <p className="text-[16px] lg:text-[24px] text-gray-600  xl:px-30 font-poppins font-normal">
+          <p className="text-[16px] lg:text-[24px] text-gray-600 px-4 xl:px-30 font-poppins font-normal">
             Choose your application path below whether you’re in Nigeria, abroad
             or renewing your passport, we have made it simple and accessible for
             you.

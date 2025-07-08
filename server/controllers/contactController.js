@@ -5,7 +5,9 @@ export const createContact = async (req, res) => {
   const { name, email, message, subject } = req.body;
   try {
     const contact = await CONTACT.create({ name, email, message, subject });
-    res.status(201).json({ success: true, message: "Message sent successfully", contact });
+    res
+      .status(201)
+      .json({ success: true, message: "Message sent successfully", contact });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

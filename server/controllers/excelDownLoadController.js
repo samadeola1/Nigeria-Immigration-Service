@@ -5,7 +5,9 @@ export const createExcelDownload = async (req, res) => {
   const { userEmail, fileName } = req.body;
   try {
     const download = await ExcelDownload.create({ userEmail, fileName });
-    res.status(201).json({ success: true, message: "Download recorded", download });
+    res
+      .status(201)
+      .json({ success: true, message: "Download recorded", download });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

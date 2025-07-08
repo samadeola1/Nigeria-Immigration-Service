@@ -30,8 +30,8 @@ const services = [
 
 const OurServices = () => {
   return (
-    <section className="bg-[#FEFEFE] font-poppins px-4 py-16 md:px-0">
-      <div className="w-full md:w-11/12 container mx-auto lg:py-16">
+    <section className="bg-[#FEFEFE] font-poppins px-4 pt-10 pb-26 md:px-0">
+      <div className="w-full md:w-11/12 container mx-auto">
         <h2 className="mb-4 text-[30px] md:text-[44px] tracking-tight font-bold text-center text-[#212121]">
           Our Services
         </h2>

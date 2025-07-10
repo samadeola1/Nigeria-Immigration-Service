@@ -16,7 +16,7 @@ const Hero = () => {
     {
       image: img1,
       content: (
-        <div className="absolute lg:bottom-60 xl:bottom-50 flex flex-col gap-[30px]">
+        <div className="absolute lg:bottom-60 xl:bottom-30 flex flex-col gap-[30px]">
           <div>
             <h1 className="lg:text-[75px] xl:text-[84px] lg:w-[90%]  font-bold text-white drop-shadow-lg leading-tight">
               Nigeria <span className="text-[#6BCE9C]">Immigration</span>{" "}
@@ -42,7 +42,7 @@ const Hero = () => {
     {
       image: img2,
       content: (
-        <div className="absolute bottom-60 flex flex-col gap-[12px]">
+        <div className="absolute bottom-30  flex flex-col gap-[12px]">
           <h1 className="lg:text-[75px] xl:text-[84px] font-semibold lg:w-[90%] xl:w-[80%] text-white drop-shadow-md leading-relaxed">
             Your Gateway TO A New Life In Nigeria.
           </h1>
@@ -61,7 +61,7 @@ const Hero = () => {
     {
       image: img4,
       content: (
-        <div className="absolute bottom-60 flex flex-col gap-[12px] ">
+        <div className="absolute bottom-30 flex flex-col gap-[12px] ">
           <h1 className="lg:text-[70px] xl:text-[84px] lg:w-[90%] font-semibold  text-white drop-shadow-md ">
             Overstay <span className="text-[#6BCE9C]"> Amnesty</span> and
             Immigration Update
@@ -81,7 +81,7 @@ const Hero = () => {
     {
       image: img3,
       content: (
-        <div className="absolute bottom-60  flex flex-col gap-[12px]">
+        <div className="absolute bottom-30  flex flex-col gap-[12px]">
           <div>
             <p className="lg:text-[75px] xl:text-[84px] lg:w-[55%] font-semibold   text-white  drop-shadow-md leading-relaxed">
               Need Help Or Support?

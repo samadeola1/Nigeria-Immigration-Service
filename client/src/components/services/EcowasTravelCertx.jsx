@@ -23,7 +23,6 @@ const faqs = [
   },
   {
     question: `Requirements for Issuance of ECOWAS Travel Certificate`,
-    // This one already had the classes, so just confirming it's correct.
     answer: `To apply for an ECOWAS Travel Certificate, typical requirements include:
       <ul class="list-disc list-inside mt-2 space-y-1">
         <li>Letter of confirmation of Nigerian Citizenship from applicant's Local Government Chairman.</li>
@@ -55,12 +54,26 @@ const EcowasTravelCertx = () => {
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="w-full border border-[#212121] rounded-xl bg-white"
+              // Removed 'border border-[#212121] rounded-xl' and added 'border-b border-[#212121]'
+              // If you wanted a full border *and* a bottom border, let me know.
+              // For now, it's just a border-bottom as requested.
+              className="w-full border-[2px] rounded-xl border-[#212121] bg-white"
             >
-              <details className="group w-full">
-                <summary className="flex items-center justify-between cursor-pointer px-[20px] py-[15px] font-semibold text-black group-open:text-green-700 transition-colors text-lg md:text-[24px] select-none">
+              <details className="group w-full ">
+                <summary
+                  className="flex items-center justify-between cursor-pointer px-[20px] py-[15px] font-semibold text-black
+                  group-open:bg-green-700 hover:bg-green-700   transition-colors text-lg md:text-[24px]
+                  group-open:rounded-xl hover:rounded-xl group-open:text-white hover:text-white select-none"
+                >
+                  {" "}
+                  {/* Added hover:text-white */}
                   {faq.question}
-                  <span className="ml-2 transition-transform duration-300 group-open:rotate-180 text-black group-open:text-green-700">
+                  <span
+                    className="ml-2 transition-transform duration-300 group-open:rotate-180 text-black
+                  group-open:text-white hover:text-white"
+                  >
+                    {" "}
+                    {/* Added hover:text-white for arrow */}
                     <svg
                       width="24"
                       height="24"
@@ -79,7 +92,7 @@ const EcowasTravelCertx = () => {
                   </span>
                 </summary>
                 <div
-                  className="px-4 pb-5 text-[#474747] text-base md:text-lg"
+                  className="px-4 pb-5 text-[#474747] text-base md:text-lg" // Answer text remains dark grey
                   dangerouslySetInnerHTML={{ __html: faq.answer }}
                 ></div>
               </details>

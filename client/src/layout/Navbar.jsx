@@ -490,7 +490,7 @@ return (
             <div className=" w-auto">
             <div className='flex h-[80px]'>
                 <img src={nav} alt="" />
-              <div className='font-medium text-[18px] '>
+              <div className='font-medium text-[18px] text-white'>
                 <p>NIGERIA</p>
               <p>IMMIGRATION</p>
               <p>SERVICE</p>

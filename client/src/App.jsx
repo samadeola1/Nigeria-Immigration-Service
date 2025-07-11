@@ -8,6 +8,8 @@ import ScrollToTop from "./utils/ScrollToTop";
 const LandingPage = lazy(() => import("./layout/LandingPage"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Services = lazy(() => import("./pages/Services"));
+const InformationCenter = lazy(() => import("./pages/InformationCenter"));
+const ContactUs = lazy(() => import("./pages/ContactUs"));
 
 function App() {
   return (
@@ -25,6 +27,9 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/information-center" element={<InformationCenter />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+
         </Routes>
       </Suspense>
       <Footer />

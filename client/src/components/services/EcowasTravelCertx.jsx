@@ -50,20 +50,18 @@ const EcowasTravelCertx = () => {
         <h1 className="text-3xl lg:text-[44px] font-bold text-[#212121] uppercase text-center mb-8">
           ECOWAS Travel Certificate
         </h1>
-        <div className="w-full  mx-auto flex flex-col gap-[5px]">
+        <div className="w-full  mx-auto flex flex-col gap-[15px]">
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              // Removed 'border border-[#212121] rounded-xl' and added 'border-b border-[#212121]'
-              // If you wanted a full border *and* a bottom border, let me know.
-              // For now, it's just a border-bottom as requested.
-              className="w-full border-[2px] rounded-xl border-[#212121] bg-white"
+             
+              className="w-full border-[2px]  rounded-xl border-[#212121] bg-white"
             >
               <details className="group w-full ">
                 <summary
                   className="flex items-center justify-between cursor-pointer px-[20px] py-[15px] font-semibold text-black
-                  group-open:bg-green-700 hover:bg-green-700   transition-colors text-lg md:text-[24px]
-                  group-open:rounded-xl hover:rounded-xl group-open:text-white hover:text-white select-none"
+                  group-open:bg-[#05AA55] hover:bg-[#05AA55]   transition-colors text-lg md:text-[24px]
+                  group-open:rounded-xl hover:rounded-xl group-open:text-white hover:text-white hover:border-none select-none"
                 >
                   {" "}
                   {/* Added hover:text-white */}
@@ -92,7 +90,7 @@ const EcowasTravelCertx = () => {
                   </span>
                 </summary>
                 <div
-                  className="px-4 pb-5 text-[#474747] text-base md:text-lg" // Answer text remains dark grey
+                  className="px-4 pb-5 text-[#474747] text-base md:text-lg" 
                   dangerouslySetInnerHTML={{ __html: faq.answer }}
                 ></div>
               </details>

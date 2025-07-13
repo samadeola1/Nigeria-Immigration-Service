@@ -54,6 +54,7 @@ function AppContent() {
         <ScrollToTop />
         {/* Routes define the different paths and their corresponding components */}
         <Routes>
+
           <Route path="/" element={<LandingPage />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
@@ -63,6 +64,15 @@ function AppContent() {
           {/* <Route path="/signup" element={<Signup />} /> New: Signup page */}
           {/* <Route path="/forgot-password" element={<ForgotPassword />} />{" "} */}
           {/* New: Forgot Password page */}
+
+          <Route>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/information-center" element={<InformationCenter />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+          </Route>
+
         </Routes>
       </Suspense>
       {/* Conditionally render the Footer component based on the current path */}

@@ -4,6 +4,7 @@ import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import Loader from "./utils/Loader";
 import ScrollToTop from "./utils/ScrollToTop";
+import ForgotPassword from "./auth/ForgotPassword";
 
 const LandingPage = lazy(() => import("./layout/LandingPage"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
@@ -29,6 +30,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/information-center" element={<InformationCenter />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
 
         </Routes>
       </Suspense>

@@ -24,12 +24,13 @@ function App() {
       >
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/information-center" element={<InformationCenter />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-
+          <Route>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/information-center" element={<InformationCenter />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+          </Route>
         </Routes>
       </Suspense>
       <Footer />

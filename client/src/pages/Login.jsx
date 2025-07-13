@@ -1,38 +1,94 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import immigration from "../assets/IMMIGRTION 1.png";
 import logo from "../assets/image 8 (1).png";
 import google from "../assets/devicon_google.png";
 import apple from "../assets/ri_apple-fill.png";
+import { auth, provider } from "../firebase"; // your firebase config file
+import { signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 // Main App component
 export default function Login() {
+  const [animate, setAnimate] = useState(false);
   const [phoneNumberEmail, setPhoneNumberEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate();
 
-  // Handle form submission
-  const handleSignIn = (e) => {
+  useEffect(() => {
+    setTimeout(() => setAnimate(true), 100);
+  }, []);
+
+  const handleSignIn = async (e) => {
     e.preventDefault();
-    // In a real application, you would handle authentication here
-    console.log("Phone Number/Email:", phoneNumberEmail);
-    console.log("Password:", password);
-    console.log("Remember Me:", rememberMe);
-    // You might want to add a message box here instead of console.log for user feedback
-    alert("Sign In button clicked! (Functionality not implemented)");
+
+    const form = {
+      identifier: phoneNumberEmail,
+      password: password,
+    };
+
+    console.log("🔐 Attempting login with:", form);
+
+    try {
+      const res = await axios.post(
+        "http://localhost:3000/api/auth/login",
+        form
+      );
+
+      console.log("✅ Login successful:", res.data);
+
+      const token = res.data.token;
+      if (!token) {
+        console.warn("⚠️ No token received from backend.");
+        alert("Login failed: No token received.");
+        return;
+      }
+
+      // Save token based on "Remember Me"
+      if (rememberMe) {
+        localStorage.setItem("token", token);
+        console.log("🗃️ Token stored in localStorage");
+      } else {
+        sessionStorage.setItem("token", token);
+        console.log("🗃️ Token stored in sessionStorage");
+      }
+
+      navigate("/");
+    } catch (err) {
+      console.error("❌ Login error:", err);
+      alert(err.response?.data?.message || "Login failed. Please try again.");
+    }
   };
 
-  // Handle Google sign-in
-  const handleGoogleSignIn = () => {
-    alert("Sign in with Google clicked! (Functionality not implemented)");
-  };
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
 
-  // Handle Apple sign-in
-  const handleAppleSignIn = () => {
-    alert("Sign in with Apple clicked! (Functionality not implemented)");
+      const token = await user.getIdToken();
+
+      // Save token
+      localStorage.setItem("token", token);
+
+      // Save user info
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          name: user.displayName,
+          photo: user.photoURL,
+        })
+      );
+
+      navigate("/");
+    } catch (error) {
+      console.error("Google sign-in failed", error);
+      alert("Google sign-in failed");
+    }
   };
 
   return (
-    <div className="w-full h-[1024px] flex items-center justify-center bg-white font-sans ">
+    <div className="w-full  flex items-center justify-center bg-white font-sans ">
       <div className="flex flex-col md:flex-row bg-white shadow-lg overflow-hidden w-7xl mx-4">
         {/* Left Section - Image */}
         <div
@@ -134,7 +190,7 @@ export default function Login() {
                 </label>
               </div>
               <a
-                href="#"
+                href="forgot-password"
                 className="text-[#212121] hover:underline text-[16px] font-normal font-poppins"
               >
                 Forgot password?
@@ -144,7 +200,7 @@ export default function Login() {
             {/* Sign in button */}
             <button
               type="submit"
-              className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-md text-[20px] font-semibold font-poppins"
+              className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-md text-[20px] font-semibold font-poppins cursor-pointer"
             >
               Sign in
             </button>
@@ -162,18 +218,10 @@ export default function Login() {
           {/* Social sign-in buttons */}
           <button
             onClick={handleGoogleSignIn}
-            className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 py-2 rounded-md mb-3 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-sm text-[18px] font-semibold font-poppins"
+            className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 py-2 rounded-md mb-3 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-sm text-[18px] font-semibold font-poppins cursor-pointer"
           >
             <img src={google} alt="Google logo" className="w-5 h-5 mr-2" />
             Sign in with Google
-          </button>
-
-          <button
-            onClick={handleAppleSignIn}
-            className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 py-2 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-sm text-[18px] font-semibold font-poppins"
-          >
-            <img src={apple} alt="Apple logo" className="w-5 h-5 mr-2" />
-            Sign in with Apple
           </button>
 
           {/* Don't have an account? Sign up */}

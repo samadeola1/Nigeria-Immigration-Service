@@ -372,13 +372,24 @@ import nav from "../images/image 234.svg";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const [showDropdown, setShowDropdown] = useState(false);
   const mobileMenuRef = useRef(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Handle click outside mobile menu
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("user");
+    setUser(null);
+    setShowDropdown(false);
+    window.location.href = "/login";
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -397,6 +408,18 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const storedUser =
+      localStorage.getItem("user") || sessionStorage.getItem("user");
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (err) {
+        console.error("Invalid user data in storage");
+      }
+    }
+  }, []);
 
   return (
     <>
@@ -464,12 +487,58 @@ const Navbar = () => {
             </NavLink>
           </div>
 
-          {/* Desktop Apply Now Button */}
-          <Link to="/login">
-            <button className="hidden lg:block bg-[#00AA55] hover:bg-green-700 text-white rounded-2xl px-6 py-3 font-medium transition-colors duration-200">
-              Apply now
-            </button>
-          </Link>
+          {/* Desktop Auth Dropdown or Apply Button */}
+          <div className="relative hidden lg:block">
+            {user ? (
+              <div className="relative">
+                <button
+                  onClick={() => setShowDropdown((prev) => !prev)}
+                  className="bg-transparent hover:bg-gray-100 text-[#00AA55] font-poppins rounded-2xl px-4 py-2 font-semibold text-[18px] flex items-center space-x-4 transition-colors duration-200"
+                >
+                  <img
+                    src={user.photo || "https://www.gravatar.com/avatar/?d=mp"}
+                    alt="Profile"
+                    className="w-8 h-8 rounded-full object-cover bg-neutral-200"
+                  />
+                  <span>{user.name}</span>
+                  <svg
+                    className={`w-4 h-4 transition-transform ${
+                      showDropdown ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {showDropdown && (
+                  <div className="absolute right-0 mt-2 bg-white shadow-md rounded-md w-48 py-2 z-50">
+                    <Link
+                      to="/track-application"
+                      className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
+                    >
+                      Track Application
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link to="/login">
+                <button className="bg-[#00AA55] hover:bg-green-700 text-white rounded-2xl px-6 py-3 font-medium transition-colors duration-200">
+                  Apply now
+                </button>
+              </Link>
+            )}
+          </div>
 
           {/* Mobile Hamburger Menu Button */}
           <button
@@ -487,7 +556,6 @@ const Navbar = () => {
           ref={mobileMenuRef}
           className="lg:hidden fixed inset-0 w-full h-[60vh] bg-[#006834] z-50 flex flex-col"
         >
-          {/* Mobile Menu Header */}
           <div className="flex justify-between items-center p-4 ">
             <Link to="/">
               <div className=" w-auto">
@@ -509,7 +577,7 @@ const Navbar = () => {
               <IoMdClose />
             </button>
           </div>
-          {/* Mobile Menu Items */}
+
           <div className="flex-1 px-8 pb-4 space-y-4">
             <Link to="/about-us">
               <div className=" py-4">

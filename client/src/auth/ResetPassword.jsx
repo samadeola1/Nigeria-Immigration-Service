@@ -1,3 +1,43 @@
+
+import React from 'react'
+import { MdOutlineRemoveRedEye } from 'react-icons/md';
+import { FaRegEyeSlash } from 'react-icons/fa6';
+
+const ResetPassword = () => {
+  return (
+    <div className='bg-white w-full h-screen text-black'>
+      <div className='w-[35%] mx-auto pt-[20%] '>
+      <div className='px-[40px] shadow-2xl'>
+       <div>
+         <h1>Choose a new password </h1>
+        <p>To secure your account, choose a strong password 
+you haven’t used before and is at least 8 characters 
+long.</p>
+       </div>
+       <form className='flex flex-col gap-[24px]'>
+          <input
+                                   id="email"
+                                   className="border-[#7E7E7E] border-[2px] w-full text-[#7E7E7E] p-2 outline-none rounded-[5px] px-3 py-3"
+                                   type="email"
+                                   placeholder="New password"
+                               />
+
+                                <input
+                                   id="email"
+                                   className="border-[#7E7E7E] border-[2px] w-full text-[#7E7E7E] p-2 outline-none rounded-[5px] px-3 py-3"
+                                   type="email"
+                                   placeholder="Confirm Password"
+                               />
+       </form>
+      </div>
+    </div>
+    </div>
+  )
+}
+
+export default ResetPassword
+
+
 // import React from 'react'
 // import { useForm } from 'react-hook-form';
 // import { useState } from 'react';
@@ -26,45 +66,45 @@
 //   };
 //   const onSubmit = async (data) => {
 //     // alert(`If an account exists for ${data.password}, a reset link has been sent.`);
-//     reset();
-//     onClose();
-//     setLoading(true);
-//     console.log(data)
+//   //   reset();
+//   //   onClose();
+//   //   setLoading(true);
+//   //   console.log(data)
 
-//     try {
+//   //   try {
       
-//       const response = await fetch('', { 
-//         method: 'PUT',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data),
-//       });
+//   //     const response = await fetch('', { 
+//   //       method: 'PUT',
+//   //       headers: {
+//   //         'Content-Type': 'application/json',
+//   //       },
+//   //       body: JSON.stringify(data),
+//   //     });
       
-//       const resData = await response.json();
-//   console.log(resData);
+//   //     const resData = await response.json();
+//   // console.log(resData);
   
-//       if (resData.detail === "submitted") {
-//         reset();
-//         // You can change to the page you want to redirect to after signup
-//         router.push("/reset-password/:resetToken");
-//         setFormError("");
-//       }else {
-//         setFormError("Something went wrong");
-//       }
-//     } catch (error) {
-//       const apiError = await error.json();
-//       console.log(apiError);
-//     } finally {
-//       setLoading(false);
-//     }
+//   //     if (resData.detail === "submitted") {
+//   //       reset();
+//   //       // You can change to the page you want to redirect to after signup
+//   //       router.PUT("reset-password/:resetToken");
+//   //       setFormError("");
+//   //     }else {
+//   //       setFormError("Something went wrong");
+//   //     }
+//   //   } catch (error) {
+//   //     const apiError = await error.json();
+//   //     console.log(apiError);
+//   //   } finally {
+//   //     setLoading(false);
+//   //   }
 //   };
 
 //    if (!isOpen) return null;
 //   return (
 //     <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#516B86]">
 //       <div className='bg-white p-10 w-[55%] mx-auto  shadow-lg '>
-//         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-[42px]'>
+//         <form onSubmit={handleSubmit(onSubmit())} className='flex flex-col gap-[42px]'>
 //         {formError && <p className="text-red-500 font-bold">{formError}</p>}
 //        <div className=' relative flex flex-col justify-left gap-[20px]'>
 //           <input

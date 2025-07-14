@@ -1,39 +1,35 @@
 import React from "react";
+import Hero from "../components/contact us/Hero";
+import MapSection from "../components/contact us/MapSection";
+import ContactInfoSection from "../components/contact us/ContactInfoSection";
+import ContactFormSection from "../components/contact us/ContactFormSection";
 
 const ContactUs = () => {
   return (
     <>
-      <div
-        className="hero min-h-screen"
-        style={{
-          backgroundImage:
-            "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
-        }}
-      >
-        <div className="hero-overlay"></div>
-        <div className="hero-content text-neutral-content text-center">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-            <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
-          </div>
+      {/* Hero section, typically full-width and responsive */}
+      <Hero />
+
+      {/* Main content wrapper for contact information and form */}
+      <div className="w-11/12 mx-auto container  py-10 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-stretch">
+        {/*
+          Contact Form Section:
+          - order-1: Appears first on mobile screens (default order in a single column).
+          - lg:order-2: Moves to the second column (right side) on large screens.
+        */}
+        <div className="order-1 lg:order-2">
+          <ContactFormSection />
+        </div>
+
+        <div className="order-2 lg:order-1">
+         
+          {/* Contact Information component */}
+          <ContactInfoSection />
         </div>
       </div>
 
-      <div className="max-w-full mx-auto">
-        <iframe
-          className="w-full h-[300px] md:h-[400px] xl:h-[600px] border-0"
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7881.257663928758!2d7.259978393579101!3d9.006258900000006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e64df70000001%3A0x56c3036f67950230!2sNigeria%20Immigration%20Service%20Headquarters%20Abuja!5e0!3m2!1sen!2sus!4v1752174700388!5m2!1sen!2sus" 
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Location Map" 
-        ></iframe>
-      </div>
+      {/* Map section, typically full-width and responsive */}
+      <MapSection />
     </>
   );
 };

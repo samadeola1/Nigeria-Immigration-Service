@@ -387,7 +387,7 @@ const Navbar = () => {
     sessionStorage.removeItem("user");
     setUser(null);
     setShowDropdown(false);
-    window.location.href = "/login";
+    window.location.href = "/signin";
   };
 
   useEffect(() => {
@@ -493,7 +493,7 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={() => setShowDropdown((prev) => !prev)}
-                  className="bg-transparent hover:bg-gray-100 text-[#00AA55] font-poppins rounded-2xl px-4 py-2 font-semibold text-[18px] flex items-center space-x-4 transition-colors duration-200"
+                  className="bg-transparent hover:bg-gray-100 text-[#00AA55] font-poppins rounded-2xl py-2 font-semibold text-[18px] flex items-center space-x-4 transition-colors duration-200"
                 >
                   <img
                     src={user.photo || "https://www.gravatar.com/avatar/?d=mp"}
@@ -506,7 +506,7 @@ const Navbar = () => {
                       showDropdown ? "rotate-180" : ""
                     }`}
                     fill="none"
-                    stroke="currentColor"
+                    stroke="gray" // 👈 Set arrow color here
                     strokeWidth="2"
                     viewBox="0 0 24 24"
                   >
@@ -532,7 +532,7 @@ const Navbar = () => {
                 )}
               </div>
             ) : (
-              <Link to="/login">
+              <Link to="/signin">
                 <button className="bg-[#00AA55] hover:bg-green-700 text-white rounded-2xl px-6 py-3 font-medium transition-colors duration-200">
                   Apply now
                 </button>

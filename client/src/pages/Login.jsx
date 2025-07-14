@@ -5,7 +5,7 @@ import logo from "../assets/image 8 (1).png";
 import google from "../assets/devicon_google.png";
 import apple from "../assets/ri_apple-fill.png";
 import { auth, provider } from "../firebase"; // your firebase config file
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
 // Main App component

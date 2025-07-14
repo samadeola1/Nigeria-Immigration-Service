@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from "react";
+
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"; // Import useLocation
 import Navbar from "./layout/Navbar.jsx"; // Added .jsx extension
 import Footer from "./layout/Footer.jsx"; // Added .jsx extension
@@ -14,6 +15,7 @@ const AboutUs = lazy(() => import("./pages/AboutUs.jsx")); // Added .jsx extensi
 const Services = lazy(() => import("./pages/Services.jsx")); // Added .jsx extension
 const InformationCenter = lazy(() => import("./pages/InformationCenter.jsx")); // Added .jsx extension
 const ContactUs = lazy(() => import("./pages/ContactUs.jsx")); // Added .jsx extension
+
 
 function App() {
   return (
@@ -57,18 +59,12 @@ function AppContent() {
           <Route path="/services" element={<Services />} />
           <Route path="/information-center" element={<InformationCenter />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/login" element={<Login />} /> {/* The login page */}
+
+          <Route path="/login" element={<Login />} /> 
           <Route path="/signup" element={<SignUp/>} /> 
           <Route path="/forgot-password" element= {<ForgotPassword/>} /> 
-          <Route path="/reset-password/:token" element={<ResetPassword/>} /> {/* Reset password page with token */}
+          <Route path="/reset-password/:token" element={<ResetPassword/>} /> 
 
-          <Route>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/information-center" element={<InformationCenter />} />
-            <Route path="/contact-us" element={<ContactUs />} />
-          </Route>
 
         </Routes>
       </Suspense>

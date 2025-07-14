@@ -1,8 +1,15 @@
 import React from "react";
-
+import logo from "../assets/image 234.png"
 const ForgotPassword = () => {
   return (
     <div className="min-h-screen bg-[#f5f5f5] flex flex-col">
+        <header className="bg-white px-6 py-4 shadow-sm">
+        <img
+          src={logo}
+          alt="Nigeria Immigration Service"
+          className="h-25px"
+        />
+      </header>
 
       {/* Form Card */}
       <main className="flex-grow flex items-center justify-center px-4">

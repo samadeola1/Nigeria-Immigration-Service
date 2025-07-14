@@ -7,10 +7,10 @@ const VisitorMobile = () => {
       <main className="bg-green-800 lg:hidden">
         <section className=" overflow-hidden text-white px-4 md:px-16 py-10 container mx-auto flex-col  items-center justify-center gap-5 ">
           <div className="text-center ">
-            <h2 className="text-xl md:text-2xl font-semibold">
+            <div className="text-xl md:text-2xl font-semibold">
               Visitors with <br className="md:hidden" />
               <h2>irregular status</h2>
-            </h2>
+            </div>
           </div>
 
           {/* Center Text */}

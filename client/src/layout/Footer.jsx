@@ -75,9 +75,9 @@ const Footer = () => {
         </div>
 
         {/* Socials */}
-        <div className='flex flex-col'>
+        <div className=' flex-col'>
           <h4 className="font-semibold text-lg ">Socials</h4>
-          <div className="flex space-x-4 text-lg">
+          <div className=" space-x-4 text-lg">
             <a href="#" className="hover:text-gray-300"><FaFacebookF /></a>
             <a href="#" className="hover:text-gray-300"><FaInstagram /></a>
             <a href="#" className="hover:text-gray-300"><FaTwitter /></a>

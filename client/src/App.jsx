@@ -4,7 +4,8 @@ import Navbar from "./layout/Navbar.jsx"; // Added .jsx extension
 import Footer from "./layout/Footer.jsx"; // Added .jsx extension
 import Loader from "./utils/Loader.jsx"; // Added .jsx extension
 import ScrollToTop from "./utils/ScrollToTop.jsx"; // Added .jsx extension
-import SignIn from "./auth/SignIn.jsx"; // Added .jsx extension
+import SignIn from "./auth/SignIn.jsx";
+import SignUp from "./auth/SignUp.jsx"; // Added .jsx extension
 // Lazy load components for better performance
 const LandingPage = lazy(() => import("./layout/LandingPage.jsx")); // Added .jsx extension
 const AboutUs = lazy(() => import("./pages/AboutUs.jsx")); // Added .jsx extension
@@ -60,7 +61,7 @@ function AppContent() {
           <Route path="/information-center" element={<InformationCenter />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/signin" element={<SignIn />} /> {/* The signin page */}
-          {/* <Route path="/signup" element={<Signup />} /> New: Signup page */}
+          <Route path="/signup" element={<SignUp />} /> {/* New: SignUp page */}
           {/* <Route path="/forgot-password" element={<ForgotPassword />} />{" "} */}
           {/* New: Forgot Password page */}
           <Route>

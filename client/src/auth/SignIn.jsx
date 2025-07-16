@@ -88,7 +88,7 @@ export default function Login() {
 
   return (
     <div className="w-full  flex items-center justify-center bg-white font-sans ">
-      <div className="flex flex-col md:flex-row bg-white shadow-lg overflow-hidden w-7xl mx-4">
+      <div className="flex flex-col md:flex-row bg-white shadow-lg overflow-hidden w-full">
         {/* Left Section - Image */}
         <div
           className="w-1/2 bg-cover bg-center"
@@ -98,7 +98,7 @@ export default function Login() {
         ></div>
 
         {/* Right Section - Login Form */}
-        <div className="md:w-1/2 py-8 px-5 lg:px-25 lg:py-10 flex flex-col justify-center">
+        <div className="md:max-w-1/2 mx-auto py-8 px-5 lg:px-40 lg:py-10 flex flex-col justify-center">
           {/* Logo*/}
           <a href="/">
             <div className="flex items-center justify-center mb-6">
@@ -106,11 +106,11 @@ export default function Login() {
             </div>
           </a>
 
-          <h2 className="text-[28px] font-poppins font-bold text-gray-800 text-center mb-2">
+          <h2 className="text-[24px] md:text-[28px] font-poppins font-bold text-gray-800 text-center mb-2">
             Welcome to the Nigeria immigration Portal
           </h2>
 
-          <p className="text-gray-600 text-center mb-8 text-[20px] font-normal font-poppins">
+          <p className="text-gray-600 text-center mb-8 text-[16px] md:text-[20px] font-normal font-poppins">
             Sign in securely to access passport, visa and permit services.
           </p>
 
@@ -185,14 +185,14 @@ export default function Login() {
                 />
                 <label
                   htmlFor="rememberMe"
-                  className="ml-2 text-[#212121] text-[16px] font-normal font-poppins"
+                  className="ml-2 text-[#212121] text-[14px] md:text-[16px] font-normal font-poppins"
                 >
                   Remember me
                 </label>
               </div>
               <a
                 href="forgot-password"
-                className="text-[#212121] hover:underline text-[16px] font-normal font-poppins"
+                className="text-[#212121] hover:underline text-[14px] md:text-[16px] font-normal font-poppins"
               >
                 Forgot password?
               </a>
@@ -229,7 +229,7 @@ export default function Login() {
           <p className="text-center text-sm text-gray-700 mt-6">
             Don't have an account?{" "}
             <a
-              href="#"
+              href="/signup"
               className="text-[#00AA55]  hover:underline font-poppinstext-[16px]"
             >
               Sign up

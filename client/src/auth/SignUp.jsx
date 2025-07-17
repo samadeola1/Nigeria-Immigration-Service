@@ -45,7 +45,7 @@ export default function SignUp() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/services/sign-up",
+        "https://nigeria-immigration-service.onrender.com/api/services/sign-up",
         payload
       );
       const token = res.data.user?.token || res.data.token;

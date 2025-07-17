@@ -51,7 +51,7 @@ const ResetPassword = () => {
     console.log("Using resetToken:", resetToken);
 
     try {
-      const apiUrl = `http://localhost:3000/api/services/reset-password/${resetToken}`;
+      const apiUrl = `https://nigeria-immigration-service.onrender.com/api/services/reset-password/${resetToken}`;
 
       const response = await fetch(apiUrl, {
         method: "PUT",

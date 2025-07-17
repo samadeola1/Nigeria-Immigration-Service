@@ -58,7 +58,7 @@ const FAQ = () => {
                 ? "bg-[#05AA55] text-white rounded-xl"
                 : "text-[#212121]"
             }
-            hover:bg-[#05AA55] hover:text-white transition-colors`}
+            hover:bg-[#05AA55] rounded-xl hover:text-white transition-colors`}
           onClick={() => handleToggle(idx)} // Toggle this FAQ
         >
           <span>{faq.question}</span> {/* Display the question text */}

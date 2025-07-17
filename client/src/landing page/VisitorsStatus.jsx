@@ -1,8 +1,5 @@
-import React from 'react'
-import {  FiArrowRight  } from "react-icons/fi";
-
-
-
+import React from "react";
+import { FiArrowRight } from "react-icons/fi";
 
 const VisitorsStatus = () => {
   return (
@@ -20,37 +17,25 @@ const VisitorsStatus = () => {
         </div>
       </div>
 
-      {/* Divider */}
-      <div className="hidden md:block w-px h-20 bg-white opacity-40" />
+          {/* Divider */}
+          <div className="hidden md:block w-px h-20 bg-white opacity-40" />
 
-      {/* Center Text */}
-      <div className="flex-1 text-center md:text-left text-sm md:text-base">
-       <p>
-        Regularize your immigration status in Nigeria 
-           
-          before the grace
-          period ends on 1st August 2025
-        Take advantage of this chance to
-          regularize your
-          stay and avoid future immigration complications
-       </p>
-       
-      </div>
-      
+          {/* Center Text */}
+          <div className="flex-1 text-center md:text-left text-sm md:text-base">
+            <p>
+              Regularize your immigration status in Nigeria before the grace
+              period ends on 1st August 2025 Take advantage of this chance to
+              regularize your stay and avoid future immigration complications
+            </p>
+          </div>
 
-      
-      <button className="bg-green-500 hover:bg-[#00AA55] text-white font-semibold  py-2 p-3 rounded-lg flex items-center gap- whitespace-nowrap">
-        Click here now <FiArrowRight />
-      </button>
-      
-    </section>
-    </main>
-  
-  </>
-   
-    
-
-  )
+          <button className="bg-green-500 hover:bg-[#00AA55] text-white font-semibold  py-2 p-3 rounded-lg flex items-center gap- whitespace-nowrap">
+            Click here now <FiArrowRight />
+          </button>
+        </section>
+      </main>
+    </>
+  );
 };
 
-export default VisitorsStatus
+export default VisitorsStatus;

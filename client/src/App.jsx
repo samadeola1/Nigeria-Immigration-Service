@@ -1,76 +1,92 @@
-import React, { lazy, Suspense } from "react";
 
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"; // Import useLocation
-import Navbar from "./layout/Navbar.jsx"; // Added .jsx extension
-import Footer from "./layout/Footer.jsx"; // Added .jsx extension
-import Loader from "./utils/Loader.jsx"; // Added .jsx extension
-import ScrollToTop from "./utils/ScrollToTop.jsx"; // Added .jsx extension
-import Login from "./pages/Login.jsx"; // Added .jsx extension
-import SignUp from "./auth/SignUp.jsx";
+import React, { lazy, Suspense, memo } from "react"; // Import memo
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
+// Memoize directly imported components
+import Navbar from "./layout/Navbar.jsx";
+import Footer from "./layout/Footer.jsx";
+import Loader from "./utils/Loader.jsx";
+import ScrollToTop from "./utils/ScrollToTop.jsx";
+import SignIn from "./auth/SignIn.jsx";
+import SignUp from "./auth/SignUp.jsx"; 
 import ForgotPassword from "./auth/ForgotPassword.jsx";
-import ResetPassword from "./auth/ResetPassword.jsx"; // Added .jsx extension
-// Lazy load components for better performance
-const LandingPage = lazy(() => import("./layout/LandingPage.jsx")); // Added .jsx extension
-const AboutUs = lazy(() => import("./pages/AboutUs.jsx")); // Added .jsx extension
-const Services = lazy(() => import("./pages/Services.jsx")); // Added .jsx extension
-const InformationCenter = lazy(() => import("./pages/InformationCenter.jsx")); // Added .jsx extension
-const ContactUs = lazy(() => import("./pages/ContactUs.jsx")); // Added .jsx extension
+import ResetPassword from "./auth/ResetPassword.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 
+// Lazy load and memoize components
+const MemoizedLandingPage = memo(
+  lazy(() => import("./layout/LandingPage.jsx"))
+);
+const MemoizedAboutUs = memo(lazy(() => import("./pages/AboutUs.jsx")));
+const MemoizedServices = memo(lazy(() => import("./pages/Services.jsx")));
+const MemoizedInformationCenter = memo(
+  lazy(() => import("./pages/InformationCenter.jsx"))
+);
+const MemoizedContactUs = memo(lazy(() => import("./pages/ContactUs.jsx")));
+
+// Memoize components that are directly used in routes
+const MemoizedNavbar = memo(Navbar);
+const MemoizedFooter = memo(Footer);
+const MemoizedLoader = memo(Loader);
+const MemoizedScrollToTop = memo(ScrollToTop);
+const MemoizedSignIn = memo(SignIn);
+const MemoizedSignUp = memo(SignUp);
+const MemoizedForgotPassword = memo(ForgotPassword);
+const MemoizedResetPassword = memo(ResetPassword);
+const MemoizedErrorPage = memo(ErrorPage);
 
 function App() {
   return (
     <BrowserRouter>
-      {/* AppContent is a wrapper component that can utilize React Router hooks */}
       <AppContent />
     </BrowserRouter>
   );
 }
-/**
- * AppContent component handles the conditional display of the Navbar and Footer
- * and defines all the application routes.
- */
-function AppContent() {
-  // useLocation hook provides access to the current URL's location object
-  const location = useLocation();
-  // Define an array of paths where Navbar and Footer should be hidden
-  const pathsToHideLayout = ["/login", "/forgot-password", "/signup", "/reset-password"];
-  // Determine if the Navbar and Footer should be shown.
-  // They will be hidden if the current path is in the pathsToHideLayout array.
-  const showLayout = !pathsToHideLayout.includes(location.pathname);
+
+
+  const isAuthPath =
+    location.pathname === "/signin" ||
+    location.pathname === "/signup" ||
+    location.pathname === "/forgot-password" ||
+    location.pathname.startsWith("/reset-password/");
+
+  const showLayout = layoutVisiblePaths.has(location.pathname) && !isAuthPath;
+
   return (
     <>
-      {/* Conditionally render the Navbar component based on the current path */}
-      {showLayout && <Navbar />}
-      {/* Suspense is used for lazy-loaded components, showing a Loader while they load */}
+      {showLayout && <MemoizedNavbar />}
       <Suspense
         fallback={
           <div className="min-h-screen flex flex-row items-center justify-center gap-2">
-            <Loader /> {/* Display a loader component */}
+            <MemoizedLoader />
           </div>
         }
       >
-        {/* ScrollToTop component ensures the page scrolls to the top on route changes */}
-        <ScrollToTop />
-        {/* Routes define the different paths and their corresponding components */}
+        <MemoizedScrollToTop />
         <Routes>
+      
+          <Route path="/" element={<MemoizedLandingPage />} />
+          <Route path="/about-us" element={<MemoizedAboutUs />} />
+          <Route path="/services" element={<MemoizedServices />} />
+          <Route
+            path="/information-center"
+            element={<MemoizedInformationCenter />}
+          />
+          <Route path="/contact-us" element={<MemoizedContactUs />} />
 
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/information-center" element={<InformationCenter />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-
-          <Route path="/login" element={<Login />} /> 
-          <Route path="/signup" element={<SignUp/>} /> 
-          <Route path="/forgot-password" element= {<ForgotPassword/>} /> 
-          <Route path="/reset-password" element={<ResetPassword/>} /> 
-
-
+          <Route path="/signin" element={<MemoizedSignIn />} />
+          <Route path="/signup" element={<MemoizedSignUp />} />
+          <Route path="/forgot-password" element={<MemoizedForgotPassword />} />
+          <Route
+            path="/reset-password/:resetToken"
+            element={<MemoizedResetPassword />}
+          />
+          <Route path="*" element={<MemoizedErrorPage />} />
         </Routes>
       </Suspense>
-      {/* Conditionally render the Footer component based on the current path */}
-      {showLayout && <Footer />}
+      {showLayout && <MemoizedFooter />}
     </>
   );
-}
+
+
 export default App;

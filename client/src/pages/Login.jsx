@@ -32,7 +32,7 @@ export default function Login() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/login",
+        "http://localhost:3000/api/services/sign-in",
         form
       );
 

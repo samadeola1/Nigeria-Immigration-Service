@@ -14,7 +14,6 @@ export default function Login() {
   const [animate, setAnimate] = useState(false);
   const [loading, setLoading] = useState(false); // State for form submission loading
 
-  // React Hook Form setup
   const {
     register,
     handleSubmit,

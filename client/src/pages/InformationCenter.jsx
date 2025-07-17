@@ -5,6 +5,7 @@ import Countdown from '../components/information centre/Countdown'
 import RegularizeVisa from '../components/information centre/RegularizeVisa'
 import EligibleForVisa from '../components/information centre/EligibleForVisa'
 import FAQ from '../components/information centre/FAQ'
+import ImportantUpdates from '../landing page/ImportantUpdates'
 
 const InformationCenter = () => {
   return (
@@ -16,6 +17,7 @@ const InformationCenter = () => {
     <RegularizeVisa/>
     <EligibleForVisa/>
     <FAQ/>
+    <ImportantUpdates/>
 
    </div>
    </>

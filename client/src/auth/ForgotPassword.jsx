@@ -31,7 +31,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/services/forget-password",
+        "https://nigeria-immigration-service.onrender.com/api/services/forget-password",
         {
           method: "POST", // Assuming POST for sending forget password request
           headers: {

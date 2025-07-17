@@ -6,7 +6,7 @@ import workingHoursIcon from "../../assets/working-hours-icon.svg";
 
 const ContactInfoSection = () => {
   return (
-    <div className="flex-1 w-full  bg-white rounded-md">
+    <div className="flex-1 w-full p-4 bg-white rounded-md">
       <div className="">
         <h2 className="text-[20px]  md:text-[28px] xl:text-[44px] font-bold text-[#000101] mb-4">
           Get In Touch With Us

@@ -138,7 +138,7 @@ const ContactFormSection = () => {
             type="text"
             id="name"
             placeholder="full Name*"
-            className={`w-full p-3  bg-[#FFFFFF] rounded-md focus:outline-none  text-[#4B4B4B]  hover:ring-1 hover:ring-[#008A3F] transition-all duration-200 ${
+            className={`w-full p-4  bg-[#FFFFFF] rounded-md focus:outline-none  text-[#4B4B4B]  hover:ring-1 hover:ring-[#008A3F] transition-all duration-200 ${
               errors.name ? "border-red-500 ring-red-500" : ""
             }`}
             value={formData.name}

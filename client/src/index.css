@@ -26,6 +26,14 @@
   
 }
 
+.info {
+  background-image: url('../src/images/image\ 252\ \(1\).svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 18rem 3rem 8rem 3rem;
+  
+}
+
 
 body {
   font-family: var(--font-poppins);
@@ -45,8 +53,17 @@ body {
 @media (width > 768px) {
   .service {
     background-image: url('../src/images/image\ 248.svg');
-    padding-top: 16rem;
-    padding-bottom: 16rem;
+    /* padding-top: 16rem;
+    padding-bottom: 16rem; */
+  }
+ 
+}
+
+@media (width > 768px) {
+  .info {
+    background-image: url('../src/images/image\ 252.svg');
+    padding-top: 14rem;
+    padding-bottom: 14rem;
   }
  
 }

@@ -1,5 +1,4 @@
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form"; import { useState, useEffect } from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { useParams, useNavigate } from "react-router-dom";
@@ -205,4 +204,3 @@ const ResetPassword = () => {
 };
 
 export default ResetPassword;
-

@@ -1,4 +1,3 @@
-
 import React, { lazy, Suspense, memo } from "react"; // Import memo
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
@@ -8,7 +7,7 @@ import Footer from "./layout/Footer.jsx";
 import Loader from "./utils/Loader.jsx";
 import ScrollToTop from "./utils/ScrollToTop.jsx";
 import SignIn from "./auth/SignIn.jsx";
-import SignUp from "./auth/SignUp.jsx"; 
+import SignUp from "./auth/SignUp.jsx";
 import ForgotPassword from "./auth/ForgotPassword.jsx";
 import ResetPassword from "./auth/ResetPassword.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
@@ -43,6 +42,16 @@ function App() {
   );
 }
 
+function AppContent() {
+  const location = useLocation();
+
+  const layoutVisiblePaths = new Set([
+    "/",
+    "/about-us",
+    "/services",
+    "/information-center",
+    "/contact-us",
+  ]);
 
   const isAuthPath =
     location.pathname === "/signin" ||
@@ -64,7 +73,6 @@ function App() {
       >
         <MemoizedScrollToTop />
         <Routes>
-      
           <Route path="/" element={<MemoizedLandingPage />} />
           <Route path="/about-us" element={<MemoizedAboutUs />} />
           <Route path="/services" element={<MemoizedServices />} />
@@ -87,6 +95,6 @@ function App() {
       {showLayout && <MemoizedFooter />}
     </>
   );
-
+}
 
 export default App;

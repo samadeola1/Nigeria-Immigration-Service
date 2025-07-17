@@ -1,3 +1,4 @@
+
 import React, { lazy, Suspense, memo } from "react"; // Import memo
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
@@ -6,8 +7,8 @@ import Navbar from "./layout/Navbar.jsx";
 import Footer from "./layout/Footer.jsx";
 import Loader from "./utils/Loader.jsx";
 import ScrollToTop from "./utils/ScrollToTop.jsx";
-import Login from "./pages/Login.jsx";
-import SignUp from "./auth/SignUp.jsx";
+import SignIn from "./auth/SignIn.jsx";
+import SignUp from "./auth/SignUp.jsx"; 
 import ForgotPassword from "./auth/ForgotPassword.jsx";
 import ResetPassword from "./auth/ResetPassword.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
@@ -28,7 +29,7 @@ const MemoizedNavbar = memo(Navbar);
 const MemoizedFooter = memo(Footer);
 const MemoizedLoader = memo(Loader);
 const MemoizedScrollToTop = memo(ScrollToTop);
-const MemoizedLogin = memo(Login);
+const MemoizedSignIn = memo(SignIn);
 const MemoizedSignUp = memo(SignUp);
 const MemoizedForgotPassword = memo(ForgotPassword);
 const MemoizedResetPassword = memo(ResetPassword);
@@ -42,19 +43,9 @@ function App() {
   );
 }
 
-function AppContent() {
-  const location = useLocation();
-
-  const layoutVisiblePaths = new Set([
-    "/",
-    "/about-us",
-    "/services",
-    "/information-center",
-    "/contact-us",
-  ]);
 
   const isAuthPath =
-    location.pathname === "/login" ||
+    location.pathname === "/signin" ||
     location.pathname === "/signup" ||
     location.pathname === "/forgot-password" ||
     location.pathname.startsWith("/reset-password/");
@@ -73,6 +64,7 @@ function AppContent() {
       >
         <MemoizedScrollToTop />
         <Routes>
+      
           <Route path="/" element={<MemoizedLandingPage />} />
           <Route path="/about-us" element={<MemoizedAboutUs />} />
           <Route path="/services" element={<MemoizedServices />} />
@@ -82,7 +74,7 @@ function AppContent() {
           />
           <Route path="/contact-us" element={<MemoizedContactUs />} />
 
-          <Route path="/login" element={<MemoizedLogin />} />
+          <Route path="/signin" element={<MemoizedSignIn />} />
           <Route path="/signup" element={<MemoizedSignUp />} />
           <Route path="/forgot-password" element={<MemoizedForgotPassword />} />
           <Route
@@ -95,6 +87,6 @@ function AppContent() {
       {showLayout && <MemoizedFooter />}
     </>
   );
-}
+
 
 export default App;

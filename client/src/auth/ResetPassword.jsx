@@ -1,5 +1,4 @@
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form"; import { useState, useEffect } from "react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { useParams, useNavigate } from "react-router-dom";
@@ -50,7 +49,7 @@ const ResetPassword = () => {
     console.log("Using resetToken:", resetToken);
 
     try {
-      const apiUrl = `https://nigeria-immigration-service.onrender.com/api/services/reset-password/${resetToken}`;
+      const apiUrl = `http://localhost:3000/api/services/reset-password/${resetToken}`;
 
       const response = await fetch(apiUrl, {
         method: "PUT",
@@ -205,4 +204,3 @@ const ResetPassword = () => {
 };
 
 export default ResetPassword;
-

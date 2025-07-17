@@ -6,7 +6,7 @@ import serviceRoute from './routes/serviceRoute.js';
 import subscriberRoute from './routes/subsriberRoute.js';
 import contactRoute from './routes/contactRoute.js';
 import faqRoute from "./routes/faqRoute.js";
-import excelDownloadRoute from './routes/excelDowloadRoute.js';
+
 
 
 
@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use(cors());
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res)=> {
     return res.send("welcome to Nigeria Immigration")
@@ -29,11 +29,11 @@ app.get("/", (req, res)=> {
    app.use('/api/subscribers', subscriberRoute);
    app.use('/api/contacts', contactRoute);
    app.use('/api/faqs', faqRoute);
-   app.use('/api/exceldownloads', excelDownloadRoute);
+   
 
 
     // START THE SERVER
 app.listen(PORT, () => {
     connectDB();
-    console.log(`server is running on port ${PORT}`);
+    console.log(`server is running on port http://localhost:${PORT}`);
 })          

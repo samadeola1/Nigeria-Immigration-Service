@@ -1,49 +1,38 @@
 import React, { useState } from "react";
 
+// List of FAQ items with questions and answers
 const faqs = [
   {
-    question: "Eligibility",
+    question: "How do I check the status of my visa application?",
     answer:
-      '<ul class="list-disc list-inside space-y-1"><li>All Nationals of countries that are signatories to the ECOWAS Treaty</li></ul>',
+      "You can check your status via the immigration portal or contact support.",
   },
   {
-    question: "Validity",
+    question: "Who qualifies for the visa amnesty program?",
     answer:
-      '<ul class="list-disc list-inside space-y-1"><li>It is valid for travel in ECOWAS sub region</li></ul>',
+      "Anyone with expired short-term visa or CERPAC over 30 days may qualify.",
   },
   {
-    question: "Purpose of Travel Certificate",
+    question: "Where can I apply for a CERPAC card?",
     answer:
-      '<ul class="list-disc list-inside space-y-1"><li>Passport.</li><li>It is a recognized travel document valid for travels within the Sixteen (16) Countries of ECOWAS.</li><li>Form of Identity</li><li>This proves that the holder is a community citizen.</li><li> It can be held concurrently with the National Passport</li></ul>',
+      "Submit documented proof and contact support for further instruction.",
   },
   {
-    question: "Issuing Authority",
+    question: "What if I overstayed my visa due to illness or emergency?",
     answer:
-      '<ul class="list-disc list-inside space-y-1"><li>In Nigeria, the ECOWAS Travel Certificate is issued by the Nigeria Immigration Service (NIS).</li><li>You can obtain it at NIS Service Headquarters, State Commands, FCT office, and various local government immigration offices.</li></ul>',
+      "Submit documented proof and contact support for further instruction.",
   },
   {
-    question: `Requirements for Issuance of ECOWAS Travel Certificate`,
-    answer: `To apply for an ECOWAS Travel Certificate, typical requirements include:
-      <ul class="list-disc list-inside mt-2 space-y-1">
-        <li>Letter of confirmation of Nigerian Citizenship from applicant's Local Government Chairman.</li>
-        <li>National Identification Number (NIN).</li>
-        <li>Original Birth Certificate or Age Declaration.</li>
-        <li>Certificate of State of Origin.</li>
-        <li>Passport-sized Photographs (usually two).</li>
-        <li>A duly filled and signed Guarantor's form, accompanied by the guarantor's valid ID.</li>
-        <li>Evidence of online payment for the application fee.</li>
-        <li>For students/trainees, a letter of introduction from their institution accepting immigration responsibility.</li>
-      </ul>
-      `
+    question: `Where do I report suspicious visa agents?`,
+    answer: `Yes, via the official portal using a sponsor's application.`,
   },
   {
-    question: "Replacements and Amendments",
-    answer:
-      '<ul class="list-disc list-inside space-y-1"><li>Application for replacement shall be made in the same or any other prescribed form, and supported by attaching the Certificate to be replaced. Lost or stolen certificate may only be replaced after a reasonable time must have been elapsed (i.e about two to six months) and must be supported with.</li></ul>',
+    question: "Is payment online secure?",
+    answer: "Yes. Ensure you're using the official immigration.gov.ng site.",
   },
 ];
 
-const EcowasTravelCertx = () => {
+const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null); // Track the index of the currently open FAQ
 
   // Function to toggle a question open/closed
@@ -100,7 +89,7 @@ const EcowasTravelCertx = () => {
         {/* Conditionally render the answer if this question is open */}
         {openIndex === idx && (
           <div
-            className="px-4 pb-5 mt-5 text-[#8b8989] text-base md:text-lg"
+            className="px-4 pb-5 text-[#8b8989] text-base md:text-lg"
             dangerouslySetInnerHTML={{ __html: faq.answer }} // Inject raw HTML for answer
           />
         )}
@@ -111,7 +100,7 @@ const EcowasTravelCertx = () => {
     <div className="w-full bg-white py-10 px-4 md:px-0">
       <div className="w-full md:w-11/12 container mx-auto">
         <h1 className="text-3xl lg:text-[44px] font-bold text-[#212121] uppercase text-center mb-8">
-         ECOWAS TRAVEL CERTIFICATE
+          Frequently Asked Questions
         </h1>
 
         {/* Responsive layout: show smaller list on mobile, full list on desktop */}
@@ -126,4 +115,4 @@ const EcowasTravelCertx = () => {
   );
 };
 
-export default EcowasTravelCertx;
+export default FAQ;

@@ -6,7 +6,7 @@ import Navbar from "./layout/Navbar.jsx";
 import Footer from "./layout/Footer.jsx";
 import Loader from "./utils/Loader.jsx";
 import ScrollToTop from "./utils/ScrollToTop.jsx";
-import Login from "./pages/Login.jsx";
+import SignIn from "./auth/SignIn.jsx";
 import SignUp from "./auth/SignUp.jsx";
 import ForgotPassword from "./auth/ForgotPassword.jsx";
 import ResetPassword from "./auth/ResetPassword.jsx";
@@ -28,7 +28,7 @@ const MemoizedNavbar = memo(Navbar);
 const MemoizedFooter = memo(Footer);
 const MemoizedLoader = memo(Loader);
 const MemoizedScrollToTop = memo(ScrollToTop);
-const MemoizedLogin = memo(Login);
+const MemoizedSignIn = memo(SignIn);
 const MemoizedSignUp = memo(SignUp);
 const MemoizedForgotPassword = memo(ForgotPassword);
 const MemoizedResetPassword = memo(ResetPassword);
@@ -82,7 +82,7 @@ function AppContent() {
           />
           <Route path="/contact-us" element={<MemoizedContactUs />} />
 
-          <Route path="/login" element={<MemoizedLogin />} />
+          <Route path="/signin" element={<MemoizedSignIn />} />
           <Route path="/signup" element={<MemoizedSignUp />} />
           <Route path="/forgot-password" element={<MemoizedForgotPassword />} />
           <Route

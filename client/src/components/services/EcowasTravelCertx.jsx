@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 const faqs = [
   {
     question: "Eligibility",
     answer:
-      '<ul class="list-disc list-inside space-y-1"><li>The ECOWAS Travel Certificate is issued to Nigerian citizens desirous of traveling to other ECOWAS member states.</li></ul>',
+      '<ul class="list-disc list-inside space-y-1"><li>All Nationals of countries that are signatories to the ECOWAS Treaty</li></ul>',
   },
   {
     question: "Validity",
     answer:
-      '<ul class="list-disc list-inside space-y-1"><li>An ECOWAS Travel Certificate is typically valid for two (2) years from the date of issue.</li><li>It can be renewed for a further period.</li><li>Please always check the official Nigeria Immigration Service portal for the most current validity periods.</li></ul>',
+      '<ul class="list-disc list-inside space-y-1"><li>It is valid for travel in ECOWAS sub region</li></ul>',
   },
   {
     question: "Purpose of Travel Certificate",
     answer:
-      '<ul class="list-disc list-inside space-y-1"><li>It serves as a recognized travel document valid for travel within the sixteen (16) countries of the Economic Community of West African States (ECOWAS) sub-region.</li><li>It facilitates free movement of community citizens.</li></ul>',
+      '<ul class="list-disc list-inside space-y-1"><li>Passport.</li><li>It is a recognized travel document valid for travels within the Sixteen (16) Countries of ECOWAS.</li><li>Form of Identity</li><li>This proves that the holder is a community citizen.</li><li> It can be held concurrently with the National Passport</li></ul>',
   },
   {
     question: "Issuing Authority",
@@ -34,68 +34,92 @@ const faqs = [
         <li>Evidence of online payment for the application fee.</li>
         <li>For students/trainees, a letter of introduction from their institution accepting immigration responsibility.</li>
       </ul>
-      <p class="mt-2">It is highly recommended to visit the official Nigeria Immigration Service (NIS) website or portal for the most current and comprehensive list of requirements, as they may be updated.</p>`,
+      `
   },
   {
     question: "Replacements and Amendments",
     answer:
-      '<ul class="list-disc list-inside space-y-1"><li>An ECOWAS Travel Certificate may be replaced under several conditions: if all pages are exhausted while still valid, if it has reached its total validity period, if it is mutilated, or if it requires amendments (e.g., change of data).</li><li>For a lost or stolen certificate, a police report is mandatory, and replacement may only occur after a reasonable waiting period.</li><li>The application for replacement or amendment is typically done through the same online process as a fresh application.</li></ul>',
+      '<ul class="list-disc list-inside space-y-1"><li>Application for replacement shall be made in the same or any other prescribed form, and supported by attaching the Certificate to be replaced. Lost or stolen certificate may only be replaced after a reasonable time must have been elapsed (i.e about two to six months) and must be supported with.</li></ul>',
   },
 ];
 
 const EcowasTravelCertx = () => {
+  const [openIndex, setOpenIndex] = useState(null); // Track the index of the currently open FAQ
+
+  // Function to toggle a question open/closed
+  const handleToggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index); // Close if it's already open, otherwise open it
+  };
+
+  // Limit FAQ list for mobile view (first 4 items + last item)
+  const faqsForMobile = [...faqs.slice(0, 4), faqs[5]];
+
+  // Function to render FAQ list dynamically
+  const renderFAQ = (faqList) =>
+    faqList.map((faq, idx) => (
+      <div
+        key={idx}
+        className="w-full border-[0.5px] rounded-xl border-[#c9c6c6] bg-white mb-[15px]" // Card styling
+      >
+        {/* FAQ Header - clickable to toggle answer */}
+        <div
+          className={`flex items-center justify-between cursor-pointer px-[20px] py-[15px] text-[18px] md:text-[20px] font-normal
+            ${
+              openIndex === idx
+                ? "bg-[#05AA55] text-white rounded-xl"
+                : "text-[#212121]"
+            }
+            hover:bg-[#05AA55] rounded-xl hover:text-white transition-colors`}
+          onClick={() => handleToggle(idx)} // Toggle this FAQ
+        >
+          <span>{faq.question}</span> {/* Display the question text */}
+          {/* Arrow icon that rotates if open */}
+          <span
+            className={`ml-2 transform transition-transform duration-300 ${
+              openIndex === idx ? "rotate-180 text-white" : "text-[#474747]"
+            }`}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 9L12 16L5 9"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </div>
+
+        {/* Conditionally render the answer if this question is open */}
+        {openIndex === idx && (
+          <div
+            className="px-4 pb-5 mt-5 text-[#8b8989] text-base md:text-lg"
+            dangerouslySetInnerHTML={{ __html: faq.answer }} // Inject raw HTML for answer
+          />
+        )}
+      </div>
+    ));
+
   return (
     <div className="w-full bg-white py-10 px-4 md:px-0">
       <div className="w-full md:w-11/12 container mx-auto">
         <h1 className="text-3xl lg:text-[44px] font-bold text-[#212121] uppercase text-center mb-8">
-          ECOWAS Travel Certificate
+         ECOWAS TRAVEL CERTIFICATE
         </h1>
-        <div className="w-full  mx-auto flex flex-col gap-[15px]">
-          {faqs.map((faq, idx) => (
-            <div
-              key={idx}
-             
-              className="w-full border-[2px]  rounded-xl border-[#212121] bg-white"
-            >
-              <details className="group w-full ">
-                <summary
-                  className="flex items-center justify-between cursor-pointer px-[20px] py-[15px] font-semibold text-black
-                  group-open:bg-[#05AA55] hover:bg-[#05AA55]   transition-colors text-lg md:text-[24px]
-                  group-open:rounded-xl hover:rounded-xl group-open:text-white hover:text-white hover:border-none select-none"
-                >
-                  {" "}
-                  {/* Added hover:text-white */}
-                  {faq.question}
-                  <span
-                    className="ml-2 transition-transform duration-300 group-open:rotate-180 text-black
-                  group-open:text-white hover:text-white"
-                  >
-                    {" "}
-                    {/* Added hover:text-white for arrow */}
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M19 9L12 16L5 9"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </summary>
-                <div
-                  className="px-4 pb-5 text-[#474747] text-base md:text-lg" 
-                  dangerouslySetInnerHTML={{ __html: faq.answer }}
-                ></div>
-              </details>
-            </div>
-          ))}
+
+        {/* Responsive layout: show smaller list on mobile, full list on desktop */}
+        <div className="w-full mx-auto flex flex-col gap-[15px]">
+          <div className="md:hidden">{renderFAQ(faqsForMobile)}</div>{" "}
+          {/* Mobile view */}
+          <div className="hidden md:block">{renderFAQ(faqs)}</div>{" "}
+          {/* Desktop view */}
         </div>
       </div>
     </div>

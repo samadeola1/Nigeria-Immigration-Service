@@ -36,6 +36,7 @@ export default function SignUp() {
     };
 
     try {
+      // post request to the signup endpoint
       const res = await axios.post(
         "https://nigeria-immigration-service.onrender.com/api/auth/signup",
         payload

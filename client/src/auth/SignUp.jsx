@@ -16,6 +16,7 @@ export default function SignUp() {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+  const [apiError, setApiError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function SignUp() {
     try {
       // post request to the signup endpoint
       const res = await axios.post(
-        "https://nigeria-immigration-service.onrender.com/api/services/signup",
+        "https://nigeria-immigration-service.onrender.com/api/services/sign-up",
         payload
       );
       const token = res.data.token;
@@ -48,12 +49,18 @@ export default function SignUp() {
         return;
       }
 
+      const apiResponse = res.json()
+      console.log("API Response:", apiResponse.data.errMsg);
+      // setApiError(apiResponse.data.errMsg);
+      
+
       // Store token
       localStorage.setItem("token", token);
       navigate("/");
     } catch (err) {
       console.error("❌ Signup error:", err);
-      alert(err.response?.data?.message || "Signup failed. Please try again.");
+      
+      // alert(err.response?.data?.message || "Signup failed. Please try again.");
     }
   };
 
@@ -107,6 +114,7 @@ export default function SignUp() {
 
           <form onSubmit={handleSignUp} className="space-y-4">
             {/* Email / Phone */}
+            {/* {apiError && (<p>{apiError}</p>)} */}
             <div className="relative">
               <input
                 type="text"

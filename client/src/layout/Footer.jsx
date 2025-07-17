@@ -1,5 +1,5 @@
 import React from 'react'
-import nisLogo from "../assets/image 234.png"
+import nisLogo from "../images/Frame 1171279530.svg"
 import {
   FaFacebookF,
   FaInstagram,

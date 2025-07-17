@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use(cors());
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res)=> {
     return res.send("welcome to Nigeria Immigration")
@@ -35,5 +35,5 @@ app.get("/", (req, res)=> {
     // START THE SERVER
 app.listen(PORT, () => {
     connectDB();
-    console.log(`server is running on port ${PORT}`);
+    console.log(`server is running on port http://localhost:${PORT}`);
 })          

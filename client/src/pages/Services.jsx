@@ -6,6 +6,7 @@ import FreshPassport from '../components/services/FreshPassport'
 import PassportType from '../components/services/PassportType'
 import EcowasTravelCertx from '../components/services/EcowasTravelCertx'
 import HereToHelp from '../components/services/HereToHelp'
+import GetYourVisa from '../components/reuseable/GetYourVisa'
 
 const Services = () => {
   return (
@@ -17,7 +18,7 @@ const Services = () => {
         <FreshPassport />
         <PassportType />
         <EcowasTravelCertx />
-        <HereToHelp />
+        <GetYourVisa/>
       </div>
     </>
   );

@@ -2,36 +2,59 @@ import { useState, useEffect } from 'react';
 
 const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState({
-    days: 42,
-    hours: 10,
-    minutes: 13,
-    seconds: 20
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
   });
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        let { days, hours, minutes, seconds } = prev;
-        
-        if (seconds > 0) {
-          seconds--;
-        } else if (minutes > 0) {
-          minutes--;
-          seconds = 59;
-        } else if (hours > 0) {
-          hours--;
-          minutes = 59;
-          seconds = 59;
-        } else if (days > 0) {
-          days--;
-          hours = 23;
-          minutes = 59;
-          seconds = 59;
-        }
-        
-        return { days, hours, minutes, seconds };
-      });
-    }, 1000);
+    // Get or create target date - this ensures the same target across refreshes
+    const getTargetDate = () => {
+      // Try to get existing target date from session storage
+      const stored = sessionStorage.getItem('countdownTarget');
+      if (stored) {
+        return new Date(parseInt(stored));
+      }
+      
+      // If no stored date, create new target date
+      const now = new Date();
+      const target = new Date(now.getTime() + 
+        (42 * 24 * 60 * 60 * 1000) + // 42 days
+        (10 * 60 * 60 * 1000) +      // 10 hours
+        (13 * 60 * 1000) +           // 13 minutes
+        (20 * 1000)                  // 20 seconds
+      );
+      
+      // Store the target date in session storage
+      sessionStorage.setItem('countdownTarget', target.getTime().toString());
+      return target;
+    };
+
+    const targetDate = getTargetDate();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
+        // Countdown has ended
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    // Update immediately
+    updateCountdown();
+
+    // Set up interval
+    const timer = setInterval(updateCountdown, 1000);
 
     return () => clearInterval(timer);
   }, []);

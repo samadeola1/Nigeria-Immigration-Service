@@ -6,7 +6,7 @@ import serviceRoute from './routes/serviceRoute.js';
 import subscriberRoute from './routes/subsriberRoute.js';
 import contactRoute from './routes/contactRoute.js';
 import faqRoute from "./routes/faqRoute.js";
-import excelDownloadRoute from './routes/excelDowloadRoute.js';
+
 
 
 
@@ -29,7 +29,7 @@ app.get("/", (req, res)=> {
    app.use('/api/subscribers', subscriberRoute);
    app.use('/api/contacts', contactRoute);
    app.use('/api/faqs', faqRoute);
-   app.use('/api/exceldownloads', excelDownloadRoute);
+   
 
 
     // START THE SERVER

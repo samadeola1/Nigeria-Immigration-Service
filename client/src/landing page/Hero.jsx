@@ -18,7 +18,7 @@ const Hero = () => {
       content: (
         <div className="absolute lg:bottom-60 xl:bottom-30 flex flex-col gap-[30px]">
           <div>
-            <h1 className="lg:text-[75px] xl:text-[84px] lg:w-[90%]  font-bold text-white drop-shadow-lg leading-tight">
+            <h1 className="lg:text-[75px] xl:text-[84px] lg:w-[90%] xl:w-[70%] font-bold text-white drop-shadow-lg leading-26">
               Nigeria <span className="text-[#6BCE9C]">Immigration</span>{" "}
               Service
             </h1>
@@ -32,7 +32,7 @@ const Hero = () => {
             <button className="bg-[#00AA55] text-white  hover:bg-green-700 transition-colors duration-200 px-[23px] py-[14px] rounded-md font-semibold text-[18px] cursor-pointer">
               Apply now
             </button>
-            <button className="border border-[#00AA55]  text-[#00AA55] hover:bg-green-200 transition-colors duration-200 px-[26px] py-[14px] rounded-md font-semibold text-[18px] cursor-pointer">
+            <button className="border border-white  text-white hover:text-gray-500 hover:bg-blue-100 transition-colors duration-200 px-[26px] py-[14px] rounded-md font-semibold text-[18px] cursor-pointer">
               Explore services
             </button>
           </div>

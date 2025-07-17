@@ -368,7 +368,7 @@ import { NavLink, Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import logo from "../images/image 7.svg";
-import nav from "../images/image 234.svg";
+import logo1 from '../images/Frame 1171279530.svg'
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -378,6 +378,10 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   const handleLogout = () => {
@@ -556,17 +560,10 @@ const Navbar = () => {
           ref={mobileMenuRef}
           className="lg:hidden fixed inset-0 w-full h-[60vh] bg-[#006834] z-50 flex flex-col"
         >
-          <div className="flex justify-between items-center p-4 ">
-            <Link to="/">
+          <div className="flex justify-between items-center p-8 ">
+            <Link to="/" onClick={closeMobileMenu}>
               <div className=" w-auto">
-                <div className="flex h-[80px]">
-                  <img src={nav} alt="" />
-                  <div className="font-medium text-[18px] text-white">
-                    <p>NIGERIA</p>
-                    <p>IMMIGRATION</p>
-                    <p>SERVICE</p>
-                  </div>
-                </div>
+                  <img src={logo1} alt="" />
               </div>
             </Link>
 
@@ -579,7 +576,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex-1 px-8 pb-4 space-y-4">
-            <Link to="/about-us">
+            <Link to="/about-us" onClick={closeMobileMenu}>
               <div className=" py-4">
                 <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
                   About us
@@ -587,7 +584,7 @@ const Navbar = () => {
               </div>
             </Link>
 
-            <Link to="/services">
+            <Link to="/services" onClick={closeMobileMenu}>
               <div className=" py-4">
                 <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
                   Services
@@ -595,17 +592,21 @@ const Navbar = () => {
               </div>
             </Link>
 
-            <div className="pb-4">
-              <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
-                Information Center
-              </p>
-            </div>
+            <Link to="/information-center" onClick={closeMobileMenu}>
+              <div className="pb-4">
+                <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
+                  Information Center
+                </p>
+              </div>
+            </Link>
 
-            <div className="pb-4">
-              <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
-                Contact Us
-              </p>
-            </div>
+            <Link to="/contact-us" onClick={closeMobileMenu}>
+              <div className="pb-4">
+                <p className="text-white text-lg font-medium cursor-pointer py-2 hover:text-white/80 transition-colors duration-200">
+                  Contact Us
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
       )}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../assets/image 7.svg"; // Assuming this path is correct for your logo
+import logo from "../../assets/image 234.png"; // Assuming this path is correct for your logo
 
 const VerificationSentModal = ({ isOpen, onClose, email, onResend }) => {
   const [resending, setResending] = useState(false);
@@ -25,8 +25,8 @@ const VerificationSentModal = ({ isOpen, onClose, email, onResend }) => {
   };
 
   return (
-    // Modal Overlay
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-grey bg-opacity-50 p-4">
+    // Modal Overlay - Changed bg-black to bg-gray-200 and adjusted opacity
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-75 backdrop-blur-sm p-4">
       {/* Modal Content */}
       <div className="bg-white rounded-lg shadow-2xl p-6 w-full max-w-sm md:max-w-md text-center relative">
         {/* NIS Logo */}

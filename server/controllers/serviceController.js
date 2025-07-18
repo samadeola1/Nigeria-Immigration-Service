@@ -2,10 +2,9 @@ import USER from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
 import { sendForgotPasswordMail } from "../emails/emailHandlers.js";
-import { sendWelcomEmail } from "../emails/emailHandlers.js";
+import { sendWelcomEmail } from "../emails/emailHandlers.js"; // Ensure this import is correct
 
 // sign up
-
 export const signUp = async (req, res) => {
   const { email, password, firstName, lastName, cPassword } = req.body;
 
@@ -23,12 +22,10 @@ export const signUp = async (req, res) => {
   }
 
   if (password.length < 8) {
-    return res
-      .status(400)
-      .json({
-        success: false,
-        errMsg: "Minimum password length must be 8 characters",
-      });
+    return res.status(400).json({
+      success: false,
+      errMsg: "Minimum password length must be 8 characters",
+    });
   }
 
   try {
@@ -41,28 +38,27 @@ export const signUp = async (req, res) => {
 
     const user = await USER.create({ ...req.body });
 
-    const welcomeEmailData = {
-      recipientInfo: {
-        email: user.email,
-        firstName: user.firstName,
-        lastName: user.lastName,
-      },
-      welcome: {
-        firstName: user.firstName,
-        email: user.email,
-      },
+    // Prepare options for the welcome email, similar to forgotPassword
+    const welcomeEmailOptions = {
+      to: user.email,
+      firstName: user.firstName,
+      // subject is optional as sendWelcomEmail provides a default
     };
 
-    sendWelcomEmail(welcomeEmailData)
-      .then(() => {
-        console.log(`Welcome email successfully queued for ${user.email}`);
-      })
-      .catch((emailError) => {
-        console.error(
-          `Failed to send welcome email to ${user.email}:`,
-          emailError
-        );
-      });
+    // Send Welcome Email using try...catch, similar to forgotPassword's email sending
+    try {
+      await sendWelcomEmail(welcomeEmailOptions);
+      console.log(`Welcome email successfully sent to ${user.email}`);
+    } catch (emailError) {
+      // Log the email sending error but do NOT block the user registration success
+      console.error(
+        `Failed to send welcome email to ${user.email}:`,
+        emailError
+      );
+      // In a production environment, you might also:
+      // - Store this error in a database for later retry attempts.
+      // - Send an alert to an administrator.
+    }
 
     res
       .status(201)
@@ -74,7 +70,6 @@ export const signUp = async (req, res) => {
       .json({ success: false, errMsg: "Server error during registration." });
   }
 };
-
 
 // sign in
 export const signIn = async (req, res) => {
@@ -203,7 +198,6 @@ export const isLoggedIn = async (req, res) => {
       user,
     });
   } catch (error) {
-    // console.error("isLoggedIn error:", error);
     res.status(401).json({ success: false, errMsg: "Invalid token" });
   }
 };

@@ -112,14 +112,10 @@ const ContactFormSection = () => {
 
   return (
     // The main container for the form content.
-    // Conditionally apply pointer-events-none when modal is open to prevent interaction.
+    // Removed conditional pointer-events-none, as the modal overlay will handle blocking clicks.
     <div
-      className={`p-6 sm:p-8 lg:p-10 bg-[#E6F3EC] rounded-md h-full pt-20 ${
-        showModal ? "pointer-events-none" : ""
-      }`}
+      className={`p-6 sm:p-8 lg:p-10 bg-[#E6F3EC] rounded-md h-full pt-20`}
     >
-      {/* Removed Mail Icon from here */}
-
       <form className="space-y-6" onSubmit={handleSubmit}>
         {/* Name Input Field */}
         <div>
@@ -219,15 +215,17 @@ const ContactFormSection = () => {
 
       {/* Success Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-white/10 backdrop-blur-sm flex justify-center items-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50 p-4"> {/* Changed bg-white/10 to bg-black/50 */}
           <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md text-center relative">
-            {/* Close Icon only, no text button */}
-            <img
-              className="absolute top-3 right-3 w-8 h-8 hover:cursor-pointer"
+            {/* Close Icon wrapped in a button for better clickability */}
+            <button
+              type="button"
               onClick={handleCloseModal}
-              src={closeIcon}
-              alt="Close modal"
-            />
+              className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
+              aria-label="Close modal"
+            >
+              <img src={closeIcon} alt="Close" className="w-5 h-5" />
+            </button>
             {/* Mail Icon moved here */}
             <div className="flex justify-center mb-6">
               <img src={emailIcon} alt="emailIcon" className="w-20 h-20" />
@@ -239,7 +237,14 @@ const ContactFormSection = () => {
               Your message has been sent. Our support team will reply to your
               message within 24 hours.
             </p>
-            
+            {/* The "Go Back" button remains */}
+            <button
+              type="button"
+              onClick={handleCloseModal} 
+              className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-3 px-4 rounded-md hover:from-green-700 hover:to-green-800 text-lg font-semibold transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-lg"
+            >
+              Go Back
+            </button>
           </div>
         </div>
       )}

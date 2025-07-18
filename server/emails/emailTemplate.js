@@ -99,13 +99,76 @@ export function resetPasswordEmailTemplate(firstName, resetUrl) {
 }
 
 export function welcomeEmailTemplate(firstName) {
+
   return `
-    <div style="font-family: Arial, sans-serif; color: #333;">
-      <h2>Welcome, ${firstName} 👋</h2>
-      <p>Thank you for signing up for our app! We're thrilled to have you.</p>
-      <p>Feel free to explore and reach out if you need anything.</p>
-      <hr />
-      <p style="font-size: 0.9em; color: #888;">This is an automated email, please do not reply.</p>
-    </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Welcome to Nigeria Immigration Service!</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          line-height: 1.6;
+          color: #333;
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #f4f4f4; /* Light background for the whole body */
+        }
+        .container {
+          background-color: #ffffff;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          overflow: hidden;
+          text-align: center; /* Centralize all content in the main container */
+        }
+        .header-content {
+          background-color: #00AA55; /* Green background for the header */
+          padding: 30px 20px 20px 20px; /* Adjusted padding for top section */
+          color: #ffffff;
+        }
+        .content {
+          padding: 30px;
+          text-align: left; /* Align text content to the left */
+        }
+        .footer-text {
+          font-size: 14px;
+          color: #666;
+          text-align: center;
+          padding: 20px;
+          border-top: 1px solid #eee;
+          margin-top: 20px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <!-- Header Section -->
+        <div class="header-content">
+          <img src="https://res.cloudinary.com/ds0a0s3k3/image/upload/v1751285511/armIcon_pj56l1.png" alt="Nigeria Immigration Logo" style="max-width: 50.3px; max-height: 43.92px; margin-bottom: 20px; border-radius: 10px; display: block; margin-left: auto; margin-right: auto;">
+          <h1 style="color: #ffffff; margin: 0; font-size: 28px;">Welcome to NIS!</h1>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+          <p style="font-size: 18px; color: #333;"><strong>Hi ${firstName},</strong></p>
+          <p>Thank you for registering with the Nigeria Immigration Service! We're excited to have you on board.</p>
+          <p>You can now access a wide range of services, including passport applications, visa processing, and permit services, all from your personalized dashboard.</p>
+
+          <!-- Removed the button-container and button link -->
+
+          <p>If you have any questions or need assistance, please don't hesitate to contact our support team.</p>
+          <p>Best regards,<br>The Nigeria Immigration Service Team</p>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer-text">
+          <p>&copy; ${new Date().getFullYear()} Nigeria Immigration Service. All rights reserved.</p>
+        </div>
+      </div>
+    </body>
+    </html>
   `;
 }

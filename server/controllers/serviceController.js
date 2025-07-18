@@ -2,48 +2,79 @@ import USER from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
 import { sendForgotPasswordMail } from "../emails/emailHandlers.js";
+import { sendWelcomEmail } from "../emails/emailHandlers.js";
 
 // sign up
 
 export const signUp = async (req, res) => {
   const { email, password, firstName, lastName, cPassword } = req.body;
+
   if (!email || !password || !firstName || !lastName || !cPassword) {
-    res.status(400).json({
+    return res.status(400).json({
       success: false,
-      errMsg: "all fields are required for registration",
+      errMsg: "All fields are required for registration",
     });
-    return;
   }
 
   if (password !== cPassword) {
-    res.status(400).json({ success: false, errMsg: "password do not match" });
-    return;
+    return res
+      .status(400)
+      .json({ success: false, errMsg: "Password do not match" });
   }
 
   if (password.length < 8) {
-    res
+    return res
       .status(400)
-      .json({ success: false, errMsg: "min password length must be 8 chrs" });
-    return;
+      .json({
+        success: false,
+        errMsg: "Minimum password length must be 8 characters",
+      });
   }
 
   try {
     const existingEmail = await USER.findOne({ email });
     if (existingEmail) {
-      res.status(400).json({ success: false, errMsg: "Email already exists" });
-      return;
+      return res
+        .status(400)
+        .json({ success: false, errMsg: "Email already exists" });
     }
 
     const user = await USER.create({ ...req.body });
+
+    const welcomeEmailData = {
+      recipientInfo: {
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+      },
+      welcome: {
+        firstName: user.firstName,
+        email: user.email,
+      },
+    };
+
+    sendWelcomEmail(welcomeEmailData)
+      .then(() => {
+        console.log(`Welcome email successfully queued for ${user.email}`);
+      })
+      .catch((emailError) => {
+        console.error(
+          `Failed to send welcome email to ${user.email}:`,
+          emailError
+        );
+      });
+
     res
       .status(201)
-      .json({ success: true, message: "registration successful", user });
-
-      
+      .json({ success: true, message: "Registration successful", user });
   } catch (error) {
-    res.status(500).json(error.message);
+    console.error("Sign up controller error:", error);
+    res
+      .status(500)
+      .json({ success: false, errMsg: "Server error during registration." });
   }
 };
+
 
 // sign in
 export const signIn = async (req, res) => {

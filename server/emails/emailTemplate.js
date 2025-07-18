@@ -101,7 +101,7 @@ export function resetPasswordEmailTemplate(firstName, resetUrl) {
 export function welcomeEmailTemplate(firstName) {
   return `
     <div style="font-family: Arial, sans-serif; color: #333;">
-      <h2>Welcome, ${name} 👋</h2>
+      <h2>Welcome, ${firstName} 👋</h2>
       <p>Thank you for signing up for our app! We're thrilled to have you.</p>
       <p>Feel free to explore and reach out if you need anything.</p>
       <hr />

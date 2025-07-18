@@ -45,7 +45,7 @@ const ForgotPassword = () => {
       console.log("API response:", resData);
 
       if (response.ok) {
-        // If the API call is successful (status 2xx), show the modal
+        
         setSubmittedEmail(data.email); // Store the email for display in the modal
         setShowVerificationModal(true); // Show the verification modal
         reset(); // Optionally clear the form fields after successful submission

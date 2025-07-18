@@ -1,9 +1,8 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-const apiKey =  import.meta.env.VITE_FIREBASE_API_KEY 
 const firebaseConfig = {
-  apiKey,
+  apiKey: "AIzaSyCu-P6LJTSCtMSD0E2c_Asl_3qOUsf9gkI",
   authDomain: "nigeria-immigration.firebaseapp.com",
   projectId: "nigeria-immigration",
   storageBucket: "nigeria-immigration.firebasestorage.app",

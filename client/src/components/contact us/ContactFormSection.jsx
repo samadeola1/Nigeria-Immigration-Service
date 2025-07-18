@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import emailIcon from "../../assets/contactformEmail-Icon.svg"; // Re-import emailIcon
-import closeIcon from "../../assets/close-Icon.svg"; // Re-import closeIcon
-import Loader from "../../utils/Loader";
+import emailIcon from "../../assets/contactformEmail-Icon.svg";
+import closeIcon from "../../assets/close-Icon.svg";
+import Loader from "../../utils/Loader"; // Ensure Loader component is correctly imported
 
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({
@@ -10,16 +10,9 @@ const ContactFormSection = () => {
     email: "",
     message: "",
   });
-  // State to manage validation errors
   const [errors, setErrors] = useState({});
-
-  // State for success/error messages after submission attempt
   const [submissionMessage, setSubmissionMessage] = useState("");
-
-  // State to track if the form is currently being sent (for disabling inputs)
   const [isSending, setIsSending] = useState(false);
-
-  // Re-added state for modal visibility
   const [showModal, setShowModal] = useState(false);
 
   // Initialize EmailJS when the component mounts
@@ -42,11 +35,9 @@ const ContactFormSection = () => {
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
-    // Clear the error for the specific field as user types
     if (errors[id]) {
       setErrors((prevErrors) => ({ ...prevErrors, [id]: "" }));
     }
-    // Clear general submission message if user starts typing again
     if (submissionMessage) {
       setSubmissionMessage("");
     }
@@ -91,12 +82,11 @@ const ContactFormSection = () => {
         const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
         await emailjs.send(serviceID, templateID, {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           message: formData.message,
         });
 
-        // If message is successfully sent, show the modal
         setShowModal(true);
         setFormData({ name: "", email: "", message: "" }); // Clear form fields
         setErrors({}); // Clear any existing errors
@@ -106,40 +96,45 @@ const ContactFormSection = () => {
         setSubmissionMessage(
           "Failed to send your message. Please try again. 😢"
         );
-        // Clear error message after 5 seconds
         setTimeout(() => setSubmissionMessage(""), 5000);
       } finally {
-        setIsSending(false); // Re-enable inputs and button
+        setIsSending(false);
       }
     } else {
       setSubmissionMessage("Please correct the errors in the form. ⚠️");
-      // Clear message after 5 seconds if validation fails
       setTimeout(() => setSubmissionMessage(""), 5000);
     }
   };
 
-  // Re-added handleCloseModal
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
   return (
-    <div className="p-4 bg-[#E6F3EC] rounded-md h-full">
-      <form className="space-y-8" onSubmit={handleSubmit}>
+    // The main container for the form content.
+    // Conditionally apply pointer-events-none when modal is open to prevent interaction.
+    <div
+      className={`p-6 sm:p-8 lg:p-10 bg-[#E6F3EC] rounded-md h-full pt-20 ${
+        showModal ? "pointer-events-none" : ""
+      }`}
+    >
+      {/* Removed Mail Icon from here */}
+
+      <form className="space-y-6" onSubmit={handleSubmit}>
         {/* Name Input Field */}
         <div>
           <label
             htmlFor="name"
-            className="block text-[24px]  text-[#4B4B4B] font-medium mb-1"
+            className="block text-lg text-gray-800 font-semibold mb-2"
           >
             Name
           </label>
           <input
             type="text"
             id="name"
-            placeholder="full Name*"
-            className={`w-full p-4  bg-[#FFFFFF] rounded-md focus:outline-none  text-[#4B4B4B]  hover:ring-1 hover:ring-[#008A3F] transition-all duration-200 ${
-              errors.name ? "border-red-500 ring-red-500" : ""
+            placeholder="Full Name*"
+            className={`w-full p-3 bg-white rounded-md focus:outline-none text-gray-800 placeholder-gray-500 hover:ring-1 hover:ring-[#008A3F] transition-all duration-200 ${
+              errors.name ? "border-red-500 ring-red-500" : "border-gray-300"
             }`}
             value={formData.name}
             onChange={handleChange}
@@ -154,7 +149,7 @@ const ContactFormSection = () => {
         <div>
           <label
             htmlFor="email"
-            className="block  text-[24px]  text-[#4B4B4B] font-medium mb-1"
+            className="block text-lg text-gray-800 font-semibold mb-2"
           >
             Email
           </label>
@@ -162,8 +157,8 @@ const ContactFormSection = () => {
             type="email"
             id="email"
             placeholder="Enter your email*"
-            className={`w-full p-3  bg-[#FFFFFF] rounded-md focus:outline-none  text-[#4B4B4B]  hover:ring-1 hover:ring-[#008A3F] transition-all duration-200 ${
-              errors.email ? "border-red-500 ring-red-500" : ""
+            className={`w-full p-3 bg-white rounded-md focus:outline-none text-gray-800 placeholder-gray-500 hover:ring-1 hover:ring-[#008A3F] transition-all duration-200 ${
+              errors.email ? "border-red-500 ring-red-500" : "border-gray-300"
             }`}
             value={formData.email}
             onChange={handleChange}
@@ -178,16 +173,16 @@ const ContactFormSection = () => {
         <div>
           <label
             htmlFor="message"
-            className="block  text-[24px]  text-[#4B4B4B]  font-medium mb-1"
+            className="block text-lg text-gray-800 font-semibold mb-2"
           >
             Message
           </label>
           <textarea
             id="message"
-            placeholder="Write your Email*"
+            placeholder="Write your message here*"
             rows="7"
-            className={`w-full p-3 font-Inter bg-[#FFFFFF] rounded-md focus:outline-none  text-[#4B4B4B] hover:ring-1 hover:ring-[#008A3F] resize-y transition-all duration-200 ${
-              errors.message ? "border-red-500 ring-red-500" : ""
+            className={`w-full p-3 bg-white rounded-md focus:outline-none text-gray-800 placeholder-gray-500 hover:ring-1 hover:ring-[#008A3F] resize-y transition-all duration-200 ${
+              errors.message ? "border-red-500 ring-red-500" : "border-gray-300"
             }`}
             value={formData.message}
             onChange={handleChange}
@@ -201,20 +196,20 @@ const ContactFormSection = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full h-[74px] bg-[#00AA55] text-[#FEFFFF] rounded-md hover:bg-[#006A3F] transition-colors hover:cursor-pointer  font-semibold text-[20px] md:text-[24px] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-3 px-4 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-md hover:from-green-700 hover:to-green-800 text-xl font-semibold transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-lg flex items-center justify-center"
           disabled={isSending}
         >
-          {isSending ? <Loader/> : "Send Message"}
+          {isSending ? <Loader /> : "Send Message"}
         </button>
 
-        {/* Submission Message (Toast) - Only shown for validation/EmailJS errors, not success */}
+        {/* Submission Message (Toast) */}
         {submissionMessage && !showModal && (
           <p
-            className={`text-center mt-4 p-3 rounded-lg font-medium text-lg shadow-md ${
+            className={`text-center mt-4 p-3 rounded-lg font-semibold text-base shadow-md ${
               submissionMessage.includes("success") ||
               submissionMessage.includes("Thank you!")
-                ? "bg-green-100 text-green-700 border border-green-300" // Styles for success toast
-                : "bg-red-100 text-red-700 border border-red-300" // Styles for error/validation toast
+                ? "bg-green-100 text-green-700 border border-green-300"
+                : "bg-red-100 text-red-700 border border-red-300"
             }`}
           >
             {submissionMessage}
@@ -222,35 +217,29 @@ const ContactFormSection = () => {
         )}
       </form>
 
-      {/* Success Modal - Re-added */}
+      {/* Success Modal */}
       {showModal && (
-        <div className="fixed inset-0  opacity-[80px] flex justify-center items-center z-50 p-4">
+        <div className="fixed inset-0 bg-white/10 backdrop-blur-sm flex justify-center items-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md text-center relative">
-            {/* Close Button */}
+            {/* Close Icon only, no text button */}
             <img
-              className="absolute top-3 right-3 w-6 h-6 hover:cursor-pointer" // Adjusted size for close icon
+              className="absolute top-3 right-3 w-8 h-8 hover:cursor-pointer"
               onClick={handleCloseModal}
               src={closeIcon}
               alt="Close modal"
             />
-            <div className="flex justify-center mb-6 ">
-              <img src={emailIcon} alt="emailIcon" className="w-16 h-16" />{" "}
-              {/* Adjusted size for email icon */}
+            {/* Mail Icon moved here */}
+            <div className="flex justify-center mb-6">
+              <img src={emailIcon} alt="emailIcon" className="w-20 h-20" />
             </div>
-            <h2 className="text-3xl font-bold text-[#000101] mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Thank you!
             </h2>
-            <p className="text-[#000101] mb-6">
+            <p className="text-gray-700 mb-6 text-lg">
               Your message has been sent. Our support team will reply to your
               message within 24 hours.
             </p>
-            <button
-              type="button"
-              onClick={handleCloseModal}
-              className="w-full bg-[#008A3F] text-white py-3 rounded-md hover:bg-[#006A3F] transition-colors font-bold text-lg hover:cursor-pointer"
-            >
-              Go Back
-            </button>
+            
           </div>
         </div>
       )}

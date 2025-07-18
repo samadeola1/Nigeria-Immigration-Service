@@ -11,17 +11,17 @@ const ContactUs = () => {
       <Hero />
 
       {/* Main content wrapper for contact information and form */}
-      <div className="w-11/12 mx-auto container bg-white py-10 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-stretch">
+      <div className="w-11/12 mx-auto container  py-10 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-stretch">
         {/*
           Contact Form Section:
           - order-1: Appears first on mobile screens (default order in a single column).
           - lg:order-2: Moves to the second column (right side) on large screens.
         */}
-        <div className="order-1 lg:order-2">
+        <div className="order-2 lg:order-1">
           <ContactFormSection />
         </div>
 
-        <div className="order-2 lg:order-1">
+        <div className="">
          
           {/* Contact Information component */}
           <ContactInfoSection />

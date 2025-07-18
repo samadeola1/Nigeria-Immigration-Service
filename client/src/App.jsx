@@ -1,12 +1,15 @@
-import React, { lazy, Suspense, memo } from "react"; // Import memo
+import React, { lazy, Suspense, memo, useEffect } from "react"; // Import useEffect
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
+// Import the Zustand store
+import { useAuthStore } from "./store/authStore";
 
 // Memoize directly imported components
 import Navbar from "./layout/Navbar.jsx";
 import Footer from "./layout/Footer.jsx";
 import Loader from "./utils/Loader.jsx";
 import ScrollToTop from "./utils/ScrollToTop.jsx";
-import SignIn from "./auth/SignIn.jsx";
+import SignIn from "./auth/SignIn.jsx"; // Changed from Login to SignIn
 import SignUp from "./auth/SignUp.jsx";
 import ForgotPassword from "./auth/ForgotPassword.jsx";
 import ResetPassword from "./auth/ResetPassword.jsx";
@@ -28,7 +31,7 @@ const MemoizedNavbar = memo(Navbar);
 const MemoizedFooter = memo(Footer);
 const MemoizedLoader = memo(Loader);
 const MemoizedScrollToTop = memo(ScrollToTop);
-const MemoizedSignIn = memo(SignIn);
+const MemoizedSignIn = memo(SignIn); // Changed from MemoizedLogin to MemoizedSignIn
 const MemoizedSignUp = memo(SignUp);
 const MemoizedForgotPassword = memo(ForgotPassword);
 const MemoizedResetPassword = memo(ResetPassword);
@@ -44,6 +47,14 @@ function App() {
 
 function AppContent() {
   const location = useLocation();
+  const initializeAuth = useAuthStore(
+    (state) => state.initializeAuthFromCookies
+  );
+
+  // Initialize authentication state from cookies on app mount
+  useEffect(() => {
+    initializeAuth();
+  }, [initializeAuth]); // Dependency array includes initializeAuth to prevent lint warnings, though it's stable
 
   const layoutVisiblePaths = new Set([
     "/",
@@ -54,7 +65,7 @@ function AppContent() {
   ]);
 
   const isAuthPath =
-    location.pathname === "/signin" ||
+    location.pathname === "/signin" || // Changed from /login to /signin
     location.pathname === "/signup" ||
     location.pathname === "/forgot-password" ||
     location.pathname.startsWith("/reset-password/");
@@ -81,8 +92,8 @@ function AppContent() {
             element={<MemoizedInformationCenter />}
           />
           <Route path="/contact-us" element={<MemoizedContactUs />} />
-
-          <Route path="/signin" element={<MemoizedSignIn />} />
+          <Route path="/signin" element={<MemoizedSignIn />} />{" "}
+          {/* Changed from /login to /signin */}
           <Route path="/signup" element={<MemoizedSignUp />} />
           <Route path="/forgot-password" element={<MemoizedForgotPassword />} />
           <Route

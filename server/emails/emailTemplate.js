@@ -149,9 +149,6 @@ export function resetPasswordEmailTemplate(name, resetUrl) {
   </div>
 </body>
 </html>
-
-  
-  
   `;
 }
 

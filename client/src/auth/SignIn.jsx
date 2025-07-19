@@ -15,7 +15,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { useAuthStore } from "../store/authStore";
 
 export default function SignIn() {
-  // Renamed from Login to SignIn
   // Get actions and state from the Zustand store
   const loginUser = useAuthStore((state) => state.login);
   const setLoadingState = useAuthStore((state) => state.setLoading);
@@ -52,10 +51,9 @@ export default function SignIn() {
       console.log("✅ Login successful:", res.data);
 
       const token = res.data.user?.token;
-      // Ensure user data includes firstName and lastName from your backend response
+      // Ensure user data includes 'name' directly from the backend response
       const userData = {
-        firstName: res.data.user?.firstName || "", // Provide default empty string if null
-        lastName: res.data.user?.lastName || "", // Provide default empty string if null
+        name: res.data.user?.name || "", // Read 'name' directly from the backend response
         email: res.data.user?.email,
         // Add any other user data you get from your backend that you want in the store
       };
@@ -112,12 +110,8 @@ export default function SignIn() {
 
       // For Google sign-in, create a consistent user data object
       const userData = {
-        firstName: user.displayName ? user.displayName.split(" ")[0] : "",
-        lastName: user.displayName
-          ? user.displayName.split(" ").slice(1).join(" ")
-          : "",
+        name: user.displayName || user.email, // Use displayName or fallback to email
         email: user.email,
-        displayName: user.displayName, // Keep displayName for direct use if preferred
         photoURL: user.photoURL,
       };
 

@@ -43,9 +43,9 @@ const Navbar = () => {
 
   // Determine the display name for the user
   const userDisplayName = user
-    ? user.name // Prioritize 'name' property
+    ? user.name // Prioritize 'name' property from the user object
       ? user.name
-      : user.displayName || user.email // Fallback to displayName or email
+      : user.displayName || user.email // Fallback to displayName (for Google) or email
     : "";
 
   // Close menus/dropdowns when clicking outside
@@ -158,9 +158,10 @@ const Navbar = () => {
                       className="w-8 h-8 rounded-full object-cover bg-neutral-200"
                     />
                   ) : (
-                    <HiOutlineUserCircle className="w-8 h-8 text-gray-500" /> // Use HiOutlineUserCircle
+                    <HiOutlineUserCircle className="w-8 h-8 text-gray-500" />
                   )}
-                  <span>{userDisplayName}</span>
+                  <span>Hi, {userDisplayName}!</span>{" "}
+                  {/* Corrected to use userDisplayName */}
                   <svg
                     className={`w-4 h-4 transition-transform ${
                       showDesktopDropdown ? "rotate-180" : ""
@@ -311,9 +312,10 @@ const Navbar = () => {
                         className="w-8 h-8 rounded-full object-cover bg-neutral-200"
                       />
                     ) : (
-                      <HiOutlineUserCircle className="w-8 h-8 text-white" /> // Use HiOutlineUserCircle
+                      <HiOutlineUserCircle className="w-8 h-8 text-white" />
                     )}
-                    <span>{userDisplayName}</span>
+                    <span>Hi, {userDisplayName}!</span>{" "}
+                    {/* Corrected to use userDisplayName */}
                     <svg
                       className={`w-4 h-4 ml-auto transition-transform ${
                         showMobileUserDropdown ? "rotate-180" : ""

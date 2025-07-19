@@ -193,7 +193,7 @@ export default function SignIn() {
                 </div>
                 {errors.email && (
                   <p className="text-red-500 text-sm flex items-center">
-                    <span className="mr-1">⚠</span>
+                    <span className="mr-1"></span>
                     {errors.email.message}
                   </p>
                 )}
@@ -235,7 +235,7 @@ export default function SignIn() {
                 </button>
                 {errors.password && (
                   <p className="text-red-500 text-sm flex items-center">
-                    <span className="mr-1">⚠</span>
+                    <span className="mr-1"></span>
                     {errors.password.message}
                   </p>
                 )}

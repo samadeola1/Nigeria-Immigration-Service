@@ -3,7 +3,7 @@ import Cookies from "js-cookie"; // Import js-cookie
 
 // Define the initial state for our authentication store
 const initialState = {
-  user: null, // Will store user details (firstName, lastName, email, etc.)
+  user: null, // Will store user details (name, email, etc.)
   token: null, // Will store the authentication token
   isAuthenticated: false, // Boolean flag to indicate login status
   loading: false, // To indicate if an auth operation is in progress

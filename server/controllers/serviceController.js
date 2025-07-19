@@ -6,9 +6,9 @@ import { sendWelcomEmail } from "../emails/emailHandlers.js"; // Ensure this imp
 
 // sign up
 export const signUp = async (req, res) => {
-  const { email, password, firstName, lastName, cPassword } = req.body;
+  const { email, password, name, cPassword } = req.body; // 'name' is already being extracted
 
-  if (!email || !password || !firstName || !lastName || !cPassword) {
+  if (!email || !password || !name || !cPassword) {
     return res.status(400).json({
       success: false,
       errMsg: "All fields are required for registration",
@@ -38,14 +38,14 @@ export const signUp = async (req, res) => {
 
     const user = await USER.create({ ...req.body });
 
-    // Prepare options for the welcome email, similar to forgotPassword
+    // Prepare options for the welcome email, using 'name'
     const welcomeEmailOptions = {
       to: user.email,
-      firstName: user.firstName,
+      name: user.name, // 'name' is correctly used here
       // subject is optional as sendWelcomEmail provides a default
     };
 
-    // Send Welcome Email using try...catch, similar to forgotPassword's email sending
+    // Send Welcome Email using try...catch
     try {
       await sendWelcomEmail(welcomeEmailOptions);
       console.log(`Welcome email successfully sent to ${user.email}`);
@@ -101,7 +101,7 @@ export const signIn = async (req, res) => {
         message: "signed in successfully",
         user: {
           role: user.role,
-          firstName: user.firstName,
+          name: user.name, // 'name' is correctly used here
           _id: user._id,
           token,
         },
@@ -134,7 +134,7 @@ export const forgotPassword = async (req, res) => {
     try {
       await sendForgotPasswordMail({
         to: user.email,
-        firstName: user.firstName,
+        name: user.name, // 'name' is correctly used here
         resetUrl,
       });
     } catch (error) {
@@ -186,7 +186,7 @@ export const isLoggedIn = async (req, res) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     const user = await USER.findById(decoded.userId).select(
-      "firstName role email"
+      "name role email" // 'name' is correctly selected here
     );
 
     if (!user) {

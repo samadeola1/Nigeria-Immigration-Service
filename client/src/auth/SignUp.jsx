@@ -36,12 +36,12 @@ export default function SignUp() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
+  // Updated handleSignUp to use 'name' instead of 'firstName' and 'lastName'
   const handleSignUp = async (data) => {
     setLoadingState(true); // Set loading true via Zustand
 
     const payload = {
-      firstName: data.firstName,
-      lastName: data.lastName,
+      name: data.name, // Changed from firstName and lastName
       email: data.email,
       password: data.password,
       cPassword: data.cPassword,
@@ -58,28 +58,26 @@ export default function SignUp() {
 
       // For email/password sign-up, create a consistent user data object
       const userData = {
-        firstName: data.firstName,
-        lastName: data.lastName,
+        name: data.name, // Changed
         email: data.email,
       };
 
       if (!token && res.data.success) {
-        // This condition handles cases where backend might return success but no token for a specific flow (e.g., email verification needed)
         toast.success(
           res.data.message || "Registration successful! Please log in."
         );
         reset();
-        setTimeout(() => navigate("/signin"), 2000); // Redirect to signin after successful signup without immediate login
+        setTimeout(() => navigate("/signin"), 2000);
         return;
       } else if (token) {
         // Call the login action from Zustand store
-        loginUser(userData, token, true); // Assume rememberMe for sign-up to persist session
+        loginUser(userData, token, true);
 
         toast.success(
           res.data.message || "Account created successfully! Redirecting..."
         );
         reset();
-        setTimeout(() => navigate("/"), 2000); // Redirect to homepage after successful signup and login
+        setTimeout(() => navigate("/"), 2000);
       } else {
         toast.error("Signup failed: Unexpected response from API.");
       }
@@ -110,6 +108,7 @@ export default function SignUp() {
     }
   };
 
+  // Updated handleGoogleSignIn to use 'name'
   const handleGoogleSignIn = async () => {
     setLoadingState(true); // Set loading true via Zustand
     try {
@@ -119,17 +118,14 @@ export default function SignUp() {
 
       // For Google sign-in, create a consistent user data object
       const userData = {
-        firstName: user.displayName ? user.displayName.split(" ")[0] : "",
-        lastName: user.displayName
-          ? user.displayName.split(" ").slice(1).join(" ")
-          : "",
+        name: user.displayName || "", // Use displayName as the full name
         email: user.email,
-        displayName: user.displayName, // Keep displayName for direct use if preferred
+        displayName: user.displayName,
         photoURL: user.photoURL,
       };
 
       // Call the login action from Zustand store
-      loginUser(userData, token, true); // Assume rememberMe for Google sign-in
+      loginUser(userData, token, true);
 
       toast.success("Google Sign-up successful! Redirecting...");
       setTimeout(() => navigate("/"), 2000);
@@ -183,8 +179,6 @@ export default function SignUp() {
         className={`flex flex-col md:flex-row bg-white overflow-hidden w-full max-w-sm sm:max-w-md md:max-w-full h-auto md:h-screen rounded-xl shadow-2xl md:rounded-none md:shadow-none`}
       >
         <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
-          {" "}
-          {/* Changed md:flex to lg:flex */}
           <img
             src={immigration}
             alt="Nigeria Immigration Service"
@@ -193,8 +187,6 @@ export default function SignUp() {
         </div>
 
         <div className="w-full lg:w-1/2 flex flex-col justify-center py-8 px-5 sm:px-8 md:px-10 lg:px-12">
-          {" "}
-          {/* Changed md:w-1/2 to lg:w-1/2 */}
           <div className="w-full max-w-sm sm:max-w-md md:max-w-full lg:max-w-full xl:max-w-full mx-auto px-4 sm:px-6 md:px-8">
             <a href="/" className="block">
               <div className="flex items-center justify-center mb-6">
@@ -217,70 +209,37 @@ export default function SignUp() {
             </div>
 
             <form onSubmit={handleSubmit(handleSignUp)} className="space-y-4">
-              <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
-                <div className="relative w-full sm:w-1/2">
-                  <input
-                    type="text"
-                    placeholder="First Name"
-                    className={`w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600 ${
-                      errors.firstName
-                        ? "border-red-500 ring-red-500 text-red-500 placeholder-red-500"
-                        : "border-gray-300 text-[#212121] placeholder-gray-500"
+              {/* Replaced firstName and lastName inputs with a single name input */}
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className={`w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600 ${
+                    errors.name
+                      ? "border-red-500 ring-red-500 text-red-500 placeholder-red-500"
+                      : "border-gray-300 text-[#212121] placeholder-gray-500"
+                  }`}
+                  {...register("name", {
+                    required: "name is required",
+                    minLength: {
+                      value: 3,
+                      message: "name must be at least 3 characters",
+                    },
+                  })}
+                />
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <HiOutlineUser
+                    className={`h-5 w-5 ${
+                      errors.name ? "text-red-500" : "text-gray-400"
                     }`}
-                    {...register("firstName", {
-                      required: "First name is required",
-                      minLength: {
-                        value: 2,
-                        message: "First name must be at least 2 characters",
-                      },
-                    })}
                   />
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <HiOutlineUser
-                      className={`h-5 w-5 ${
-                        errors.firstName ? "text-red-500" : "text-gray-400"
-                      }`}
-                    />
-                  </div>
-                  {errors.firstName && (
-                    <p className="text-red-500 text-sm flex items-center">
-                      <span className="mr-1"></span>
-                      {errors.firstName.message}
-                    </p>
-                  )}
                 </div>
-
-                <div className="relative w-full sm:w-1/2">
-                  <input
-                    type="text"
-                    placeholder="Last Name"
-                    className={`w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600 ${
-                      errors.lastName
-                        ? "border-red-500 ring-red-500 text-red-500 placeholder-red-500"
-                        : "border-gray-300 text-[#212121] placeholder-gray-500"
-                    }`}
-                    {...register("lastName", {
-                      required: "Last name is required",
-                      minLength: {
-                        value: 2,
-                        message: "Last name must be at least 2 characters",
-                      },
-                    })}
-                  />
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <HiOutlineUser
-                      className={`h-5 w-5 ${
-                        errors.lastName ? "text-red-500" : "text-gray-400"
-                      }`}
-                    />
-                  </div>
-                  {errors.lastName && (
-                    <p className="text-red-500 text-sm flex items-center">
-                      <span className="mr-1">⚠</span>
-                      {errors.lastName.message}
-                    </p>
-                  )}
-                </div>
+                {errors.name && (
+                  <p className="text-red-500 text-sm flex items-center">
+                    <span className="mr-1"></span>
+                    {errors.name.message}
+                  </p>
+                )}
               </div>
 
               <div className="relative">
@@ -309,7 +268,7 @@ export default function SignUp() {
                 </div>
                 {errors.email && (
                   <p className="text-red-500 text-sm flex items-center">
-                    <span className="mr-1">⚠</span>
+                    <span className="mr-1"></span>
                     {errors.email.message}
                   </p>
                 )}
@@ -358,7 +317,7 @@ export default function SignUp() {
                 </button>
                 {errors.password && (
                   <p className="text-red-500 text-sm flex items-center">
-                    <span className="mr-1">⚠</span>
+                    <span className="mr-1"></span>
                     {errors.password.message}
                   </p>
                 )}
@@ -399,7 +358,7 @@ export default function SignUp() {
                 </button>
                 {errors.cPassword && (
                   <p className="text-red-500 text-sm flex items-center">
-                    <span className="mr-1">⚠</span>
+                    <span className="mr-1"></span>
                     {errors.cPassword.message}
                   </p>
                 )}
@@ -452,7 +411,7 @@ export default function SignUp() {
               className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 py-2 rounded-md mb-3 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-sm text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <img src={google} alt="Google logo" className="w-5 h-5 mr-2" />
-              Continue with Google
+              Sign up with Google
             </button>
 
             <p className="text-center text-sm text-gray-700 mt-6">

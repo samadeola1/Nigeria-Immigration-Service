@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
+import { HiOutlineUserCircle } from "react-icons/hi2"; // Import the new icon
 import logo from "../images/image 7.svg";
 import logo1 from "../images/Frame 1171279530.svg";
 import { useAuthStore } from "../store/authStore";
@@ -8,11 +9,11 @@ import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showDesktopDropdown, setShowDesktopDropdown] = useState(false); // Renamed for clarity
-  const [showMobileUserDropdown, setShowMobileUserDropdown] = useState(false); // New state for mobile user dropdown
+  const [showDesktopDropdown, setShowDesktopDropdown] = useState(false);
+  const [showMobileUserDropdown, setShowMobileUserDropdown] = useState(false);
 
   const mobileMenuRef = useRef(null);
-  const desktopDropdownRef = useRef(null); // Renamed for clarity
+  const desktopDropdownRef = useRef(null);
 
   const user = useAuthStore((state) => state.user);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
@@ -42,8 +43,8 @@ const Navbar = () => {
 
   // Determine the display name for the user
   const userDisplayName = user
-    ? user.firstName // Prioritize first name
-      ? user.firstName
+    ? user.name // Prioritize 'name' property
+      ? user.name
       : user.displayName || user.email // Fallback to displayName or email
     : "";
 
@@ -73,22 +74,6 @@ const Navbar = () => {
     };
   }, []);
 
-  // Inline SVG for a generic person avatar
-  const AvatarIcon = ({ className }) => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-    >
-      <path
-        fillRule="evenodd"
-        d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695L18 20.5H6l-.062-.2A.75.75 0 013.751 20.105z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-
   return (
     <>
       {/* Desktop Navbar */}
@@ -102,17 +87,20 @@ const Navbar = () => {
 
           {/* Desktop Navigation Menu */}
           <div className="hidden lg:flex items-center space-x-8">
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                `text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2 ${
-                  isActive ? "text-green-600" : ""
-                }`
-              }
-            >
-              Home
-            </NavLink>
+            {/* Conditionally render Home link */}
+            {!isAuthenticated && (
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  `text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2 ${
+                    isActive ? "text-green-600" : ""
+                  }`
+                }
+              >
+                Home
+              </NavLink>
+            )}
             <NavLink
               to="/about-us"
               className={({ isActive }) =>
@@ -170,9 +158,9 @@ const Navbar = () => {
                       className="w-8 h-8 rounded-full object-cover bg-neutral-200"
                     />
                   ) : (
-                    <AvatarIcon className="w-8 h-8 text-gray-500" />
+                    <HiOutlineUserCircle className="w-8 h-8 text-gray-500" /> // Use HiOutlineUserCircle
                   )}
-                  <span>Hi, {userDisplayName}!</span>
+                  <span>{userDisplayName}</span>
                   <svg
                     className={`w-4 h-4 transition-transform ${
                       showDesktopDropdown ? "rotate-180" : ""
@@ -227,7 +215,7 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="lg:hidden fixed inset-0 w-full h-screen bg-[#006834] z-50 flex flex-col pt-4 overflow-y-auto" // Changed h-[60vh] to h-screen and added overflow-y-auto
+          className="lg:hidden fixed inset-0 w-full h-screen bg-[#006834] z-50 flex flex-col pt-4 overflow-y-auto"
         >
           <div className="flex justify-between items-center p-8 ">
             <Link to="/" onClick={closeMobileMenu}>
@@ -246,18 +234,21 @@ const Navbar = () => {
 
           {/* Regular mobile navigation links */}
           <div className="flex-1 px-8 pb-4 space-y-4">
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                `block py-2 text-lg font-medium cursor-pointer transition-colors duration-200 ${
-                  isActive ? "text-white/90" : "text-white"
-                } hover:text-white/80`
-              }
-              onClick={closeMobileMenu}
-            >
-              Home
-            </NavLink>
+            {/* Conditionally render Home link in mobile menu */}
+            {!isAuthenticated && (
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  `block py-2 text-lg font-medium cursor-pointer transition-colors duration-200 ${
+                    isActive ? "text-white/90" : "text-white"
+                  } hover:text-white/80`
+                }
+                onClick={closeMobileMenu}
+              >
+                Home
+              </NavLink>
+            )}
             <NavLink
               to="/about-us"
               className={({ isActive }) =>
@@ -303,7 +294,7 @@ const Navbar = () => {
               Contact Us
             </NavLink>
 
-            {/* Conditional rendering for mobile menu auth state - Moved to bottom */}
+            {/* Conditional rendering for mobile menu auth state */}
             <div className="pt-8 mt-8">
               {" "}
               {/* Added border-top for separation */}
@@ -320,9 +311,9 @@ const Navbar = () => {
                         className="w-8 h-8 rounded-full object-cover bg-neutral-200"
                       />
                     ) : (
-                      <AvatarIcon className="w-8 h-8 text-white" />
+                      <HiOutlineUserCircle className="w-8 h-8 text-white" /> // Use HiOutlineUserCircle
                     )}
-                    <span>Hi, {userDisplayName}!</span>
+                    <span>{userDisplayName}</span>
                     <svg
                       className={`w-4 h-4 ml-auto transition-transform ${
                         showMobileUserDropdown ? "rotate-180" : ""

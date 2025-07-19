@@ -160,7 +160,7 @@ const Navbar = () => {
                   ) : (
                     <HiOutlineUserCircle className="w-8 h-8 text-gray-500" />
                   )}
-                  <span>Hi, {userDisplayName}!</span>{" "}
+                  <span>Hi, {userDisplayName}</span>{" "}
                   {/* Corrected to use userDisplayName */}
                   <svg
                     className={`w-4 h-4 transition-transform ${
@@ -314,7 +314,7 @@ const Navbar = () => {
                     ) : (
                       <HiOutlineUserCircle className="w-8 h-8 text-white" />
                     )}
-                    <span>Hi, {userDisplayName}!</span>{" "}
+                    <span>Hi, {userDisplayName}</span>{" "}
                     {/* Corrected to use userDisplayName */}
                     <svg
                       className={`w-4 h-4 ml-auto transition-transform ${

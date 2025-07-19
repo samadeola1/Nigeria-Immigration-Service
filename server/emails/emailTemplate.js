@@ -273,8 +273,8 @@ export function welcomeEmailTemplate(name) {
       <div class="container">
         <!-- Header Section -->
         <div class="header-content">
-          <img src="https://res.cloudinary.com/ds0a0s3k3/image/upload/v1751285511/armIcon_pj56l1.png" alt="Nigeria Immigration Logo" style="max-width: 80px; max-height: 70px; margin-bottom: 20px; border-radius: 10px;">
-          <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1752944187/bro_qncq7m.svg" alt="Illustration" style="margin-bottom: 20px;">
+          <img src="https://res.cloudinary.com/ds0a0s3k3/image/upload/v1751285511/armIcon_pj56l1.png" alt="Nigeria Immigration Logo" style="max-width: 80px; max-height: 70px; margin-bottom: 20px; border-radius: 10px; display: block; margin-left: auto; margin-right: auto;">
+      <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1752944187/bro_qncq7m.svg" alt="Illustration" style="max-width: 100%; height: auto; display: block; margin: 0 auto 20px auto;">
           <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 600;">Welcome to NIS!</h1>
         </div>
 

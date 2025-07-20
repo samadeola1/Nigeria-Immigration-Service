@@ -195,7 +195,7 @@ const Navbar = () => {
               </div>
             ) : (
               <Link to="/signin">
-                <button className="bg-[#00AA55] cursor-pointer hover:bg-green-700 text-white rounded-2xl px-6 py-3 font-medium transition-colors duration-200">
+                <button className="bg-[#00AA55] cursor-pointer hover:bg-green-700 text-white rounded-[8px] px-6 py-3 font-medium transition-colors duration-200">
                   Apply now
                 </button>
               </Link>
@@ -354,7 +354,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <Link to="/signin" onClick={closeMobileMenu}>
-                  <button className="w-full bg-[#00AA55] cursor-pointer hover:bg-green-700 text-white rounded-md px-6 py-3 font-medium transition-colors duration-200 text-lg">
+                  <button className="w-full bg-[#00AA55] cursor-pointer hover:bg-green-700 text-white rounded-[8px] px-6 py-3 font-medium transition-colors duration-200 text-lg">
                     Apply now
                   </button>
                 </Link>

@@ -96,7 +96,7 @@ const NisLeaders = () => {
         <div className="lg:hidden">
           <div
             ref={sliderRef}
-            className="flex gap-6  overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2"
+            className="flex gap-6 px-4  overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2"
             style={{ scrollSnapType: "x mandatory" }}
           >
             {leaders.map((leader, idx) => (

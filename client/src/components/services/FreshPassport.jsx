@@ -29,11 +29,11 @@ const FreshPassport = () => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="border-2 border-green-400 rounded-lg md:py-10 p-6 bg-green-50 shadow-sm">
-              <div className="text-green-600 text-4xl mb-4 flex justify-center">
+            <div className="border-2 border-[#00AA55] rounded-[12px] md:py-10 p-6 bg-green-50 shadow-sm">
+              <div className=" text-4xl mb-4 flex justify-center">
                 <img src={birth} alt="" />
               </div>
-              <h3 className="text-[28px] md:px-14 font-semibold mb-2">
+              <h3 className="text-[28px] text-[#212121] md:px-14 font-semibold mb-2">
                 Citizenship By Birth
               </h3>
               <p className="text-gray-600 text-[18px]">
@@ -42,22 +42,26 @@ const FreshPassport = () => {
               </p>
             </div>
 
-            <div className="border-2 border-green-400 rounded-lg p-6 md:py-10  bg-green-50 shadow-sm">
-              <div className="text-green-600 text-4xl mb-4 flex justify-center">
+            <div className="border-2 border-[#00AA55] rounded-[12px] p-6 md:py-10  bg-green-50 shadow-sm">
+              <div className="text-4xl mb-4 flex justify-center">
                 <img src={people} alt="" />
               </div>
-              <h3 className="text-[28px] font-semibold mb-2">Naturalization</h3>
+              <h3 className="text-[28px] text-[#212121] font-semibold mb-2">
+                Naturalization
+              </h3>
               <p className="text-gray-600 text-[18px]">
                 Citizens who are naturalised must show their Presidential
                 Certificate of Naturalisation.
               </p>
             </div>
 
-            <div className="border-2 border-green-400 rounded-lg md:py-10 p-6 bg-green-50 shadow-sm">
-              <div className="text-green-600 text-4xl mb-4 flex justify-center">
+            <div className="border-2 border-[#00AA55] rounded-[12px] md:py-10 p-6 bg-green-50 shadow-sm">
+              <div className="text-4xl mb-4 flex justify-center">
                 <img src={group} alt="" />
               </div>
-              <h3 className="text-[28px] font-semibold mb-2">Registration</h3>
+              <h3 className="text-[28px] text-[#212121] font-semibold mb-2">
+                Registration
+              </h3>
               <p className="text-gray-600 text-[18px]">
                 Citizens who are registered must show their Certificate of
                 Registration.

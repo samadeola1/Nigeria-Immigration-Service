@@ -1,5 +1,5 @@
 import React from "react";
-import passportimg from "../../images/image 255 (1).png";
+import passportimg from "../../assets/image 255.svg";
 import passportimgMboile from "../../assets/passportmobile.svg"; // New mobile image path
 import checkIcon from "../../assets/check-icon.svg"; // New icon path (renamed from circle for clarity)
 
@@ -31,7 +31,7 @@ const RegularizeVisa = () => {
 
         {/* Main Content Area: Image and List */}
         <div className="">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 lg:gap-[107px]">
+          <div className="flex flex-col md:flex-row items-center  justify-center gap-8 md:gap-10 lg:gap-[107px]">
             {" "}
             {/* Adjusted gap */}
             {/* Image Section - Responsive Display */}
@@ -40,7 +40,7 @@ const RegularizeVisa = () => {
               <img
                 src={passportimg}
                 alt="Nigerian Passport"
-                className="w-full h-auto object-cover  hidden md:block" // Hidden on small, shown on md and up
+                className="w-full  object-cover rounded-[24px]  hidden md:block" // Hidden on small, shown on md and up
               />
               {/* Image for Mobile screens and below */}
               <img

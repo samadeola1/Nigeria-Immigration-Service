@@ -15,10 +15,10 @@ export function resetPasswordEmailTemplate(name, resetUrl) {
       max-width: 600px;
       margin: 0 auto;
       padding: 20px;
-      background-color: #ffffff; /* White background for the whole body */
+      background-color: #F1F1F1; /* Changed to grey background for the whole body */
     }
     .container {
-      background-color: #ffffff;
+      background-color: #ffffff; /* Remains white for the main card */
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       overflow: hidden;
@@ -28,10 +28,10 @@ export function resetPasswordEmailTemplate(name, resetUrl) {
       padding: 30px 20px 20px 20px; /* Adjusted padding for top section */
     }
     .grey-background-div {
-      background-color: #f3f6f8; /* Grey background for this section */
-      padding: 20px;
+      background-color: #F1F1F1; /* Changed to match body background */
+      padding: 20px; /* Kept padding for content spacing */
       text-align: center; /* This centers the div itself, but its content will be left-aligned below */
-      border-radius: 0 0 10px 10px; /* Rounded corners only at bottom */
+      /* border-radius: 0 0 10px 10px; Removed border-radius as it blends with body */
     }
     .button {
       display: inline-block;
@@ -149,6 +149,9 @@ export function resetPasswordEmailTemplate(name, resetUrl) {
   </div>
 </body>
 </html>
+
+  
+  
   `;
 }
 
@@ -166,9 +169,10 @@ export function welcomeEmailTemplate(name) {
           font-family: Arial, sans-serif;
           line-height: 1.6;
           color: #333;
-          margin: 0;
-          padding: 0;
-          background-color: #F1F1F1; /* Light background for the whole body */
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #F1F1F1; /* Light background for the whole body, matching reset template */
           -webkit-text-size-adjust: 100%; /* Prevent text resizing on iOS */
           -ms-text-size-adjust: 100%; /* Prevent text resizing on Windows Phone */
           width: 100% !important; /* Full width for email clients */
@@ -178,17 +182,18 @@ export function welcomeEmailTemplate(name) {
         .container {
           max-width: 600px;
           margin: 0 auto;
-          background-color: #ffffff;
+          background-color: #ffffff; /* White background for the main card, matching reset template */
           border-radius: 10px;
           box-shadow: 0 4px 10px rgba(0,0,0,0.1);
           overflow: hidden;
+          text-align: center; /* Centralize all content in the main container */
         }
 
         /* Header Section */
         .header-content {
-          background-color: #00AA55; /* Green background for the header */
+          background-color: #ffffff; /* No green background, matching reset template */
           padding: 30px 20px 20px 20px; /* Adjusted padding for top section */
-          color: #ffffff;
+          color: #333; /* Default text color as no green background */
           text-align: center; /* Center content within header */
         }
 
@@ -199,13 +204,11 @@ export function welcomeEmailTemplate(name) {
         }
 
         /* Footer Section */
-        .footer-text {
-          font-size: 14px;
-          color: #666;
-          text-align: center;
-          padding: 20px;
-          border-top: 1px solid #eee;
-          margin-top: 20px;
+        .grey-background-div { /* Renamed from .footer-text to match reset template for consistency */
+          background-color: #F1F1F1; /* Matching body background for seamless look */
+          padding: 20px; /* Kept padding for content spacing */
+          text-align: center; /* Center content within the footer */
+          /* border-radius: 0 0 10px 10px; Removed border-radius as it blends with body */
         }
 
         /* Responsive Images */
@@ -256,11 +259,11 @@ export function welcomeEmailTemplate(name) {
             border-radius: 0; /* Remove border-radius on very small screens */
             box-shadow: none; /* Remove shadow on very small screens */
           }
-          .header-content, .content, .footer-text {
+          .header-content, .content, .grey-background-div { /* Adjusted for renamed footer class */
             padding: 20px 15px; /* Adjust padding for smaller screens */
           }
-          h1 {
-            font-size: 24px !important; /* Slightly smaller header on mobile */
+          h2 { /* Changed from h1 to h2 for consistency with reset template */
+            font-size: 20px !important; /* Slightly smaller header on mobile */
           }
           .button {
             padding: 10px 20px;
@@ -273,9 +276,12 @@ export function welcomeEmailTemplate(name) {
       <div class="container">
         <!-- Header Section -->
         <div class="header-content">
+          <!-- Logo -->
           <img src="https://res.cloudinary.com/ds0a0s3k3/image/upload/v1751285511/armIcon_pj56l1.png" alt="Nigeria Immigration Logo" style="max-width: 80px; max-height: 70px; margin-bottom: 20px; border-radius: 10px; display: block; margin-left: auto; margin-right: auto;">
-      <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1752944187/bro_qncq7m.svg" alt="Illustration" style="max-width: 100%; height: auto; display: block; margin: 0 auto 20px auto;">
-          <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 600;">Welcome to NIS!</h1>
+          <!-- New Illustration Image -->
+          <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1753048709/bro_je35hy.png" alt="Illustration" style="max-width: 100%; height: auto; display: block; margin: 0 auto 20px auto;">
+          <!-- New Header Text -->
+          <h2 style="font-size: 24px; color: #00AA55; margin-top: 0; margin-bottom: 10px;"><strong>One Portal. All Your Immigration Services</strong></h2>
         </div>
 
         <!-- Content Section -->
@@ -299,8 +305,8 @@ export function welcomeEmailTemplate(name) {
         </div>
 
         <!-- Footer Section -->
-        <div class="footer-text">
-          <p>&copy; ${new Date().getFullYear()} Nigeria Immigration Service. All rights reserved.</p>
+        <div class="grey-background-div">
+          <p style="text-align: center;">&copy; ${new Date().getFullYear()} Nigeria Immigration Service. All rights reserved.</p>
           <div class="social-icons">
             <a href="https://www.facebook.com/NigeriaImmigrationService/" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

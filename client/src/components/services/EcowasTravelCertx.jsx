@@ -59,7 +59,7 @@ const EcowasTravelCertx = () => {
     faqList.map((faq, idx) => (
       <div
         key={idx}
-        className="w-full border-[0.5px] rounded-xl border-[#c9c6c6] bg-white mb-[15px]" // Card styling
+        className="w-full  border-[0.5px] rounded-xl border-[#c9c6c6]   bg-white mb-[30px]" // Card styling
       >
         {/* FAQ Header - clickable to toggle answer */}
         <div
@@ -72,7 +72,8 @@ const EcowasTravelCertx = () => {
             hover:bg-[#05AA55] rounded-xl hover:text-white transition-colors`}
           onClick={() => handleToggle(idx)} // Toggle this FAQ
         >
-          <span>{faq.question}</span> {/* Display the question text */}
+          <span className="text-[24px] font-semibold">{faq.question}</span>{" "}
+          {/* Display the question text */}
           {/* Arrow icon that rotates if open */}
           <span
             className={`ml-2 transform transition-transform duration-300 ${

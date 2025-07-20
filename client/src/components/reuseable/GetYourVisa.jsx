@@ -10,13 +10,13 @@ const GetYourVisa = () => {
           <img
             src={getyoursisa}
             alt="background"
-            className="w-full h-[350px] md:h-[430px] rounded-[20px] lg:rounded-[40px] object-cover shadow-lg"
+            className="w-full h-[350px] md:h-[430px] rounded-[20px] lg:rounded-[40px] object-cover"
           />
            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black/40 px-4 rounded-[40px]">
-          <h2 className="text-2xl md:text-4xl font-bold drop-shadow-lg">
+          <h2 className="text-[24px] px-10 md:text-[44px] font-semibold">
             Get Your Visa Before You Land
           </h2>
-          <p className="mt-2 max-w-xl text-base md:text-lg drop-shadow-md">
+          <p className="mt-8 max-w-4xl px-10 text-base md:text-[24px] drop-shadow-md">
             Discover how Nigeria’s Visa on Arrival program makes entry easier
             for business travelers and visitors.
           </p>

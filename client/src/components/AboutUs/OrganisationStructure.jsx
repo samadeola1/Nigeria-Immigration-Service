@@ -11,7 +11,7 @@ const OrganisationStructure = () => {
           <img
             src={building}
             alt="NIS Building"
-            className="w-full h-[413px] lg:w-1/2 rounded-xl object-cover"
+            className="w-full h-[413px] lg:w-1/2 rounded-[24px] object-cover"
           />
           <div className="lg:w-1/2">
             <h3 className="text-xl md:text-2xl lg:text-[44px] font-bold mb-4 text-gray-900">
@@ -30,11 +30,11 @@ const OrganisationStructure = () => {
         </div>
 
         {/* Block 2 */}
-        <div className="flex flex-col lg:flex-row-reverse items-center gap-10">
+        <div className="flex flex-col lg:flex-row-reverse items-center pt-12 gap-10">
           <img
             src={passport}
             alt="Passport"
-            className="w-full h-[413px] lg:w-1/2 rounded-xl object-cover"
+            className="w-full h-[413px] lg:w-1/2 rounded-[24px] object-cover"
           />
           <div className="lg:w-1/2">
             <h3 className="text-xl md:text-2xl lg:text-[44px] font-bold mb-4 text-gray-900">

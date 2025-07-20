@@ -15,7 +15,7 @@ export function resetPasswordEmailTemplate(name, resetUrl) {
       max-width: 600px;
       margin: 0 auto;
       padding: 20px;
-      background-color: #F1F1F1; /* Changed to grey background for the whole body */
+      background-color: #F1F1F1; /* Grey background for the whole body */
     }
     .container {
       background-color: #ffffff; /* Remains white for the main card */
@@ -29,9 +29,8 @@ export function resetPasswordEmailTemplate(name, resetUrl) {
     }
     .grey-background-div {
       background-color: #F1F1F1; /* Changed to match body background */
-      padding: 20px; /* Kept padding for content spacing */
+      padding: 20px; /* Re-added padding for the footer section */
       text-align: center; /* This centers the div itself, but its content will be left-aligned below */
-      /* border-radius: 0 0 10px 10px; Removed border-radius as it blends with body */
     }
     .button {
       display: inline-block;
@@ -48,6 +47,7 @@ export function resetPasswordEmailTemplate(name, resetUrl) {
       margin-bottom: 8px; /* Small margin between paragraphs */
       font-size: 14px; /* Default font size for these paragraphs */
       color: #555; /* Slightly darker grey for readability */
+      text-align: left; /* Ensure text is left-aligned in reset password footer */
     }
     .grey-background-div .contact-email {
       color: #00AA55; /* Green color for the email address */
@@ -61,18 +61,19 @@ export function resetPasswordEmailTemplate(name, resetUrl) {
     }
     /* Social Icons */
     .social-icons {
-      text-align: center;
-      padding: 20px 0;
+      text-align: left; /* Align social icons to the left for reset password */
+      padding: 20px 0 0 0; /* Adjusted padding for content inside footer */
       margin-top: 10px;
     }
     .social-icons a {
       display: inline-block;
       margin: 0 10px;
     }
-    .social-icons svg {
+    /* Styling for image icons */
+    .social-icons img {
       width: 24px;
       height: 24px;
-      fill: #00AA55; /* Green color for social icons */
+      vertical-align: middle; /* Align images nicely */
     }
     /* Media Queries for smaller screens */
     @media only screen and (max-width: 480px) {
@@ -111,47 +112,36 @@ export function resetPasswordEmailTemplate(name, resetUrl) {
       <tr>
         <td style="border-radius: 5px; background: #00AA55; text-align: center;">
           <a href="${resetUrl}" target="_blank" style="background: #00AA55; border: 1px solid #00AA55; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 5px; font-weight: bold; padding: 12px 25px; color: #ffffff;" clicktracking="off">
-            Reset Password
+            Reset Password &#8594; <!-- Added arrow icon here -->
           </a>
         </td>
       </tr>
     </table>
 
     <div class="grey-background-div">
-      <!-- Added inline style text-align: left; to each paragraph within the grey div -->
+      <!-- Content within grey div for reset password is left-aligned -->
       <p style="text-align: left;">If you did not initiate this request, please contact us at <a href="mailto:support@immigration.gov.ng" class="contact-email">support@immigration.gov.ng</a></p>
       <p style="text-align: left;">Thanks</p>
       <p style="text-align: left;">Nigeria Immigration Service</p>
-      <p class="copyright" style="text-align: left;">Copyright Nigeria Immigration Service 2024 All rights reserved</p>
-      <div class="social-icons">
+      <p class="copyright" style="text-align: left;">Copyright Nigeria Immigration Service ${new Date().getFullYear()} All rights reserved</p>
+      <div class="social-icons" style="text-align: left;">
         <a href="https://www.facebook.com/NigeriaImmigrationService/" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3 8h-1.5c-.828 0-1.5.672-1.5 1.5v2.5h3l-.5 3h-2.5v7h-3v-7h-2v-3h2V8.5c0-1.933 1.567-3.5 3.5-3.5H15V8z"/>
-          </svg>
+          <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1753050701/facebook_whrbnd.png" alt="Facebook" width="24" height="24" style="display:inline-block;">
         </a>
         <a href="https://www.instagram.com/nigeriaimmigrationservice/" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M12 0C8.74 0 8.333.01 7.02.07C5.714.13 5.021.29 4.37.54C3.723.79 3.144 1.12 2.654 1.61C2.164 2.1 1.834 2.677 1.584 3.32C1.334 3.97 1.174 4.66 1.114 5.97C1.054 7.28 1.044 7.67 1.044 12s.01 4.72.07 6.03c.06 1.31.22 1.99.47 2.64c.25 0.643.58 1.22.99 1.61c.41.39.99.72 1.63.97c.65.25 1.33.41 2.64.47c1.31.06 1.7.07 6.03.07s4.72-.01 6.03-.07c1.31-.06 1.99-.22 2.64-.47c.64-.25 1.22-.58 1.61-.99c.39-.41.72-.99.97-1.63c.25-.65.41-1.33.47-2.64c.06-1.31.07-1.7.07-6.03s-.01-4.72-.07-6.03c-.06-1.31-.22-1.99-.47-2.64c-.25-.64-.58-1.22-.97-1.61c-.4-.39-.99-.72-1.63-.97c-.65-.25-1.33-.41-2.64-.47C15.28 0 14.89 0 12 0zm0 2.16c3.2 0 3.58.01 4.85.07c1.1.05 1.62.21 1.95.34c.34.13.56.29.76.49c.2.2.36.42.49.76c.13.33.29.85.34 1.95c.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.05 1.1-.21 1.62-.34 1.95c-.13.34-.29.56-.49.76c-.2.2-.42.36-.76.49c-.33.13-.85.29-1.95.34c-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-1.1-.05-1.62-.21-1.95-.34c-.34-.13-.56-.29-.76-.49c-.2-.2-.36-.42-.49-.76c-.13-.33-.29-.85-.34-1.95c-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.05-1.1.21-1.62.34-1.95c.13-.34.29-.56.49-.76c.2-.2.42-.36.76-.49c.33-.13.85-.29 1.95-.34C8.42 2.17 8.79 2.16 12 2.16zm0 3.63c-3.45 0-6.24 2.79-6.24 6.24s2.79 6.24 6.24 6.24s6.24-2.79 6.24-6.24s-2.79-6.24-6.24-6.24zm0 10.32c-2.25 0-4.08-1.83-4.08-4.08s1.83-4.08 4.08-4.08s4.08 1.83 4.08 4.08s-1.83 4.08-4.08 4.08zm6.4-11.8c-.8.8-.8 2.09 0 2.89s2.09.8 2.89 0s.8-2.09 0-2.89s-2.09-.8-2.89 0z"/>
-          </svg>
+          <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1753050700/instagram_n8vqxf.png" alt="Instagram" width="24" height="24" style="display:inline-block;">
         </a>
         <a href="https://twitter.com/nigimmigration" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.594 0-6.492 2.908-6.492 6.492 0 .509.058 1.007.165 1.487-5.392-.27-10.188-2.859-13.402-6.795-.55.942-.867 2.03-.867 3.181 0 2.22 1.133 4.187 2.841 5.338-.265-.008-.516-.082-.732-.19v.072c0 3.15 2.37 5.786 5.493 6.393-.56.153-1.162.23-1.77.23-.434 0-.853-.041-1.26-.121.872 2.716 3.397 4.706 6.393 4.706 0-.008.008-.016.016-.024C16.14 21.16 18.995 22 22 22c3.67 0 5.67-3.03 5.67-5.67 0-.19-.008-.38-.024-.57.392-.288.766-.62 1.107-.996z"/>
-          </svg>
+          <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1753050701/Twitter_krzeqs.png" alt="Twitter" width="24" height="24" style="display:inline-block;">
         </a>
         <a href="https://www.linkedin.com/company/nigeria-immigration-service/" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.564c0-1.328-.027-3.044-1.852-3.044-1.853 0-2.136 1.445-2.136 2.955v5.653H9.109V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.467v6.253zM5.78 7.92c-1.217 0-2.201-.984-2.201-2.201 0-1.217.984-2.201 2.201-2.201 1.217 0 2.202.984 2.202 2.201 0 1.217-.985 2.201-2.202 2.201zm1.756 12.532H4.024V9h3.512v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454C23.209 24 24 23.227 24 22.271V1.729C24 .774 23.209 0 22.225 0z"/>
-          </svg>
+          <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1753050701/Linkedin_zkkxfy.png" alt="LinkedIn" width="24" height="24" style="display:inline-block;">
         </a>
       </div>
     </div>
   </div>
 </body>
 </html>
-
-  
-  
   `;
 }
 
@@ -206,9 +196,8 @@ export function welcomeEmailTemplate(name) {
         /* Footer Section */
         .grey-background-div { /* Renamed from .footer-text to match reset template for consistency */
           background-color: #F1F1F1; /* Matching body background for seamless look */
-          padding: 20px; /* Kept padding for content spacing */
+          padding: 20px; /* Re-added padding for the footer section */
           text-align: center; /* Center content within the footer */
-          /* border-radius: 0 0 10px 10px; Removed border-radius as it blends with body */
         }
 
         /* Responsive Images */
@@ -222,7 +211,7 @@ export function welcomeEmailTemplate(name) {
         /* Buttons */
         .button {
           display: inline-block;
-          padding: 12px 25px;
+          padding: 10px 20px; /* Adjusted padding for a smaller button */
           background-color: #00AA55; /* Green button background */
           color: #ffffff; /* Button text color */
           text-decoration: none;
@@ -236,18 +225,19 @@ export function welcomeEmailTemplate(name) {
 
         /* Social Icons */
         .social-icons {
-          text-align: center;
-          padding: 20px 0;
+          text-align: center; /* Center social icons for welcome email */
+          padding: 20px 0 0 0; /* Adjusted padding for content inside footer */
           margin-top: 10px;
         }
         .social-icons a {
           display: inline-block;
           margin: 0 10px;
         }
-        .social-icons svg {
+        /* Styling for image icons */
+        .social-icons img {
           width: 24px;
           height: 24px;
-          fill: #00AA55; /* Green color for social icons */
+          vertical-align: middle; /* Align images nicely */
         }
 
         /* Media Queries for smaller screens */
@@ -293,7 +283,7 @@ export function welcomeEmailTemplate(name) {
           <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: 20px auto;">
             <tr>
               <td style="border-radius: 5px; background: #00AA55; text-align: center;">
-                <a href="https://nigeria-immigration-service.vercel.app/" target="_blank" class="button" style="background: #00AA55; border: 1px solid #00AA55; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 5px; font-weight: bold; padding: 12px 25px; color: #ffffff;" clicktracking="off">
+                <a href="https://nigeria-immigration-service.vercel.app/" target="_blank" class="button" style="background: #00AA55; border: 1px solid #00AA55; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 5px; font-weight: bold; padding: 10px 20px; color: #ffffff;" clicktracking="off">
                   Explore Now
                 </a>
               </td>
@@ -307,31 +297,23 @@ export function welcomeEmailTemplate(name) {
         <!-- Footer Section -->
         <div class="grey-background-div">
           <p style="text-align: center;">&copy; ${new Date().getFullYear()} Nigeria Immigration Service. All rights reserved.</p>
-          <div class="social-icons">
+          <div class="social-icons" style="text-align: center;">
             <a href="https://www.facebook.com/NigeriaImmigrationService/" target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3 8h-1.5c-.828 0-1.5.672-1.5 1.5v2.5h3l-.5 3h-2.5v7h-3v-7h-2v-3h2V8.5c0-1.933 1.567-3.5 3.5-3.5H15V8z"/>
-              </svg>
+              <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1753050701/facebook_whrbnd.png" alt="Facebook" width="24" height="24" style="display:inline-block;">
             </a>
             <a href="https://www.instagram.com/nigeriaimmigrationservice/" target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M12 0C8.74 0 8.333.01 7.02.07C5.714.13 5.021.29 4.37.54C3.723.79 3.144 1.12 2.654 1.61C2.164 2.1 1.834 2.677 1.584 3.32C1.334 3.97 1.174 4.66 1.114 5.97C1.054 7.28 1.044 7.67 1.044 12s.01 4.72.07 6.03c.06 1.31.22 1.99.47 2.64c.25 0.643.58 1.22.99 1.61c.41.39.99.72 1.63.97c.65.25 1.33.41 2.64.47c1.31.06 1.7.07 6.03.07s4.72-.01 6.03-.07c1.31-.06 1.99-.22 2.64-.47c.64-.25 1.22-.58 1.61-.99c.39-.41.72-.99.97-1.63c.25-.65.41-1.33.47-2.64c.06-1.31.07-1.7.07-6.03s-.01-4.72-.07-6.03c-.06-1.31-.22-1.99-.47-2.64c-.25-.64-.58-1.22-.97-1.61c-.4-.39-.99-.72-1.63-.97c-.65-.25-1.33-.41-2.64-.47C15.28 0 14.89 0 12 0zm0 2.16c3.2 0 3.58.01 4.85.07c1.1.05 1.62.21 1.95.34c.34.13.56.29.76.49c.2.2.36.42.49.76c.13.33.29.85.34 1.95c.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.05 1.1-.21 1.62-.34 1.95c-.13.34-.29.56-.49.76c-.2.2-.42.36-.76.49c-.33.13-.85.29-1.95.34c-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-1.1-.05-1.62-.21-1.95-.34c-.34-.13-.56-.29-.76-.49c-.2-.2-.36-.42-.49-.76c-.13-.33-.29-.85-.34-1.95c-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.05-1.1.21-1.62.34-1.95c.13-.34.29-.56.49-.76c.2-.2.42-.36.76-.49c.33-.13.85-.29 1.95-.34C8.42 2.17 8.79 2.16 12 2.16zm0 3.63c-3.45 0-6.24 2.79-6.24 6.24s2.79 6.24 6.24 6.24s6.24-2.79 6.24-6.24s-2.79-6.24-6.24-6.24zm0 10.32c-2.25 0-4.08-1.83-4.08-4.08s1.83-4.08 4.08-4.08s4.08 1.83 4.08 4.08s-1.83 4.08-4.08 4.08zm6.4-11.8c-.8.8-.8 2.09 0 2.89s2.09.8 2.89 0s.8-2.09 0-2.89s-2.09-.8-2.89 0z"/>
-          </svg>
-        </a>
-        <a href="https://twitter.com/nigimmigration" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.594 0-6.492 2.908-6.492 6.492 0 .509.058 1.007.165 1.487-5.392-.27-10.188-2.859-13.402-6.795-.55.942-.867 2.03-.867 3.181 0 2.22 1.133 4.187 2.841 5.338-.265-.008-.516-.082-.732-.19v.072c0 3.15 2.37 5.786 5.493 6.393-.56.153-1.162.23-1.77.23-.434 0-.853-.041-1.26-.121.872 2.716 3.397 4.706 6.393 4.706 0-.008.008-.016.016-.024C16.14 21.16 18.995 22 22 22c3.67 0 5.67-3.03 5.67-5.67 0-.19-.008-.38-.024-.57.392-.288.766-.62 1.107-.996z"/>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/company/nigeria-immigration-service/" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.564c0-1.328-.027-3.044-1.852-3.044-1.853 0-2.136 1.445-2.136 2.955v5.653H9.109V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.467v6.253zM5.78 7.92c-1.217 0-2.201-.984-2.201-2.201 0-1.217.984-2.201 2.201-2.201 1.217 0 2.202.984 2.202 2.201 0 1.217-.985 2.201-2.202 2.201zm1.756 12.532H4.024V9h3.512v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454C23.209 24 24 23.227 24 22.271V1.729C24 .774 23.209 0 22.225 0z"/>
-          </svg>
-        </a>
+              <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1753050700/instagram_n8vqxf.png" alt="Instagram" width="24" height="24" style="display:inline-block;">
+            </a>
+            <a href="https://twitter.com/nigimmigration" target="_blank">
+              <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1753050701/Twitter_krzeqs.png" alt="Twitter" width="24" height="24" style="display:inline-block;">
+            </a>
+            <a href="https://www.linkedin.com/company/nigeria-immigration-service/" target="_blank">
+              <img src="https://res.cloudinary.com/dd9nujmdt/image/upload/v1753050701/Linkedin_zkkxfy.png" alt="LinkedIn" width="24" height="24" style="display:inline-block;">
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</body>
-</html>
+    </body>
+    </html>
   `;
 }

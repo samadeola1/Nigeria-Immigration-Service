@@ -310,7 +310,6 @@ export function welcomeEmailTemplate(name) {
 
         <!-- Content Section -->
         <div class="content">
-          <p style="font-size: 18px; color: #333;"><strong></strong></p> <!-- Removed "Hi ${name}," -->
           <p>We are pleased to welcome you as a valued member of the Nigerian Immigration Service. Your registration has been successfully received, and your journey with us officially begins today.</p>
           <p>As part of our commitment to serving both citizens and residents, we are here to provide you with the necessary support, guidance, and resources throughout your process.</p>
           

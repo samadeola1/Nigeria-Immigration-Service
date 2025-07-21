@@ -48,7 +48,7 @@ const Footer = () => {
           <div className=" flex  text-[#EDEDED] flex-col lg:flex-row lg:gap-[120px] gap-6">
             {/* Quick Links */}
             <div>
-              <h4 className="font-normal text-[16px] mb-3 ">Quick links</h4>
+              <h4 className="font-semibold text-lg mb-3 ">Quick links</h4>
               <ul className="space-y-4 text-sm">
                 <li>
                   <a href="#">Home</a>
@@ -67,7 +67,7 @@ const Footer = () => {
 
             {/* Help */}
             <div className="flex flex-col">
-              <h4 className="font-normal text-[16px] mb-3 ">Help</h4>
+              <h4 className="font-semibold text-lg mb-3 ">Help</h4>
               <ul className="space-y-4 text-sm flex-col">
                 <li>
                   <a href="#">Faqs</a>

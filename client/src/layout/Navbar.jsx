@@ -216,7 +216,7 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="lg:hidden fixed inset-0 w-full h-screen bg-[#006834] z-50 flex flex-col pt-4 overflow-y-auto"
+          className="lg:hidden fixed inset-0 w-full h-[85%] bg-[#006834] z-50 flex flex-col pt-4 overflow-y-auto"
         >
           <div className="flex justify-between items-center p-8 ">
             <Link to="/" onClick={closeMobileMenu}>

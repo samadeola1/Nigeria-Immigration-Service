@@ -16,13 +16,13 @@ const Hero = () => {
     {
       image: img1,
       content: (
-        <div className="absolute lg:bottom-60 xl:bottom-30 flex flex-col gap-[30px]">
+        <div className="absolute lg:bottom-15 xl:bottom-30 flex flex-col gap-[30px]">
           <div>
-            <h1 className="lg:text-[75px] xl:text-[84px] lg:w-[90%] xl:w-[70%] font-bold text-white drop-shadow-lg leading-26">
+            <h1 className="lg:text-[75px] xl:text-[84px] lg:w-[80%] xl:w-[80%] font-bold text-white drop-shadow-lg lg:leading-24 xl:leading-28">
               Nigeria <span className="text-[#6BCE9C]">Immigration</span>{" "}
               Service
             </h1>
-            <p className="text-[24px] font-normal lg:w-[90%] xl:w-[65%] text-white drop-shadow-md mt-4 leading-relaxed">
+            <p className="text-[24px] font-normal lg:w-[80%] xl:w-[65%] text-white drop-shadow-md mt-4 leading-relaxed">
               Begin your journey with confidence. Whether you're pursuing career
               growth, or a better future for your family, is ready to welcome
               you.
@@ -42,8 +42,8 @@ const Hero = () => {
     {
       image: img2,
       content: (
-        <div className="absolute bottom-30  flex flex-col gap-[12px]">
-          <h1 className="lg:text-[75px] xl:text-[84px] font-semibold lg:w-[90%] xl:w-[80%] text-white drop-shadow-md leading-28">
+        <div className="absolute lg:bottom-15 xl:bottom-30   flex flex-col gap-[12px]">
+          <h1 className="lg:text-[75px] xl:text-[84px] font-semibold lg:w-[90%] xl:w-[80%] text-white drop-shadow-md lg:leading-24 xl:leading-28">
             Your Gateway TO A New Life In Nigeria.
           </h1>
           <p className="text-[28px] text-white  font-normal lg:w-[80%]  xl:w-[80%]">
@@ -61,8 +61,8 @@ const Hero = () => {
     {
       image: img4,
       content: (
-        <div className="absolute bottom-30 flex flex-col gap-[12px] ">
-          <h1 className="lg:text-[70px] xl:text-[84px] lg:w-[90%] font-semibold  text-white drop-shadow-md leading-28">
+        <div className="absolute lg:bottom-15 xl:bottom-30  flex flex-col gap-[12px] ">
+          <h1 className="lg:text-[70px] xl:text-[84px] lg:w-[90%] font-semibold  text-white drop-shadow-md lg:leading-24 xl:leading-28">
             Overstay <span className="text-[#6BCE9C]"> Amnesty</span> and
             Immigration Update
           </h1>
@@ -81,9 +81,9 @@ const Hero = () => {
     {
       image: img3,
       content: (
-        <div className="absolute bottom-30  flex flex-col gap-[12px]">
-          <div>
-            <p className="lg:text-[75px] xl:text-[84px] lg:w-[55%] font-semibold   text-white  drop-shadow-md leading-28">
+        <div className="absolute lg:bottom-15 xl:bottom-30  flex flex-col gap-[12px]">
+          <div className="flex flex-col gap-[30px]">
+            <p className="lg:text-[75px] xl:text-[84px] lg:w-[55%] font-semibold   text-white  drop-shadow-md lg:leading-24 xl:leading-28">
               Need Help Or Support?
             </p>
             <p className="text-[28px] font-normal lg:w-[70%] text-white   xl:w-[67%]">
@@ -122,7 +122,7 @@ const Hero = () => {
             <button className="bg-[#00AA55] text-white   hover:bg-green-700 transition-colors duration-200 px-[9px] py-[10px] rounded-md font-semibold text-[15px] cursor-pointer">
               Apply now
             </button>
-            <button className="border border-[#00AA55] text-[#00AA55] hover:bg-green-200 transition-colors duration-200 px-[9px] py-[10px] rounded-md font-semibold text-[15px] cursor-pointer">
+            <button className="border border-white  text-white hover:text-gray-500 hover:bg-blue-100 transition-colors duration-200 px-[9px] py-[10px] rounded-md font-semibold text-[15px] cursor-pointer">
               Explore services
             </button>
           </div>

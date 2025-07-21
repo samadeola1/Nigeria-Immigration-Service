@@ -11,7 +11,7 @@
 
 
 .Hero {
-  background-image: url('../src/images/image\ 242\ \(1\).svg');
+  background-image: url('https://res.cloudinary.com/dd9nujmdt/image/upload/v1753100520/image_242_1_qpnbn6.svg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 14rem 3rem 14rem 3rem;
@@ -19,7 +19,7 @@
 }
 
 .service {
-  background-image: url('../src/images/image\ 248\ \(1\).svg');
+  background-image: url('https://res.cloudinary.com/dd9nujmdt/image/upload/v1753100692/image_248_1_dvl1ve.svg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 14rem 3rem 14rem 3rem;
@@ -27,7 +27,7 @@
 }
 
 .info {
-  background-image: url('../src/images/image\ 252\ \(1\).svg');
+  background-image: url('https://res.cloudinary.com/dd9nujmdt/image/upload/v1753100775/image_252_1_l60q45.svg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 18rem 3rem 8rem 3rem;
@@ -42,7 +42,7 @@ body {
 
 @media (width > 768px) {
   .Hero {
-    background-image: url('../src/images/image\ 242.svg');
+    background-image: url('https://res.cloudinary.com/dd9nujmdt/image/upload/v1753100157/image_242_surowe.svg');
     padding-top: 18rem;
     padding-bottom: 16rem;
     /* margin-top: 2rem; */
@@ -52,7 +52,7 @@ body {
 
 @media (width > 768px) {
   .service {
-    background-image: url('../src/images/image\ 248.svg');
+    background-image: url('https://res.cloudinary.com/dd9nujmdt/image/upload/v1753100692/image_248_geayju.svg');
     /* padding-top: 16rem;
     padding-bottom: 16rem; */
   }
@@ -61,7 +61,7 @@ body {
 
 @media (width > 768px) {
   .info {
-    background-image: url('../src/images/image\ 252.svg');
+    background-image: url('https://res.cloudinary.com/dd9nujmdt/image/upload/v1753100775/image_252_qkpljv.svg');
     padding-top: 14rem;
     padding-bottom: 14rem;
   }

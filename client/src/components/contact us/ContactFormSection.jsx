@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import emailIcon from "../../assets/contactformEmail-Icon.svg";
 import closeIcon from "../../assets/close-Icon.svg";
-import Loader from "../../utils/Loader"; // Ensure Loader component is correctly imported
+import Loader from "../../utils/Loader";
 
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({
@@ -15,23 +15,17 @@ const ContactFormSection = () => {
   const [isSending, setIsSending] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  // Initialize EmailJS when the component mounts
   useEffect(() => {
     try {
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
       if (publicKey) {
         emailjs.init(publicKey);
-      } else {
-        console.error(
-          "EmailJS Public Key is not defined. Please check your .env file."
-        );
       }
     } catch (error) {
-      console.error("Failed to initialize EmailJS:", error);
+    
     }
   }, []);
 
-  // Handle input changes and clear corresponding error
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
@@ -67,7 +61,6 @@ const ContactFormSection = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -75,7 +68,7 @@ const ContactFormSection = () => {
 
     if (isValid) {
       setIsSending(true);
-      setSubmissionMessage(""); // Clear previous messages
+      setSubmissionMessage("");
 
       try {
         const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -88,11 +81,10 @@ const ContactFormSection = () => {
         });
 
         setShowModal(true);
-        setFormData({ name: "", email: "", message: "" }); // Clear form fields
-        setErrors({}); // Clear any existing errors
-        setSubmissionMessage(""); // Ensure toast message is cleared if modal is shown
+        setFormData({ name: "", email: "", message: "" });
+        setErrors({});
+        setSubmissionMessage("");
       } catch (error) {
-        console.error("EmailJS send error:", error);
         setSubmissionMessage(
           "Failed to send your message. Please try again. 😢"
         );
@@ -111,13 +103,8 @@ const ContactFormSection = () => {
   };
 
   return (
-    // The main container for the form content.
-    // Removed conditional pointer-events-none, as the modal overlay will handle blocking clicks.
-    <div
-      className={`p-6 sm:p-8 lg:p-10 bg-[#E6F3EC] rounded-md h-full pt-20`}
-    >
+    <div className={`p-6 sm:p-8 lg:p-10 bg-[#E6F3EC] rounded-md h-full pt-20`}>
       <form className="space-y-6" onSubmit={handleSubmit}>
-        {/* Name Input Field */}
         <div>
           <label
             htmlFor="name"
@@ -141,7 +128,6 @@ const ContactFormSection = () => {
           )}
         </div>
 
-        {/* Email Input Field */}
         <div>
           <label
             htmlFor="email"
@@ -165,7 +151,6 @@ const ContactFormSection = () => {
           )}
         </div>
 
-        {/* Message Textarea Field */}
         <div>
           <label
             htmlFor="message"
@@ -189,7 +174,6 @@ const ContactFormSection = () => {
           )}
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           className="w-full py-3 px-4 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-md hover:from-green-700 hover:to-green-800 text-xl font-semibold transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-lg flex items-center justify-center"
@@ -198,7 +182,6 @@ const ContactFormSection = () => {
           {isSending ? <Loader /> : "Send Message"}
         </button>
 
-        {/* Submission Message (Toast) */}
         {submissionMessage && !showModal && (
           <p
             className={`text-center mt-4 p-3 rounded-lg font-semibold text-base shadow-md ${
@@ -213,11 +196,9 @@ const ContactFormSection = () => {
         )}
       </form>
 
-      {/* Success Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50 p-4"> {/* Changed bg-white/10 to bg-black/50 */}
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md text-center relative">
-            {/* Close Icon wrapped in a button for better clickability */}
             <button
               type="button"
               onClick={handleCloseModal}
@@ -226,7 +207,6 @@ const ContactFormSection = () => {
             >
               <img src={closeIcon} alt="Close" className="w-5 h-5" />
             </button>
-            {/* Mail Icon moved here */}
             <div className="flex justify-center mb-6">
               <img src={emailIcon} alt="emailIcon" className="w-20 h-20" />
             </div>
@@ -237,10 +217,9 @@ const ContactFormSection = () => {
               Your message has been sent. Our support team will reply to your
               message within 24 hours.
             </p>
-            {/* The "Go Back" button remains */}
             <button
               type="button"
-              onClick={handleCloseModal} 
+              onClick={handleCloseModal}
               className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-3 px-4 rounded-md hover:from-green-700 hover:to-green-800 text-lg font-semibold transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-lg"
             >
               Go Back

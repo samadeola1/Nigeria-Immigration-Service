@@ -9,12 +9,11 @@ const initialState = {
   loading: false, // To indicate if an auth operation is in progress
 };
 
-// Create the Zustand store
 export const useAuthStore = create((set, get) => ({
-  // Added 'get' for accessing current state
+  
   ...initialState, // Spread the initial state
 
-  // Action to set loading state
+  
   setLoading: (isLoading) => set({ loading: isLoading }),
 
   // Action to handle user login
@@ -73,9 +72,9 @@ export const useAuthStore = create((set, get) => ({
           isAuthenticated: true,
           loading: false,
         });
-        console.log("Auth state initialized from cookies.");
+        // console.log("Auth state initialized from cookies.");
       } catch (e) {
-        console.error("Failed to parse user data from cookie:", e);
+        // console.error("Failed to parse user data from cookie:", e);
         // Clear invalid cookies if parsing fails
         Cookies.remove("authToken");
         Cookies.remove("userData");

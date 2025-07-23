@@ -11,16 +11,14 @@ import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
 import { HiOutlineMail, HiOutlineLockClosed } from "react-icons/hi";
 import toast, { Toaster } from "react-hot-toast";
 
-// Import the Zustand store
 import { useAuthStore } from "../store/authStore";
 
 export default function SignIn() {
-  // Get actions and state from the Zustand store
   const loginUser = useAuthStore((state) => state.login);
   const setLoadingState = useAuthStore((state) => state.setLoading);
   const loading = useAuthStore((state) => state.loading); // Use loading state from store
 
-  // React Hook Form setup
+
   const {
     register,
     handleSubmit,
@@ -40,7 +38,7 @@ export default function SignIn() {
       password: data.password,
     };
 
-    console.log("🔐 Attempting login with payload:", payload);
+    // console.log("🔐 Attempting login with payload:", payload);
 
     try {
       const res = await axios.post(
@@ -48,18 +46,18 @@ export default function SignIn() {
         payload
       );
 
-      console.log("✅ Login successful:", res.data);
+      // console.log("✅ Login successful:", res.data);
 
       const token = res.data.user?.token;
-      // Ensure user data includes 'name' directly from the backend response
+      
       const userData = {
-        name: res.data.user?.name || "", // Read 'name' directly from the backend response
+        name: res.data.user?.name || "", 
         email: res.data.user?.email,
-        // Add any other user data you get from your backend that you want in the store
+        
       };
 
       if (!token) {
-        console.warn("⚠️ No token received from backend.");
+        // console.warn("⚠️ No token received from backend.");
         toast.error("Login failed: No authentication token received.");
         return;
       }
@@ -73,7 +71,7 @@ export default function SignIn() {
       reset(); // Clear form fields on success
       setTimeout(() => navigate("/"), 2000); // Redirect to homepage
     } catch (err) {
-      console.error("❌ Login error:", err.response || err);
+      // console.error("❌ Login error:", err.response || err);
 
       let errorMessage = "Login failed. Please try again.";
 
@@ -110,7 +108,7 @@ export default function SignIn() {
 
       // For Google sign-in, create a consistent user data object
       const userData = {
-        name: user.displayName || user.email, // Use displayName or fallback to email
+        name: user.displayName || user.email, 
         email: user.email,
         photoURL: user.photoURL,
       };
@@ -121,7 +119,7 @@ export default function SignIn() {
       toast.success("Google Sign-in successful! Redirecting...");
       setTimeout(() => navigate("/"), 2000);
     } catch (error) {
-      console.error("Google sign-in failed", error);
+      // console.error("Google sign-in failed", error);
       let googleErrorMessage = "Google sign-in failed. Please try again.";
       if (error.code === "auth/popup-closed-by-user") {
         googleErrorMessage = "Google sign-in window closed. Please try again.";
@@ -139,8 +137,6 @@ export default function SignIn() {
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 font-poppins p-4 sm:p-6 lg:p-0">
-      {" "}
-      {/* Adjusted padding for responsiveness */}
       <Toaster position="top-center" reverseOrder={false} />
       <div className="flex flex-col md:flex-row bg-white overflow-hidden w-full max-w-sm sm:max-w-md md:max-w-full lg:max-w-full xl:max-w-full rounded-lg h-auto md:h-screen shadow-lg md:rounded-none md:shadow-none">
         <div

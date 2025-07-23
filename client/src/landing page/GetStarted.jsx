@@ -43,19 +43,6 @@ const GetStarted = () => {
             your process quickly, securely, and with confidence.
           </p>
 
-          {/* <div className="relative flex flex-col md:flex-row items-center justify-center z-0 ">
-
-  
-  <div className="hidden md:block absolute top-8 left-50 right-0 justify-center ">
-    <div className='flex w-full max-w-[800px] justify-between items-center '>
-    <div className=" w-[100px]  h-0.5 bg-green-600 " />
-    <div className="w-[100px] h-0.5 bg-green-600 " />
-    <div className="w-[100px] h-0.5 bg-green-600" />
-    
-    </div>
-  </div>
-  </div> */}
-
           <div className="flex flex-col md:flex-row justify-center items-center md:gap-8 gap-12  mx-auto">
             {steps.map((step, index) => (
               <div

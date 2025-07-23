@@ -4,16 +4,15 @@ import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
-// Import the Zustand store
 import { useAuthStore } from "../store/authStore";
 
 const ResetPassword = () => {
   const { resetToken } = useParams();
   const navigate = useNavigate();
 
-  // Get actions and state from the Zustand store
+  
   const setLoadingState = useAuthStore((state) => state.setLoading);
-  const loading = useAuthStore((state) => state.loading); // Use loading state from store
+  const loading = useAuthStore((state) => state.loading); 
 
   const {
     register,
@@ -48,8 +47,8 @@ const ResetPassword = () => {
     }
 
     setLoadingState(true); // Set loading true via Zustand
-    console.log("Form data submitted:", data);
-    console.log("Using resetToken:", resetToken);
+    // console.log("Form data submitted:", data);
+    // console.log("Using resetToken:", resetToken);
 
     try {
       const apiUrl = `https://nigeria-immigration-service.onrender.com/api/services/reset-password/${resetToken}`;
@@ -66,7 +65,7 @@ const ResetPassword = () => {
       });
 
       const resData = await response.json();
-      console.log("API response:", resData);
+      // console.log("API response:", resData);
 
       if (response.ok) {
         toast.success(
@@ -83,7 +82,7 @@ const ResetPassword = () => {
         );
       }
     } catch (error) {
-      console.error("Network or unexpected error:", error);
+      // console.error("Network or unexpected error:", error);
       toast.error("An unexpected error occurred. Please try again.");
     } finally {
       setLoadingState(false); // Set loading false via Zustand
@@ -168,7 +167,7 @@ const ResetPassword = () => {
               </button>
               {errors.new_password && (
                 <p className="text-red-500 text-sm flex items-center">
-                  <span className="mr-1">⚠</span>
+                  <span className="mr-1"></span>
                   {errors.new_password.message}
                 </p>
               )}
@@ -202,7 +201,7 @@ const ResetPassword = () => {
               </button>
               {errors.confirm_password && (
                 <p className="text-red-500 text-sm flex items-center">
-                  <span className="mr-1">⚠</span>
+                  <span className="mr-1"></span>
                   {errors.confirm_password.message}
                 </p>
               )}

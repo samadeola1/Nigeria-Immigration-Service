@@ -1,21 +1,21 @@
-import React, { lazy, Suspense, memo, useEffect } from "react"; // Import useEffect
+import React, { lazy, Suspense, memo, useEffect } from "react"; 
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
-// Import the Zustand store
+
 import { useAuthStore } from "./store/authStore";
 
-// Memoize directly imported components
+
 import Navbar from "./layout/Navbar.jsx";
 import Footer from "./layout/Footer.jsx";
 import Loader from "./utils/Loader.jsx";
 import ScrollToTop from "./utils/ScrollToTop.jsx";
-import SignIn from "./auth/SignIn.jsx"; // Changed from Login to SignIn
+import SignIn from "./auth/SignIn.jsx"; 
 import SignUp from "./auth/SignUp.jsx";
 import ForgotPassword from "./auth/ForgotPassword.jsx";
 import ResetPassword from "./auth/ResetPassword.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 
-// Lazy load and memoize components
+
 const MemoizedLandingPage = memo(
   lazy(() => import("./layout/LandingPage.jsx"))
 );
@@ -26,12 +26,12 @@ const MemoizedInformationCenter = memo(
 );
 const MemoizedContactUs = memo(lazy(() => import("./pages/ContactUs.jsx")));
 
-// Memoize components that are directly used in routes
+
 const MemoizedNavbar = memo(Navbar);
 const MemoizedFooter = memo(Footer);
 const MemoizedLoader = memo(Loader);
 const MemoizedScrollToTop = memo(ScrollToTop);
-const MemoizedSignIn = memo(SignIn); // Changed from MemoizedLogin to MemoizedSignIn
+const MemoizedSignIn = memo(SignIn); 
 const MemoizedSignUp = memo(SignUp);
 const MemoizedForgotPassword = memo(ForgotPassword);
 const MemoizedResetPassword = memo(ResetPassword);
@@ -65,7 +65,7 @@ function AppContent() {
   ]);
 
   const isAuthPath =
-    location.pathname === "/signin" || // Changed from /login to /signin
+    location.pathname === "/signin" || 
     location.pathname === "/signup" ||
     location.pathname === "/forgot-password" ||
     location.pathname.startsWith("/reset-password/");
@@ -92,8 +92,7 @@ function AppContent() {
             element={<MemoizedInformationCenter />}
           />
           <Route path="/contact-us" element={<MemoizedContactUs />} />
-          <Route path="/signin" element={<MemoizedSignIn />} />{" "}
-          {/* Changed from /login to /signin */}
+          <Route path="/signin" element={<MemoizedSignIn />} />
           <Route path="/signup" element={<MemoizedSignUp />} />
           <Route path="/forgot-password" element={<MemoizedForgotPassword />} />
           <Route

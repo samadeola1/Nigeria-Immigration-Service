@@ -33,7 +33,7 @@ const faqs = [
 ];
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(null); // Track the index of the currently open FAQ
+  const [openIndex, setOpenIndex] = useState(null); 
 
   // Function to toggle a question open/closed
   const handleToggle = (index) => {

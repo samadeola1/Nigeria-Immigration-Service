@@ -18,7 +18,7 @@ const LandingAndExit = () => {
               serve as a critical instrument for immigration control and border
               management. commences May 1, 2025
             </p>
-            {/* ========================== */}
+         
             <p
               className="text-[#555555] text-[16px] leading-relaxed mb-6 px-[15px] md:px-[60px] md:text-center font-normal 
              font-poppins lg:hidden"
@@ -27,7 +27,7 @@ const LandingAndExit = () => {
               all passengers entering or departing Nigeria. These cards must be
               completed upon arrival at or departure from Nigerian borders.
             </p>
-            {/* ========================= */}
+         
             <a
               href="#"
               className="flex items-center text-center text-[#00AA55] text-[18px] lg:text-[20px] font-semibold hover:underline justify-center lg:justify-start font-poppins"

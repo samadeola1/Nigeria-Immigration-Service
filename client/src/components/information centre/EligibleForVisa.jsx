@@ -1,11 +1,11 @@
 import React from "react";
 import IneligibilityImage from "../../assets/Eligibility.png";
-import Icon from "../../assets/check-icon.svg"; // Assuming this is the checkmark or similar icon
+import Icon from "../../assets/check-icon.svg"; 
 
 const EligibleForVisa = () => {
   const points = [
     {
-      icon: <img src={Icon} alt="icon" className="w-8 h-8" />, // Adjusted icon size for consistency
+      icon: <img src={Icon} alt="icon" className="w-8 h-8" />, 
       text: "Foreign Nationals With History of Violation",
     },
     {
@@ -23,9 +23,9 @@ const EligibleForVisa = () => {
   ];
 
   return (
-    // Outer section for overall padding and consistent spacing
+   
     <section className="py-16 bg-gray-50">
-      {/* Container to match Navbar's width and centering */}
+  
       <div className="w-11/12 container mx-auto text-black">
         {/* Section Header */}
         <div className="max-w-6xl mx-auto text-center mb-12">
@@ -38,10 +38,9 @@ const EligibleForVisa = () => {
           </p>
         </div>
 
-        {/* Main Content Area: Image and List */}
+       
         <div className="rounded-lg">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-24">
-            {/* Left Column - List: Changed order to appear first on mobile */}
             <div className="w-full md:w-1/2 space-y-6 order-1 md:order-1">
               {points.map((point, index) => (
                 <div key={index} className="flex items-start gap-4 text-lg">
@@ -55,7 +54,7 @@ const EligibleForVisa = () => {
               ))}
             </div>
 
-            {/* Right Column - Image: Changed order to appear second on mobile */}
+            
             <div className="w-full md:w-1/2 flex-shrink-0 order-2 md:order-2">
               <img
                 src={IneligibilityImage}

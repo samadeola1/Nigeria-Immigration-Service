@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
-import { HiOutlineUserCircle } from "react-icons/hi2"; // Import the new icon
+import { HiOutlineUserCircle } from "react-icons/hi2";
 import logo from "../images/image 7.svg";
 import logo1 from "../images/Frame 1171279530.svg";
 import { useAuthStore } from "../store/authStore";
@@ -22,7 +22,6 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    // When opening mobile menu, ensure mobile user dropdown is closed
     if (!isMobileMenuOpen) {
       setShowMobileUserDropdown(false);
     }
@@ -30,36 +29,32 @@ const Navbar = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    setShowMobileUserDropdown(false); // Also close mobile user dropdown
+    setShowMobileUserDropdown(false);
   };
 
   const handleLogout = () => {
     logoutUser();
     navigate("/signin");
     toast.success("Logged out successfully!");
-    setShowDesktopDropdown(false); // Close desktop dropdown
-    setShowMobileUserDropdown(false); // Close mobile dropdown
+    setShowDesktopDropdown(false);
+    setShowMobileUserDropdown(false);
   };
 
-  // Determine the display name for the user
   const userDisplayName = user
-    ? user.name // Prioritize 'name' property from the user object
+    ? user.name
       ? user.name
-      : user.displayName || user.email // Fallback to displayName (for Google) or email
+      : user.displayName || user.email
     : "";
 
-  // Close menus/dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Close mobile menu
       if (
         mobileMenuRef.current &&
         !mobileMenuRef.current.contains(event.target)
       ) {
         setIsMobileMenuOpen(false);
-        setShowMobileUserDropdown(false); // Also close mobile user dropdown
+        setShowMobileUserDropdown(false);
       }
-      // Close desktop dropdown
       if (
         desktopDropdownRef.current &&
         !desktopDropdownRef.current.contains(event.target)
@@ -87,20 +82,18 @@ const Navbar = () => {
 
           {/* Desktop Navigation Menu */}
           <div className="hidden lg:flex items-center space-x-8">
-            {/* Conditionally render Home link */}
-            {!isAuthenticated && (
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) =>
-                  `text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2 ${
-                    isActive ? "text-green-600" : ""
-                  }`
-                }
-              >
-                Home
-              </NavLink>
-            )}
+            {/* Home link - now always rendered */}
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                `text-gray-700 hover:text-green-600 font-medium cursor-pointer transition-colors duration-200 py-2 ${
+                  isActive ? "text-green-600" : ""
+                }`
+              }
+            >
+              Home
+            </NavLink>
             <NavLink
               to="/about-us"
               className={({ isActive }) =>
@@ -160,8 +153,7 @@ const Navbar = () => {
                   ) : (
                     <HiOutlineUserCircle className="w-8 h-8 text-gray-500" />
                   )}
-                  <span>Hi, {userDisplayName}</span>{" "}
-                  {/* Corrected to use userDisplayName */}
+                  <span>Hi, {userDisplayName}</span>
                   <svg
                     className={`w-4 h-4 transition-transform ${
                       showDesktopDropdown ? "rotate-180" : ""
@@ -178,15 +170,22 @@ const Navbar = () => {
                 {showDesktopDropdown && (
                   <div className="absolute right-0 mt-2 bg-white shadow-md rounded-md w-48 py-2 z-50">
                     <Link
+                      to="/visa-application"
+                      className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md transition-colors duration-150"
+                      onClick={() => setShowDesktopDropdown(false)}
+                    >
+                      Visa Application
+                    </Link>
+                    <Link
                       to="/track-application"
-                      className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
+                      className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md transition-colors duration-150"
                       onClick={() => setShowDesktopDropdown(false)}
                     >
                       Track Application
                     </Link>
                     <button
                       onClick={handleLogout}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700"
+                      className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md transition-colors duration-150"
                     >
                       Logout
                     </button>
@@ -235,21 +234,19 @@ const Navbar = () => {
 
           {/* Regular mobile navigation links */}
           <div className="flex-1 px-8 pb-4 space-y-4">
-            {/* Conditionally render Home link in mobile menu */}
-            {!isAuthenticated && (
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) =>
-                  `block py-2 text-lg font-medium cursor-pointer transition-colors duration-200 ${
-                    isActive ? "text-white/90" : "text-white"
-                  } hover:text-white/80`
-                }
-                onClick={closeMobileMenu}
-              >
-                Home
-              </NavLink>
-            )}
+            {/* Home link - now always rendered */}
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                `block py-2 text-lg font-medium cursor-pointer transition-colors duration-200 ${
+                  isActive ? "text-white/90" : "text-white"
+                } hover:text-white/80`
+              }
+              onClick={closeMobileMenu}
+            >
+              Home
+            </NavLink>
             <NavLink
               to="/about-us"
               className={({ isActive }) =>
@@ -314,8 +311,7 @@ const Navbar = () => {
                     ) : (
                       <HiOutlineUserCircle className="w-8 h-8 text-white" />
                     )}
-                    <span>Hi, {userDisplayName}</span>{" "}
-                    {/* Corrected to use userDisplayName */}
+                    <span>Hi, {userDisplayName}</span>
                     <svg
                       className={`w-4 h-4 ml-auto transition-transform ${
                         showMobileUserDropdown ? "rotate-180" : ""
@@ -330,12 +326,17 @@ const Navbar = () => {
                   </button>
 
                   {showMobileUserDropdown && (
-                    <div className="pl-4 pt-2 pb-2 space-y-2 bg-white/10 rounded-md mt-2">
-                      {" "}
-                      {/* Nested dropdown style */}
+                    <div className="pl-4 pt-2 pb-2 space-y-2 bg-white/10 mt-2">
+                      <Link
+                        to="/visa-application"
+                        className="block w-full text-left py-2 text-base font-medium text-white transition-colors duration-150"
+                        onClick={closeMobileMenu}
+                      >
+                        Visa Application
+                      </Link>
                       <Link
                         to="/track-application"
-                        className="block  py-2 text-base font-medium text-white hover:bg-white/20 rounded-md transition-colors duration-200"
+                        className="block w-full text-left py-2 text-base font-medium text-white  transition-colors duration-150"
                         onClick={closeMobileMenu}
                       >
                         Track Application
@@ -345,7 +346,7 @@ const Navbar = () => {
                           handleLogout();
                           closeMobileMenu();
                         }}
-                        className="block text-[#00AA55] text-left px-4 py-2 text-base font-medium  rounded-md bg-white transition-colors duration-200"
+                        className="block w-full text-left px-4 py-2 text-base font-medium text-white transition-colors duration-150"
                       >
                         Logout
                       </button>

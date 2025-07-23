@@ -1,7 +1,7 @@
 import React from "react";
 import passportimg from "../../assets/image 255.svg";
-import passportimgMboile from "../../assets/passportmobile.svg"; // New mobile image path
-import checkIcon from "../../assets/check-icon.svg"; // New icon path (renamed from circle for clarity)
+import passportimgMboile from "../../assets/passportmobile.svg";
+import checkIcon from "../../assets/check-icon.svg";
 
 const RegularizeVisa = () => {
   const items = [
@@ -15,7 +15,6 @@ const RegularizeVisa = () => {
   return (
     // Outer section for overall padding and consistent spacing
     <section className="py-16 bg-gray-50">
-      {/* Container to match Navbar's width and centering */}
       <div className="w-11/12 container mx-auto text-black">
         {/* Section Header */}
         <div className="max-w-6xl mx-auto text-center mb-12">
@@ -32,21 +31,17 @@ const RegularizeVisa = () => {
         {/* Main Content Area: Image and List */}
         <div className="">
           <div className="flex flex-col md:flex-row items-center  justify-center gap-8 md:gap-10 lg:gap-[107px]">
-            {" "}
-            {/* Adjusted gap */}
-            {/* Image Section - Responsive Display */}
             <div className="w-full md:w-1/2 flex-shrink-0">
-              {/* Image for MD screens and above */}
               <img
                 src={passportimg}
                 alt="Nigerian Passport"
-                className="w-full  object-cover rounded-[24px]  hidden md:block" // Hidden on small, shown on md and up
+                className="w-full  object-cover rounded-[24px]  hidden md:block"
               />
               {/* Image for Mobile screens and below */}
               <img
                 src={passportimgMboile}
                 alt="Nigerian Passport (Mobile)"
-                className=" w-full h-auto object-cover md:hidden" // Shown on small, hidden on md and up
+                className=" w-full h-auto object-cover md:hidden"
               />
             </div>
             {/* List Section */}
@@ -55,7 +50,6 @@ const RegularizeVisa = () => {
                 <div key={index} className="flex items-start gap-4 text-lg">
                   <span className="p-2 rounded-full flex-shrink-0 flex items-center justify-center w-10 h-10">
                     <img src={checkIcon} alt="check-icon" className="w-8 h-8" />{" "}
-                    {/* Using the new check icon */}
                   </span>
                   <span className="text-gray-800 mt-3 font-medium leading-tight">
                     {item}

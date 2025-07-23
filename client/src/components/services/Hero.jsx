@@ -1,5 +1,5 @@
 import React from 'react'
-// import hero from '../../images/image 248.svg'
+
 
 const Hero = () => {
   return (

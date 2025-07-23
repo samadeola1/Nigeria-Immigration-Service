@@ -15,7 +15,6 @@ import {
 } from "react-icons/hi";
 import toast, { Toaster } from "react-hot-toast";
 
-// Import the Zustand store
 import { useAuthStore } from "../store/authStore";
 
 export default function SignUp() {
@@ -36,18 +35,18 @@ export default function SignUp() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
-  // Updated handleSignUp to use 'name' instead of 'firstName' and 'lastName'
+ 
   const handleSignUp = async (data) => {
     setLoadingState(true); // Set loading true via Zustand
 
     const payload = {
-      name: data.name, // Changed from firstName and lastName
+      name: data.name, 
       email: data.email,
       password: data.password,
       cPassword: data.cPassword,
     };
 
-    console.log("Payload being sent to API:", payload);
+    // console.log("Payload being sent to API:", payload);
 
     try {
       const res = await axios.post(
@@ -56,9 +55,9 @@ export default function SignUp() {
       );
       const token = res.data.user?.token || res.data.token;
 
-      // For email/password sign-up, create a consistent user data object
+      
       const userData = {
-        name: data.name, // Changed
+        name: data.name, 
         email: data.email,
       };
 
@@ -82,7 +81,7 @@ export default function SignUp() {
         toast.error("Signup failed: Unexpected response from API.");
       }
     } catch (err) {
-      console.error("❌ Signup error:", err.response || err);
+      // console.error("❌ Signup error:", err.response || err);
 
       let errorMessage = "Signup failed. Please try again.";
 
@@ -108,7 +107,7 @@ export default function SignUp() {
     }
   };
 
-  // Updated handleGoogleSignIn to use 'name'
+  // Function to handle Google sign-in
   const handleGoogleSignIn = async () => {
     setLoadingState(true); // Set loading true via Zustand
     try {
@@ -118,7 +117,7 @@ export default function SignUp() {
 
       // For Google sign-in, create a consistent user data object
       const userData = {
-        name: user.displayName || "", // Use displayName as the full name
+        name: user.displayName || "", 
         email: user.email,
         displayName: user.displayName,
         photoURL: user.photoURL,
@@ -130,7 +129,7 @@ export default function SignUp() {
       toast.success("Google Sign-up successful! Redirecting...");
       setTimeout(() => navigate("/"), 2000);
     } catch (error) {
-      console.error("Google sign-up failed", error);
+      // console.error("Google sign-up failed", error);
       let googleErrorMessage = "Google sign-up failed. Please try again.";
       if (error.code === "auth/popup-closed-by-user") {
         googleErrorMessage = "Google sign-in window closed. Please try again.";
@@ -209,7 +208,6 @@ export default function SignUp() {
             </div>
 
             <form onSubmit={handleSubmit(handleSignUp)} className="space-y-4">
-              {/* Replaced firstName and lastName inputs with a single name input */}
               <div className="relative">
                 <input
                   type="text"

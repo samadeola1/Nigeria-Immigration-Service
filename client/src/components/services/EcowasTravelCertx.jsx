@@ -74,7 +74,7 @@ const EcowasTravelCertx = () => {
         >
           <span className="text-[24px] font-semibold">{faq.question}</span>{" "}
           {/* Display the question text */}
-          {/* Arrow icon that rotates if open */}
+          
           <span
             className={`ml-2 transform transition-transform duration-300 ${
               openIndex === idx ? "rotate-180 text-white" : "text-[#474747]"

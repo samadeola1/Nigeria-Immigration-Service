@@ -58,23 +58,3 @@ const OverstayAmnesty = () => {
 
 export default OverstayAmnesty
 
-// import React from 'react'
-// import img from '../../images/image 253.svg'
-
-// const OverstayAmnesty = () => {
-//   return (
-//     <div className='w-full bg-white py-29'>
-//       <div className='w-11/12 container mx-auto'>
-//        <div className='relative'>
-//          <img src={img} alt="" />
-//          <div className='absolute top-10 lg:right-2 xl:right-20 bg-[#E6F7EE] p-[23px] flex flex-col gap-[20px] rounded-xl lg:w-[65%] xl:w-[45%] text-black'>
-//           <h1 className='font-bold text-[28px] lg:pr-12'>Overstay Amnesty: Regularize Your Status Now</h1>
-//           <p className='text-[18px] font-normal'>If your Nigerian visa or residence permit has expired, you may qualify for a penalty free regularization before the August 1st, 2025 deadline. We encourage all non_ citizens to ensure their immigration documents are valid and up to date to avoid penalties and ensure continued legal residence in Nigeria.</p>
-//          </div>
-//        </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default OverstayAmnesty

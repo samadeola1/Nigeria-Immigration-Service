@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import logo from "../assets/image 7.svg"; // Assuming this path is correct for your logo
-import VerificationSentModal from "../components/Modals/VerificationSentModal.jsx"; // Import the VerificationSentModal
-import { HiOutlineMail } from "react-icons/hi"; // Import email icon
-import toast, { Toaster } from "react-hot-toast"; // Import toast and Toaster
+import logo from "../assets/image 7.svg";
+import VerificationSentModal from "../components/Modals/VerificationSentModal.jsx";
+import { HiOutlineMail } from "react-icons/hi";
+import toast, { Toaster } from "react-hot-toast";
 
 const ForgotPassword = () => {
-  // Initialize react-hook-form
   const {
     register,
     handleSubmit,
@@ -15,49 +14,44 @@ const ForgotPassword = () => {
     reset,
   } = useForm();
 
-  // State for loading and success messages (formError state is no longer needed as toasts handle errors)
   const [loading, setLoading] = useState(false);
-  const [formSuccess, setFormSuccess] = useState(null); // This will now mainly be used for internal form success before modal
-  const [showVerificationModal, setShowVerificationModal] = useState(false); // State to control modal visibility
-  const [submittedEmail, setSubmittedEmail] = useState(""); // State to store the email to display in the modal
+  const [formSuccess, setFormSuccess] = useState(null);
+  const [showVerificationModal, setShowVerificationModal] = useState(false);
+  const [submittedEmail, setSubmittedEmail] = useState("");
 
-  // Function to handle form submission
   const onSubmit = async (data) => {
     setLoading(true);
-    // setFormError(null); // No longer needed, toasts handle errors
-    setFormSuccess(null); // Clear previous success messages
+    setFormSuccess(null);
 
-    console.log("Submitting data:", data);
+    // console.log("Submitting data:", data);
 
     try {
       const response = await fetch(
         "https://nigeria-immigration-service.onrender.com/api/services/forget-password",
         {
-          method: "POST", // Assuming POST for sending forget password request
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(data), // Send the form data (e.g., { email: "user@example.com" })
+          body: JSON.stringify(data),
         }
       );
 
       const resData = await response.json();
-      console.log("API response:", resData);
+      // console.log("API response:", resData);
 
       if (response.ok) {
-        
         setSubmittedEmail(data.email); // Store the email for display in the modal
         setShowVerificationModal(true); // Show the verification modal
         reset(); // Optionally clear the form fields after successful submission
       } else {
-        // Handle API errors (e.g., 400, 404, 500)
         toast.error(
           resData.errMsg || "Failed to process your request. Please try again."
         );
       }
     } catch (error) {
       // Handle network errors or other unexpected issues
-      console.error("Network or unexpected error:", error);
+      // console.error("Network or unexpected error:", error);
       toast.error(
         "An unexpected error occurred. Please check your connection and try again."
       );
@@ -68,15 +62,14 @@ const ForgotPassword = () => {
 
   // Function to handle re-sending the verification email from the modal
   const handleResendVerification = async () => {
-    // Use the email that was previously submitted and stored in state
     const emailToResend = submittedEmail;
     if (!emailToResend) {
-      console.error("No email available to re-send verification.");
+      // console.error("No email available to re-send verification.");
       toast.error("No email available to re-send verification.");
       throw new Error("No email to re-send."); // Throw error to be caught by modal's onResend handler
     }
 
-    console.log("Re-sending verification email to:", emailToResend);
+    // console.log("Re-sending verification email to:", emailToResend);
 
     try {
       const response = await fetch(
@@ -92,16 +85,16 @@ const ForgotPassword = () => {
 
       const resData = await response.json();
       if (!response.ok) {
-        console.error("Resend API error:", resData);
+        // console.error("Resend API error:", resData);
         toast.error(resData.message || "Failed to re-send verification email.");
         throw new Error(
           resData.message || "Failed to re-send verification email."
         );
       }
-      console.log("Resend successful:", resData);
+      // console.log("Resend successful:", resData);
       // The modal's internal state will handle success message for resend
     } catch (error) {
-      console.error("Resend network error:", error);
+      // console.error("Resend network error:", error);
       toast.error(
         "An unexpected error occurred during resend. Please try again."
       );
@@ -113,7 +106,7 @@ const ForgotPassword = () => {
   const handleCloseVerificationModal = () => {
     setShowVerificationModal(false);
     setSubmittedEmail(""); // Clear the email when modal closes
-    // setFormError(null); // No longer needed
+
     setFormSuccess(null); // Clear any form success messages
   };
 
@@ -149,11 +142,7 @@ const ForgotPassword = () => {
 
       {/* Main content container: The central form card */}
       <div className="bg-white shadow-xl rounded-xl w-full max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl py-8 px-5 sm:px-8 md:px-10 lg:px-12">
-        {" "}
-        {/* Adjusted max-w classes */}
-        {/* Inner content wrapper: Applies consistent horizontal padding */}
         <div className="w-full mx-auto px-4 sm:px-6 md:px-8">
-          {/* Logo Section */}
           <Link to="/" className="block">
             <div className="flex items-center justify-center mb-6">
               <img
@@ -181,9 +170,6 @@ const ForgotPassword = () => {
               {formSuccess}
             </p>
           )}
-
-          {/* Forgot Password Form */}
-          {/* Hide the form when the modal is open */}
           {!showVerificationModal && (
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="relative">
